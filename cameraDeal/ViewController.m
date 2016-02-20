@@ -187,18 +187,6 @@
     // Create a Quartz image from the pixel data in the bitmap graphics context
     CGImageRef quartzImage = CGBitmapContextCreateImage(context);
     
-    /***************************
-     *                         *
-     *           Start         *
-     *                         *
-     ***************************/
-    
-    
-    /****************************
-     *                          *
-     *           End            *
-     *                          *
-     ****************************/
     // Unlock the pixel buffer
     CVPixelBufferUnlockBaseAddress(imageBuffer,0);
     

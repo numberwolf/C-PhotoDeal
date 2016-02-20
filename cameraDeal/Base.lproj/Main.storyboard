@@ -21,19 +21,19 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="300"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TkQ-If-55v" userLabel="红色调节">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="TkQ-If-55v" userLabel="红色调节">
                                 <rect key="frame" x="18" y="340" width="564" height="31"/>
                                 <connections>
                                     <action selector="redSilder:" destination="BYZ-38-t0r" eventType="valueChanged" id="bis-ZI-oAr"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-lu-Hed" userLabel="绿色调节">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-lu-Hed" userLabel="绿色调节">
                                 <rect key="frame" x="18" y="390" width="564" height="31"/>
                                 <connections>
                                     <action selector="greenSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="X5a-Lw-LS4"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Xu-q6e" userLabel="蓝色调节">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Xu-q6e" userLabel="蓝色调节">
                                 <rect key="frame" x="18" y="440" width="564" height="31"/>
                                 <connections>
                                     <action selector="blueSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="tbD-Fx-Dfu"/>

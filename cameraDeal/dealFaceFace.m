@@ -83,6 +83,7 @@
     CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
     CGImageRelease(newCGImage);
+    free(pixels);
 
     
     return processedImage;
@@ -120,7 +121,7 @@
             UInt32 color = *currentPixel;
             
             // Average of RGB = greyscale
-            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
+//            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
             
             *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
         }
@@ -135,6 +136,7 @@
     CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
     CGImageRelease(newCGImage);
+    free(pixels);
     
     
     return processedImage;
