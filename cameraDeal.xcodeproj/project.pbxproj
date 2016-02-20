@@ -15,6 +15,27 @@
 		03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */; };
 		03D10AE51C780F5200DCFCA6 /* cameraDealTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10AE41C780F5200DCFCA6 /* cameraDealTests.m */; };
 		03D10AF01C780F5200DCFCA6 /* cameraDealUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10AEF1C780F5200DCFCA6 /* cameraDealUITests.m */; };
+		03D10AFE1C78119000DCFCA6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D10AFD1C78119000DCFCA6 /* AVFoundation.framework */; };
+		03D10B001C781B5C00DCFCA6 /* mailicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AFF1C781B5C00DCFCA6 /* mailicon.png */; };
+		03D10B011C781B5C00DCFCA6 /* mailicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AFF1C781B5C00DCFCA6 /* mailicon.png */; };
+		03D10B021C781B5C00DCFCA6 /* mailicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AFF1C781B5C00DCFCA6 /* mailicon.png */; };
+		03D10B0D1C782CCE00DCFCA6 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B061C782CCE00DCFCA6 /* GCDGroup.m */; };
+		03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B061C782CCE00DCFCA6 /* GCDGroup.m */; };
+		03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B061C782CCE00DCFCA6 /* GCDGroup.m */; };
+		03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B081C782CCE00DCFCA6 /* GCDQueue.m */; };
+		03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B081C782CCE00DCFCA6 /* GCDQueue.m */; };
+		03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B081C782CCE00DCFCA6 /* GCDQueue.m */; };
+		03D10B131C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0A1C782CCE00DCFCA6 /* GCDSemaphore.m */; };
+		03D10B141C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0A1C782CCE00DCFCA6 /* GCDSemaphore.m */; };
+		03D10B151C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0A1C782CCE00DCFCA6 /* GCDSemaphore.m */; };
+		03D10B161C782CCE00DCFCA6 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */; };
+		03D10B171C782CCE00DCFCA6 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */; };
+		03D10B181C782CCE00DCFCA6 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */; };
+		03D10B1A1C78411500DCFCA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D10B191C78411500DCFCA6 /* CoreGraphics.framework */; };
+		03D10B1C1C78411F00DCFCA6 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */; };
+		03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
+		03D10B201C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
+		03D10B211C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +72,21 @@
 		03D10AEB1C780F5200DCFCA6 /* cameraDealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cameraDealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D10AEF1C780F5200DCFCA6 /* cameraDealUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cameraDealUITests.m; sourceTree = "<group>"; };
 		03D10AF11C780F5200DCFCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03D10AFD1C78119000DCFCA6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		03D10AFF1C781B5C00DCFCA6 /* mailicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailicon.png; sourceTree = "<group>"; };
+		03D10B041C782CCE00DCFCA6 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		03D10B051C782CCE00DCFCA6 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
+		03D10B061C782CCE00DCFCA6 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
+		03D10B071C782CCE00DCFCA6 /* GCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDQueue.h; sourceTree = "<group>"; };
+		03D10B081C782CCE00DCFCA6 /* GCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDQueue.m; sourceTree = "<group>"; };
+		03D10B091C782CCE00DCFCA6 /* GCDSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSemaphore.h; sourceTree = "<group>"; };
+		03D10B0A1C782CCE00DCFCA6 /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
+		03D10B0B1C782CCE00DCFCA6 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
+		03D10B191C78411500DCFCA6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealFaceFace.h; sourceTree = "<group>"; };
+		03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealFaceFace.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B1C1C78411F00DCFCA6 /* CoreImage.framework in Frameworks */,
+				03D10B1A1C78411500DCFCA6 /* CoreGraphics.framework in Frameworks */,
+				03D10AFE1C78119000DCFCA6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +120,9 @@
 		03D10ABE1C780F5200DCFCA6 = {
 			isa = PBXGroup;
 			children = (
+				03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */,
+				03D10B191C78411500DCFCA6 /* CoreGraphics.framework */,
+				03D10AFD1C78119000DCFCA6 /* AVFoundation.framework */,
 				03D10AC91C780F5200DCFCA6 /* cameraDeal */,
 				03D10AE31C780F5200DCFCA6 /* cameraDealTests */,
 				03D10AEE1C780F5200DCFCA6 /* cameraDealUITests */,
@@ -101,6 +143,7 @@
 		03D10AC91C780F5200DCFCA6 /* cameraDeal */ = {
 			isa = PBXGroup;
 			children = (
+				03D10B031C782CCE00DCFCA6 /* GCD */,
 				03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */,
 				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10AD01C780F5200DCFCA6 /* ViewController.h */,
@@ -110,6 +153,8 @@
 				03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */,
 				03D10ADB1C780F5200DCFCA6 /* Info.plist */,
 				03D10ACA1C780F5200DCFCA6 /* Supporting Files */,
+				03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */,
+				03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */,
 			);
 			path = cameraDeal;
 			sourceTree = "<group>";
@@ -117,6 +162,7 @@
 		03D10ACA1C780F5200DCFCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03D10AFF1C781B5C00DCFCA6 /* mailicon.png */,
 				03D10ACB1C780F5200DCFCA6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +184,22 @@
 				03D10AF11C780F5200DCFCA6 /* Info.plist */,
 			);
 			path = cameraDealUITests;
+			sourceTree = "<group>";
+		};
+		03D10B031C782CCE00DCFCA6 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				03D10B041C782CCE00DCFCA6 /* GCD.h */,
+				03D10B051C782CCE00DCFCA6 /* GCDGroup.h */,
+				03D10B061C782CCE00DCFCA6 /* GCDGroup.m */,
+				03D10B071C782CCE00DCFCA6 /* GCDQueue.h */,
+				03D10B081C782CCE00DCFCA6 /* GCDQueue.m */,
+				03D10B091C782CCE00DCFCA6 /* GCDSemaphore.h */,
+				03D10B0A1C782CCE00DCFCA6 /* GCDSemaphore.m */,
+				03D10B0B1C782CCE00DCFCA6 /* GCDTimer.h */,
+				03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +269,7 @@
 				TargetAttributes = {
 					03D10AC61C780F5200DCFCA6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = PL55CBW62Q;
 					};
 					03D10ADF1C780F5200DCFCA6 = {
 						CreatedOnToolsVersion = 7.2;
@@ -246,6 +309,7 @@
 				03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */,
 				03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */,
 				03D10AD51C780F5200DCFCA6 /* Main.storyboard in Resources */,
+				03D10B001C781B5C00DCFCA6 /* mailicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B011C781B5C00DCFCA6 /* mailicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B021C781B5C00DCFCA6 /* mailicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +336,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B0D1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10AD21C780F5200DCFCA6 /* ViewController.m in Sources */,
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
 				03D10ACC1C780F5200DCFCA6 /* main.m in Sources */,
+				03D10B161C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
+				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
+				03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
+				03D10B131C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +351,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
+				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03D10AE51C780F5200DCFCA6 /* cameraDealTests.m in Sources */,
+				03D10B201C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
+				03D10B141C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
+				03D10B171C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +364,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
+				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03D10AF01C780F5200DCFCA6 /* cameraDealUITests.m in Sources */,
+				03D10B211C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
+				03D10B151C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
+				03D10B181C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +494,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				INFOPLIST_FILE = cameraDeal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -424,10 +510,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				INFOPLIST_FILE = cameraDeal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
