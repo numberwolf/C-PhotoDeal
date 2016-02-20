@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -21,22 +22,28 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="300"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="TkQ-If-55v" userLabel="红色调节">
-                                <rect key="frame" x="18" y="340" width="564" height="31"/>
-                                <connections>
-                                    <action selector="redSilder:" destination="BYZ-38-t0r" eventType="valueChanged" id="bis-ZI-oAr"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-lu-Hed" userLabel="绿色调节">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-lu-Hed" userLabel="绿色调节">
                                 <rect key="frame" x="18" y="390" width="564" height="31"/>
                                 <connections>
                                     <action selector="greenSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="X5a-Lw-LS4"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Xu-q6e" userLabel="蓝色调节">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Xu-q6e" userLabel="蓝色调节">
                                 <rect key="frame" x="18" y="440" width="564" height="31"/>
                                 <connections>
                                     <action selector="blueSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="tbD-Fx-Dfu"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-ut-RZC" userLabel="信息">
+                                <rect key="frame" x="0.0" y="20" width="600" height="320"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TkQ-If-55v" userLabel="红色调节">
+                                <rect key="frame" x="18" y="340" width="564" height="31"/>
+                                <connections>
+                                    <action selector="redSilder:" destination="BYZ-38-t0r" eventType="valueChanged" id="bis-ZI-oAr"/>
                                 </connections>
                             </slider>
                         </subviews>
@@ -45,9 +52,15 @@
                             <constraint firstItem="Tok-Xu-q6e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="64m-TC-FYk"/>
                             <constraint firstAttribute="trailing" secondItem="bh0-HL-YA2" secondAttribute="trailing" id="AhV-Sk-9NI"/>
                             <constraint firstItem="Tok-Xu-q6e" firstAttribute="top" secondItem="YxF-lu-Hed" secondAttribute="bottom" constant="20" id="DGZ-Rb-AXc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="DaV-6D-dLw"/>
                             <constraint firstAttribute="trailing" secondItem="Tok-Xu-q6e" secondAttribute="trailing" constant="20" id="JAj-qN-BKj"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KZ2-is-FDK"/>
+                            <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="dYg-ut-RZC" secondAttribute="bottom" id="KvX-Jq-bTO"/>
+                            <constraint firstAttribute="trailing" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="NqG-H4-sZM"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YEK-g4-tCO"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ank-vd-k7C"/>
                             <constraint firstItem="YxF-lu-Hed" firstAttribute="top" secondItem="TkQ-If-55v" secondAttribute="bottom" constant="20" id="dnL-nK-hSL"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eQp-Yw-DW5"/>
                             <constraint firstItem="YxF-lu-Hed" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fz7-9c-GPg"/>
                             <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="bh0-HL-YA2" secondAttribute="bottom" constant="20" id="kJp-TF-a6i"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="mqf-ai-yor"/>
@@ -55,12 +68,23 @@
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
                             <constraint firstAttribute="trailing" secondItem="TkQ-If-55v" secondAttribute="trailing" constant="20" id="sWP-dB-XLl"/>
                             <constraint firstAttribute="trailing" secondItem="YxF-lu-Hed" secondAttribute="trailing" constant="20" id="xKF-rO-vtu"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ybS-Nu-FOH"/>
+                            <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="dYg-ut-RZC" secondAttribute="bottom" id="yvt-uB-e2v"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DaV-6D-dLw"/>
+                                <exclude reference="eQp-Yw-DW5"/>
+                                <exclude reference="ybS-Nu-FOH"/>
+                                <exclude reference="KvX-Jq-bTO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="Tok-Xu-q6e" id="jPC-kI-INN"/>
                         <outlet property="greenSlider" destination="YxF-lu-Hed" id="dBj-HD-n8T"/>
                         <outlet property="imageView" destination="bh0-HL-YA2" id="Zn5-8P-krC"/>
+                        <outlet property="infoLabel" destination="dYg-ut-RZC" id="8dO-GQ-bjl"/>
                         <outlet property="redSilder" destination="TkQ-If-55v" id="GxZ-V9-Rbq"/>
                     </connections>
                 </viewController>
