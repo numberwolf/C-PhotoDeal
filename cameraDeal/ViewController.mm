@@ -267,7 +267,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
 }
 
 
-//人脸标识
+// 人脸标识 ---  方块
 -(void)markAfterFaceDetect:(NSArray *)features
 {
 
@@ -291,7 +291,9 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
         _face.frame = aRect;
         _face.tag = markViewTag;
         [_face setTransform:CGAffineTransformMakeScale(1, -1)];
-        _face.backgroundColor = [UIColor redColor];
+        _face.backgroundColor = [UIColor clearColor];
+        _face.layer.borderWidth = 2;
+        _face.layer.borderColor = [UIColor yellowColor].CGColor;
         _face.alpha = 0.6;
 
         
