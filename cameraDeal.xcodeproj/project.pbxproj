@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0328401D1C79CB4D00C695F9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401A1C79CB4D00C695F9 /* icon.png */; };
+		0328401E1C79CB4D00C695F9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401A1C79CB4D00C695F9 /* icon.png */; };
+		0328401F1C79CB4D00C695F9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401A1C79CB4D00C695F9 /* icon.png */; };
+		032840201C79CB4D00C695F9 /* icon@57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401B1C79CB4D00C695F9 /* icon@57px.png */; };
+		032840211C79CB4D00C695F9 /* icon@57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401B1C79CB4D00C695F9 /* icon@57px.png */; };
+		032840221C79CB4D00C695F9 /* icon@57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401B1C79CB4D00C695F9 /* icon@57px.png */; };
+		032840231C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
+		032840241C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
+		032840251C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -66,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0328401A1C79CB4D00C695F9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		0328401B1C79CB4D00C695F9 /* icon@57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@57px.png"; sourceTree = "<group>"; };
+		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
 		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
@@ -195,6 +207,9 @@
 		03D10ACA1C780F5200DCFCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0328401A1C79CB4D00C695F9 /* icon.png */,
+				0328401B1C79CB4D00C695F9 /* icon@57px.png */,
+				0328401C1C79CB4D00C695F9 /* icon@60px.png */,
 				03D10AFF1C781B5C00DCFCA6 /* mailicon.png */,
 				03D10ACB1C780F5200DCFCA6 /* main.m */,
 			);
@@ -340,8 +355,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */,
+				0328401D1C79CB4D00C695F9 /* icon.png in Resources */,
 				03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */,
+				032840201C79CB4D00C695F9 /* icon@57px.png in Resources */,
 				03D10AD51C780F5200DCFCA6 /* Main.storyboard in Resources */,
+				032840231C79CB4D00C695F9 /* icon@60px.png in Resources */,
 				03D10B001C781B5C00DCFCA6 /* mailicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +368,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032840211C79CB4D00C695F9 /* icon@57px.png in Resources */,
+				0328401E1C79CB4D00C695F9 /* icon.png in Resources */,
 				03D10B011C781B5C00DCFCA6 /* mailicon.png in Resources */,
+				032840241C79CB4D00C695F9 /* icon@60px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +379,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032840221C79CB4D00C695F9 /* icon@57px.png in Resources */,
+				0328401F1C79CB4D00C695F9 /* icon.png in Resources */,
 				03D10B021C781B5C00DCFCA6 /* mailicon.png in Resources */,
+				032840251C79CB4D00C695F9 /* icon@60px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

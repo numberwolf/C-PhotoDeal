@@ -131,6 +131,8 @@ const int kCannyAperture = 7;
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
     //    self.mData = UIImageJPEGRepresentation(image, 0.5);//这里的mData是NSData对象，后面的0.5代表生成的图片质量
 
+    // 人脸检测
+    [self faceDetect:image];
     
     if (self.controlView.hidden == NO) {
         /*
@@ -177,8 +179,6 @@ const int kCannyAperture = 7;
         }];
     } else {
         
-        // 人脸检测
-        [self faceDetect:image];
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
         }];
