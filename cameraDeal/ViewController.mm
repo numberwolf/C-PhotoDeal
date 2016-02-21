@@ -27,6 +27,9 @@ const int kCannyAperture = 7;
     cv::Mat     _lastFrame;
     
 }
+@property (weak, nonatomic) IBOutlet UISlider *cannySecondCodeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *cannyFirstCodeSlider;
+@property (weak, nonatomic) IBOutlet UIView *controlView;
 @property (weak, nonatomic) IBOutlet UISlider *redSilder;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;
 @property (weak, nonatomic) IBOutlet UISlider *blueSlider;
@@ -128,54 +131,58 @@ const int kCannyAperture = 7;
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
     //    self.mData = UIImageJPEGRepresentation(image, 0.5);//这里的mData是NSData对象，后面的0.5代表生成的图片质量
 
-    // 人脸检测
-    //[self faceDetect:image];
     
-    /*
-     *  Opencv Start
-     */
-//    double t;
-//    int times = 10;
-//    
-//    // Convert from UIImage to cv::Mat
-//    
-//    t = (double)cv::getTickCount();
-//    
-//    for (int i = 0; i < times; i++)
-//    {
-//        cv::Mat tempMat = [image CVMat];
-//    }
-//    
-//    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-//    
-//    NSLog(@"UIImage to cv::Mat: %gms", t);
-    
-    // Convert from cv::Mat to UIImage
-    cv::Mat testMat = [image CVMat];
-    
-//    t = (double)cv::getTickCount();
-//    
-//    for (int i = 0; i < times; i++)
-//    {
-//        UIImage *tempImage = [[UIImage alloc] initWithCVMat:testMat];
-//    }
-//    
-//    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-//    
-//    NSLog(@"cv::Mat to UIImage: %gms", t);
-    
-    // Process test image and force update of UI
-    _lastFrame = testMat;
-    /*
-     *  Opencv End
-     */
-
-    [GCDQueue executeInMainQueue:^{
-        //self.imageView.image = [dealFaceFace autoConfigUIImage:image withRed:self.redNum withGreen:self.greenNum withBlue:self.blueNum];
-        weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,1,1)];
-       
-        //self.imageView.image = image;
-    }];
+    if (self.controlView.hidden == NO) {
+        /*
+         *  Opencv Start
+         */
+        //    double t;
+        //    int times = 10;
+        //
+        //    // Convert from UIImage to cv::Mat
+        //
+        //    t = (double)cv::getTickCount();
+        //
+        //    for (int i = 0; i < times; i++)
+        //    {
+        //        cv::Mat tempMat = [image CVMat];
+        //    }
+        //
+        //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
+        //
+        //    NSLog(@"UIImage to cv::Mat: %gms", t);
+        
+        // Convert from cv::Mat to UIImage
+        // UIimage和cv::Mat的转换
+        cv::Mat testMat = [image CVMat];
+        
+        //    t = (double)cv::getTickCount();
+        //
+        //    for (int i = 0; i < times; i++)
+        //    {
+        //        UIImage *tempImage = [[UIImage alloc] initWithCVMat:testMat];
+        //    }
+        //
+        //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
+        //
+        //    NSLog(@"cv::Mat to UIImage: %gms", t);
+        
+        // Process test image and force update of UI
+        _lastFrame = testMat;
+        /*
+         *  Opencv End
+         */
+        [GCDQueue executeInMainQueue:^{
+            weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
+        }];
+    } else {
+        
+        // 人脸检测
+        [self faceDetect:image];
+        [GCDQueue executeInMainQueue:^{
+            weakSelf.imageView.image = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
+        }];
+    }
     
 
 }
@@ -349,8 +356,16 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     }
 }
 
+// 轮廓控制面板
+- (IBAction)openCannyBtnClick:(id)sender {
+    (self.controlView.hidden == YES)?(self.controlView.hidden = NO) : (self.controlView.hidden = YES);
+}
 
+- (IBAction)cannyFirstSlider:(id)sender {
+}
 
+- (IBAction)cannySecondSlider:(id)sender {
+}
 
 #pragma mark 红色调节
 - (IBAction)redSilder:(id)sender {
