@@ -1,0 +1,18 @@
+//
+//  cameraDeal.pch
+//  cameraDeal
+//
+//  Created by numberwolf on 16/2/21.
+//  Copyright © 2016年 numberwolf. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif

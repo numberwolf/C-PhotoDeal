@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
+		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
+		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
+		03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03ACDD3D1C798F620016943B /* UIImage+OpenCV.mm */; };
+		03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03ACDD3D1C798F620016943B /* UIImage+OpenCV.mm */; };
+		03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03ACDD3D1C798F620016943B /* UIImage+OpenCV.mm */; };
+		03ACDD461C799AC70016943B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD451C799AC70016943B /* CoreMedia.framework */; };
+		03ACDD481C799AD50016943B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD471C799AD50016943B /* UIKit.framework */; };
+		03ACDD4A1C799ADE0016943B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD491C799ADE0016943B /* Foundation.framework */; };
+		03ACDD4C1C799AE40016943B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD4B1C799AE40016943B /* ImageIO.framework */; };
 		03D10ACC1C780F5200DCFCA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10ACB1C780F5200DCFCA6 /* main.m */; };
 		03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */; };
-		03D10AD21C780F5200DCFCA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10AD11C780F5200DCFCA6 /* ViewController.m */; };
+		03D10AD21C780F5200DCFCA6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03D10AD11C780F5200DCFCA6 /* ViewController.mm */; };
 		03D10AD51C780F5200DCFCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AD31C780F5200DCFCA6 /* Main.storyboard */; };
 		03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AD61C780F5200DCFCA6 /* Assets.xcassets */; };
 		03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */; };
@@ -56,12 +66,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
+		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
+		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		03ACDD3D1C798F620016943B /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		03ACDD451C799AC70016943B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		03ACDD471C799AD50016943B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		03ACDD491C799ADE0016943B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		03ACDD4B1C799AE40016943B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		03D10AC71C780F5200DCFCA6 /* cameraDeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraDeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D10ACB1C780F5200DCFCA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		03D10AD01C780F5200DCFCA6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		03D10AD11C780F5200DCFCA6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		03D10AD11C780F5200DCFCA6 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		03D10AD41C780F5200DCFCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03D10AD61C780F5200DCFCA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03D10AD91C780F5200DCFCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,8 +112,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ACDD4C1C799AE40016943B /* ImageIO.framework in Frameworks */,
+				03ACDD4A1C799ADE0016943B /* Foundation.framework in Frameworks */,
+				03ACDD481C799AD50016943B /* UIKit.framework in Frameworks */,
+				03ACDD461C799AC70016943B /* CoreMedia.framework in Frameworks */,
 				03D10B1C1C78411F00DCFCA6 /* CoreImage.framework in Frameworks */,
 				03D10B1A1C78411500DCFCA6 /* CoreGraphics.framework in Frameworks */,
+				03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */,
 				03D10AFE1C78119000DCFCA6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +145,11 @@
 		03D10ABE1C780F5200DCFCA6 = {
 			isa = PBXGroup;
 			children = (
+				03ACDD4B1C799AE40016943B /* ImageIO.framework */,
+				03ACDD491C799ADE0016943B /* Foundation.framework */,
+				03ACDD471C799AD50016943B /* UIKit.framework */,
+				03ACDD451C799AC70016943B /* CoreMedia.framework */,
+				03ACDD371C7988A30016943B /* opencv2.framework */,
 				03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */,
 				03D10B191C78411500DCFCA6 /* CoreGraphics.framework */,
 				03D10AFD1C78119000DCFCA6 /* AVFoundation.framework */,
@@ -147,7 +177,7 @@
 				03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */,
 				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10AD01C780F5200DCFCA6 /* ViewController.h */,
-				03D10AD11C780F5200DCFCA6 /* ViewController.m */,
+				03D10AD11C780F5200DCFCA6 /* ViewController.mm */,
 				03D10AD31C780F5200DCFCA6 /* Main.storyboard */,
 				03D10AD61C780F5200DCFCA6 /* Assets.xcassets */,
 				03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */,
@@ -155,6 +185,9 @@
 				03D10ACA1C780F5200DCFCA6 /* Supporting Files */,
 				03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */,
 				03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */,
+				03ACDD3B1C798A9B0016943B /* cameraDeal.pch */,
+				03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */,
+				03ACDD3D1C798F620016943B /* UIImage+OpenCV.mm */,
 			);
 			path = cameraDeal;
 			sourceTree = "<group>";
@@ -337,11 +370,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D10B0D1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
-				03D10AD21C780F5200DCFCA6 /* ViewController.m in Sources */,
+				03D10AD21C780F5200DCFCA6 /* ViewController.mm in Sources */,
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
 				03D10ACC1C780F5200DCFCA6 /* main.m in Sources */,
 				03D10B161C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
 				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
+				03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03D10B131C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
 			);
@@ -353,6 +387,7 @@
 			files = (
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
+				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03D10AE51C780F5200DCFCA6 /* cameraDealTests.m in Sources */,
 				03D10B201C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
 				03D10B141C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
@@ -366,6 +401,7 @@
 			files = (
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
+				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03D10AF01C780F5200DCFCA6 /* cameraDealUITests.m in Sources */,
 				03D10B211C7875AC00DCFCA6 /* dealFaceFace.m in Sources */,
 				03D10B151C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
@@ -434,6 +470,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -476,6 +514,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -494,9 +534,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu89;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -510,9 +559,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu89;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -526,6 +584,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				INFOPLIST_FILE = cameraDealTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealTests;
@@ -538,6 +600,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				INFOPLIST_FILE = cameraDealTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealTests;
@@ -549,6 +615,10 @@
 		03D10AFB1C780F5200DCFCA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				INFOPLIST_FILE = cameraDealUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealUITests;
@@ -561,6 +631,10 @@
 		03D10AFC1C780F5200DCFCA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal",
+				);
 				INFOPLIST_FILE = cameraDealUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealUITests;
@@ -589,6 +663,7 @@
 				03D10AF61C780F5200DCFCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03D10AF71C780F5200DCFCA6 /* Build configuration list for PBXNativeTarget "cameraDealTests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +672,7 @@
 				03D10AF91C780F5200DCFCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03D10AFA1C780F5200DCFCA6 /* Build configuration list for PBXNativeTarget "cameraDealUITests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +681,7 @@
 				03D10AFC1C780F5200DCFCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
