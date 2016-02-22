@@ -114,6 +114,25 @@
     // 4.增加currentPixel的值，使它指向下一个像素。如果你对指针的运算比较生疏，记住这个：currentPixel是一个指向UInt32的变量，当你把它加1后，它就会向前移动4字节（32位），然后指向了下一个像素的值。
     CGContextDrawImage(context, CGRectMake(0,     0, width, height), inputCGImage);
     
+            NSLog(@"开始了:\n");
+            // 2.
+            UInt32 * currentPixel = pixels;
+            for (NSUInteger j = 0; j < height; j++) {
+                for (NSUInteger i = 0; i < width; i++) {
+                    // 3.
+                    UInt32 color = *currentPixel;
+                    int temp = (R(color)+G(color)+B(color))/3.0;
+                    if (temp != 255) {
+                        temp = 0;
+                    }
+                    printf("%3d ",temp);
+                    // 4.
+                    currentPixel++;
+                }
+                printf("\n");
+            }
+    
+    
     // Convert the image to black and white
     for (NSUInteger i = 0; i < width; i++) {
         for (NSUInteger j = 0; j < height; j++) {

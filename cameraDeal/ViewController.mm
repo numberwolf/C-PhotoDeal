@@ -12,6 +12,7 @@
 #import "dealFaceFace.h"
 
 #import "UIImage+OpenCV.h"
+#import <TesseractOCR/TesseractOCR.h>
 
 #define navBarHeight    44.
 #define markViewTag    100
@@ -27,6 +28,7 @@ const int kCannyAperture = 7;
     cv::Mat     _lastFrame;
     
 }
+
 @property (weak, nonatomic) IBOutlet UISlider *cannySecondCodeSlider;
 @property (weak, nonatomic) IBOutlet UISlider *cannyFirstCodeSlider;
 @property (weak, nonatomic) IBOutlet UIView *controlView;
@@ -51,6 +53,7 @@ const int kCannyAperture = 7;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.redNum = 1;
     [self setupCaptureSession];
     self.imageView.image = [UIImage imageNamed:@"mailicon.png"];
@@ -138,36 +141,36 @@ const int kCannyAperture = 7;
         /*
          *  Opencv Start
          */
-        //    double t;
-        //    int times = 10;
-        //
-        //    // Convert from UIImage to cv::Mat
-        //
-        //    t = (double)cv::getTickCount();
-        //
-        //    for (int i = 0; i < times; i++)
-        //    {
-        //        cv::Mat tempMat = [image CVMat];
-        //    }
-        //
-        //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-        //
-        //    NSLog(@"UIImage to cv::Mat: %gms", t);
+            //    double t;
+            //    int times = 10;
+            //
+            //    // Convert from UIImage to cv::Mat
+            //
+            //    t = (double)cv::getTickCount();
+            //
+            //    for (int i = 0; i < times; i++)
+            //    {
+            //        cv::Mat tempMat = [image CVMat];
+            //    }
+            //
+            //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
+            //
+            //    NSLog(@"UIImage to cv::Mat: %gms", t);
         
         // Convert from cv::Mat to UIImage
         // UIimage和cv::Mat的转换
         cv::Mat testMat = [image CVMat];
         
-        //    t = (double)cv::getTickCount();
-        //
-        //    for (int i = 0; i < times; i++)
-        //    {
-        //        UIImage *tempImage = [[UIImage alloc] initWithCVMat:testMat];
-        //    }
-        //
-        //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-        //
-        //    NSLog(@"cv::Mat to UIImage: %gms", t);
+            //    t = (double)cv::getTickCount();
+            //
+            //    for (int i = 0; i < times; i++)
+            //    {
+            //        UIImage *tempImage = [[UIImage alloc] initWithCVMat:testMat];
+            //    }
+            //
+            //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
+            //
+            //    NSLog(@"cv::Mat to UIImage: %gms", t);
         
         // Process test image and force update of UI
         _lastFrame = testMat;
@@ -178,14 +181,19 @@ const int kCannyAperture = 7;
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
     } else {
+        UIImage *temp = [dealFaceFace autoConfigUIImage:[UIImage imageNamed:@"mailicon.png"] withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
         
         [GCDQueue executeInMainQueue:^{
-            weakSelf.imageView.image = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
+            weakSelf.imageView.image = temp;
+
         }];
     }
     
 
 }
+
+
+
 
 #pragma mark 抽轮廓
 // Perform image processing on the last captured frame and display the results

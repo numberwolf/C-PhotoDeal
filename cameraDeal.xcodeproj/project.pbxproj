@@ -55,6 +55,14 @@
 		03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
 		03D10B201C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
 		03D10B211C7875AC00DCFCA6 /* dealFaceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */; };
+		03ECB0E01C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
+		03ECB0E11C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
+		03ECB0E21C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
+		03ECB0E41C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
+		03ECB0E51C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
+		03ECB0E61C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
+		03ECB0E81C7AF1900072F241 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0E71C7AF1900072F241 /* libstdc++.6.0.9.tbd */; };
+		03ECB0EB1C7AF2BB0072F241 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0E91C7AF2A90072F241 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +125,10 @@
 		03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealFaceFace.h; sourceTree = "<group>"; };
 		03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealFaceFace.m; sourceTree = "<group>"; };
+		03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = cameraDeal/TesseractOCR.framework; sourceTree = "<group>"; };
+		03ECB0E31C7AF1610072F241 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		03ECB0E71C7AF1900072F241 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		03ECB0E91C7AF2A90072F241 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ECB0EB1C7AF2BB0072F241 /* libstdc++.tbd in Frameworks */,
+				03ECB0E81C7AF1900072F241 /* libstdc++.6.0.9.tbd in Frameworks */,
 				03ACDD4C1C799AE40016943B /* ImageIO.framework in Frameworks */,
 				03ACDD4A1C799ADE0016943B /* Foundation.framework in Frameworks */,
 				03ACDD481C799AD50016943B /* UIKit.framework in Frameworks */,
@@ -131,6 +145,7 @@
 				03D10B1C1C78411F00DCFCA6 /* CoreImage.framework in Frameworks */,
 				03D10B1A1C78411500DCFCA6 /* CoreGraphics.framework in Frameworks */,
 				03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */,
+				03ECB0E01C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03D10AFE1C78119000DCFCA6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ECB0E11C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ECB0E21C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +174,9 @@
 		03D10ABE1C780F5200DCFCA6 = {
 			isa = PBXGroup;
 			children = (
+				03ECB0E91C7AF2A90072F241 /* libstdc++.tbd */,
+				03ECB0E71C7AF1900072F241 /* libstdc++.6.0.9.tbd */,
+				03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */,
 				03ACDD4B1C799AE40016943B /* ImageIO.framework */,
 				03ACDD491C799ADE0016943B /* Foundation.framework */,
 				03ACDD471C799AD50016943B /* UIKit.framework */,
@@ -185,6 +205,7 @@
 		03D10AC91C780F5200DCFCA6 /* cameraDeal */ = {
 			isa = PBXGroup;
 			children = (
+				03ECB0EE1C7AFD940072F241 /* ext */,
 				03D10B031C782CCE00DCFCA6 /* GCD */,
 				03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */,
 				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
@@ -207,6 +228,7 @@
 		03D10ACA1C780F5200DCFCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03ECB0E31C7AF1610072F241 /* tessdata */,
 				0328401A1C79CB4D00C695F9 /* icon.png */,
 				0328401B1C79CB4D00C695F9 /* icon@57px.png */,
 				0328401C1C79CB4D00C695F9 /* icon@60px.png */,
@@ -248,6 +270,13 @@
 				03D10B0C1C782CCE00DCFCA6 /* GCDTimer.m */,
 			);
 			path = GCD;
+			sourceTree = "<group>";
+		};
+		03ECB0EE1C7AFD940072F241 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */,
+				03ECB0E41C7AF1610072F241 /* tessdata in Resources */,
 				0328401D1C79CB4D00C695F9 /* icon.png in Resources */,
 				03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */,
 				032840201C79CB4D00C695F9 /* icon@57px.png in Resources */,
@@ -370,6 +400,7 @@
 			files = (
 				032840211C79CB4D00C695F9 /* icon@57px.png in Resources */,
 				0328401E1C79CB4D00C695F9 /* icon.png in Resources */,
+				03ECB0E51C7AF1610072F241 /* tessdata in Resources */,
 				03D10B011C781B5C00DCFCA6 /* mailicon.png in Resources */,
 				032840241C79CB4D00C695F9 /* icon@60px.png in Resources */,
 			);
@@ -381,6 +412,7 @@
 			files = (
 				032840221C79CB4D00C695F9 /* icon@57px.png in Resources */,
 				0328401F1C79CB4D00C695F9 /* icon.png in Resources */,
+				03ECB0E61C7AF1610072F241 /* tessdata in Resources */,
 				03D10B021C781B5C00DCFCA6 /* mailicon.png in Resources */,
 				032840251C79CB4D00C695F9 /* icon@60px.png in Resources */,
 			);
@@ -557,6 +589,11 @@
 		03D10AF51C780F5200DCFCA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -565,6 +602,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/cameraDeal",
+					"$(PROJECT_DIR)/cameraDeal/Pods/OpenCV",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_INPUT_FILETYPE = automatic;
@@ -573,15 +611,28 @@
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract/lib",
+					"$(PROJECT_DIR)/cameraDeal/Pods/Tesseract/lib",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};
 			name = Debug;
 		};
 		03D10AF61C780F5200DCFCA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -590,6 +641,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/cameraDeal",
+					"$(PROJECT_DIR)/cameraDeal/Pods/OpenCV",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_INPUT_FILETYPE = automatic;
@@ -598,9 +650,17 @@
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract/lib",
+					"$(PROJECT_DIR)/cameraDeal/Pods/Tesseract/lib",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};
 			name = Release;
 		};
@@ -614,6 +674,10 @@
 				);
 				INFOPLIST_FILE = cameraDealTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cameraDeal.app/cameraDeal";
@@ -630,6 +694,10 @@
 				);
 				INFOPLIST_FILE = cameraDealTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cameraDeal.app/cameraDeal";
@@ -645,6 +713,10 @@
 				);
 				INFOPLIST_FILE = cameraDealUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = cameraDeal;
@@ -661,6 +733,10 @@
 				);
 				INFOPLIST_FILE = cameraDealUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDealUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = cameraDeal;

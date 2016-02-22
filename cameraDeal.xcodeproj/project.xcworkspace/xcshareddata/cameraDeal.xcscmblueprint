@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B5EE7FCEF891D0818F921A57DACBB0F430157AAE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B191E73CD355A8EA7C8CCCDC6B07B6A7DE020437" : 0,
+    "B5EE7FCEF891D0818F921A57DACBB0F430157AAE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C6FDB944-0931-44A9-B152-165E6FBB2BD4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B191E73CD355A8EA7C8CCCDC6B07B6A7DE020437" : "cameraDeal\/cameraDeal\/Tesseract-OCR-iOS\/",
+    "B5EE7FCEF891D0818F921A57DACBB0F430157AAE" : "cameraDeal\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "cameraDeal",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "cameraDeal.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gali8\/Tesseract-OCR-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B191E73CD355A8EA7C8CCCDC6B07B6A7DE020437"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/numberwolf\/iOSDealFace.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B5EE7FCEF891D0818F921A57DACBB0F430157AAE"
+    }
+  ]
+}

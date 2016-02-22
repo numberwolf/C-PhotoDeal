@@ -10,6 +10,8 @@
 
 #ifdef __cplusplus
 #import <opencv2/opencv.hpp>
+
+//#include "baseapi.h"
 #endif
 
 #ifdef __OBJC__
