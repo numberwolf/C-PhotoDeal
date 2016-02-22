@@ -181,7 +181,7 @@ const int kCannyAperture = 7;
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
     } else {
-        UIImage *temp = [dealFaceFace autoConfigUIImage:[UIImage imageNamed:@"mailicon.png"] withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
+        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
         
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = temp;
