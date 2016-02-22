@@ -7,6 +7,8 @@
 //
 
 #import "dealFaceFace.h"
+#import "numberPhoto.hpp"
+
 
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
@@ -122,14 +124,11 @@
 //                    // 3.
 //                    UInt32 color = *currentPixel;
 //                    int temp = (R(color)+G(color)+B(color))/3.0;
-//                    if (temp != 255) {
-//                        temp = 0;
-//                    }
-//                    printf("%3d ",temp);
+//
 //                    // 4.
 //                    currentPixel++;
 //                }
-//                printf("\n");
+//
 //            }
     
     
@@ -142,15 +141,17 @@
             
             // Average of RGB = greyscale
             UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
-            if (averageColor > 250) {
-                *currentPixel = RGBAMake(255, 255, 255, A(color));
-            } else {
+            if (averageColor > 120 && averageColor <130) {
                 *currentPixel = RGBAMake(0, 0, 0, A(color));
+            } else {
+                *currentPixel = RGBAMake(255, 255, 255, A(color));
             }
             
 //            *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
         }
     }
+//    pixels = numberPhoto::blackAndWhite(pixels,width,height);
+    
     
     // Create a new UIImage
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);

@@ -180,7 +180,7 @@ const int kCannyAperture = 7;
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
-    } else {
+    } else {//[UIImage imageNamed:@"mailicon.png"]
         UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
         
         [GCDQueue executeInMainQueue:^{
