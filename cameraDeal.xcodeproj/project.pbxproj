@@ -16,6 +16,9 @@
 		032840231C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840241C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840251C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
+		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
+		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
+		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -89,6 +92,7 @@
 		0328401A1C79CB4D00C695F9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0328401B1C79CB4D00C695F9 /* icon@57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@57px.png"; sourceTree = "<group>"; };
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
+		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
 		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 		03D10ACA1C780F5200DCFCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03807B2C1C7CBEC100B6347F /* test.jpg */,
 				03ECB0E31C7AF1610072F241 /* tessdata */,
 				0328401A1C79CB4D00C695F9 /* icon.png */,
 				0328401B1C79CB4D00C695F9 /* icon@57px.png */,
@@ -394,6 +399,7 @@
 				03ECB0E41C7AF1610072F241 /* tessdata in Resources */,
 				0328401D1C79CB4D00C695F9 /* icon.png in Resources */,
 				03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */,
+				03807B2D1C7CBEC100B6347F /* test.jpg in Resources */,
 				032840201C79CB4D00C695F9 /* icon@57px.png in Resources */,
 				03D10AD51C780F5200DCFCA6 /* Main.storyboard in Resources */,
 				032840231C79CB4D00C695F9 /* icon@60px.png in Resources */,
@@ -406,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				032840211C79CB4D00C695F9 /* icon@57px.png in Resources */,
+				03807B2E1C7CBEC100B6347F /* test.jpg in Resources */,
 				0328401E1C79CB4D00C695F9 /* icon.png in Resources */,
 				03ECB0E51C7AF1610072F241 /* tessdata in Resources */,
 				03D10B011C781B5C00DCFCA6 /* mailicon.png in Resources */,
@@ -418,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				032840221C79CB4D00C695F9 /* icon@57px.png in Resources */,
+				03807B2F1C7CBEC100B6347F /* test.jpg in Resources */,
 				0328401F1C79CB4D00C695F9 /* icon.png in Resources */,
 				03ECB0E61C7AF1610072F241 /* tessdata in Resources */,
 				03D10B021C781B5C00DCFCA6 /* mailicon.png in Resources */,

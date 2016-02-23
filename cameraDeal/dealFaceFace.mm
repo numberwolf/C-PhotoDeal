@@ -142,7 +142,7 @@
 //            
 //            // Average of RGB = greyscale
 //            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
-//            if (averageColor > 1050 && averageColor <150) {
+//            if (averageColor > 105 && averageColor <150) {
 //                *currentPixel = RGBAMake(0, 0, 0, A(color));
 //            } else {
 //                *currentPixel = RGBAMake(255, 255, 255, A(color));
