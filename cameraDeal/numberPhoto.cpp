@@ -45,7 +45,7 @@ uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
         gray_arr[j] = new int[width];
         
         for (int i = 0; i < width; i++) {
-            uint32_t *currentPixel = temp + (j * height) + i;
+            uint32_t *currentPixel = pixels + (j * height) + i;
             uint32_t color = *currentPixel;
 
             int grey = (R(color)+G(color)+B(color))/3.0;
