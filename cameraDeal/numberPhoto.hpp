@@ -30,7 +30,7 @@ public:
     
     // 黑白 边缘 二值化
     static uint32_t* blackAndWhite(uint32_t *pixels, int width, int height);
-    static int GetSumOfArray(uint32_t *array, int start, int count);
+    static int GetSumOfArray(int *array, int start, int count);
     
 private:
     

@@ -76,6 +76,7 @@
         }
     }
     
+    
     // Create a new UIImage
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
     // 旋转90度
@@ -133,24 +134,24 @@
     
     
     // Convert the image to black and white
-    for (NSUInteger i = 0; i < width; i++) {
-        for (NSUInteger j = 0; j < height; j++) {
-            
-            UInt32 * currentPixel = pixels + (j * width) + i;
-            UInt32 color = *currentPixel;
-            
-            // Average of RGB = greyscale
-            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
-            if (averageColor > 120 && averageColor <130) {
-                *currentPixel = RGBAMake(0, 0, 0, A(color));
-            } else {
-                *currentPixel = RGBAMake(255, 255, 255, A(color));
-            }
-            
-//            *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
-        }
-    }
-//    pixels = numberPhoto::blackAndWhite(pixels,width,height);
+//    for (NSUInteger i = 0; i < width; i++) {
+//        for (NSUInteger j = 0; j < height; j++) {
+//            
+//            UInt32 * currentPixel = pixels + (j * width) + i;
+//            UInt32 color = *currentPixel;
+//            
+//            // Average of RGB = greyscale
+//            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
+//            if (averageColor > 1050 && averageColor <150) {
+//                *currentPixel = RGBAMake(0, 0, 0, A(color));
+//            } else {
+//                *currentPixel = RGBAMake(255, 255, 255, A(color));
+//            }
+//            
+////            *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
+//        }
+//    }
+    pixels = numberPhoto::blackAndWhite(pixels,width,height);
     
     
     // Create a new UIImage
