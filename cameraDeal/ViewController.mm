@@ -103,9 +103,9 @@ const int kCannyAperture = 7;
     // Specify the pixel format
    	output.videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                             [NSNumber numberWithInt:kCVPixelFormatType_32BGRA], kCVPixelBufferPixelFormatTypeKey,
-                            [NSNumber numberWithInt: 320], (id)kCVPixelBufferWidthKey,
-                            [NSNumber numberWithInt: 240], (id)kCVPixelBufferHeightKey,
-                            nil];
+                            [NSNumber numberWithInt: self.view.frame.size.width], (id)kCVPixelBufferWidthKey,
+                            [NSNumber numberWithInt: self.view.frame.size.height], (id)kCVPixelBufferHeightKey,
+                            nil]; // 320,240
     
 //    AVCaptureVideoPreviewLayer* preLayer = [AVCaptureVideoPreviewLayer layerWithSession: self.session];
 //    
@@ -181,6 +181,10 @@ const int kCannyAperture = 7;
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
     } else {//[UIImage imageNamed:@"mailicon.png"]
+        [GCDQueue executeInMainQueue:^{
+            weakSelf.imageView.frame = CGRectMake(0, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
+        }];
+        
         UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
         
         [GCDQueue executeInMainQueue:^{

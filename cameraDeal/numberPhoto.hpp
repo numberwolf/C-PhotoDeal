@@ -31,7 +31,7 @@ public:
     // 黑白 边缘 二值化
     static uint32_t* blackAndWhite(uint32_t *pixels, int width, int height);
     static int GetSumOfArray(int *array, int start, int count);
-    
+    static double fangcha(int x[], int start, int end);
 private:
     
 protected:
