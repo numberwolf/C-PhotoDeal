@@ -59,10 +59,14 @@ uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
         int average = GetSumOfArray(gray_arr[j], 0, width)/width;
         
         for (int i = 0; i < width; i ++) {
-            if (gray_arr[j][i] < average) {
-                gray_arr[j][i] = 0;
-            } else {
+            if (average >= 220) {
                 gray_arr[j][i] = 255;
+            } else {
+                if (gray_arr[j][i] < average) {
+                    gray_arr[j][i] = 0;
+                } else {
+                    gray_arr[j][i] = 255;
+                }
             }
         }
         
