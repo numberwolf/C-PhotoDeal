@@ -7,7 +7,7 @@
 //
 
 #include "numberPhoto.hpp"
-#define CUT_NUM 80 // 块大小
+#define CUT_NUM 10 // 块大小
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
 #define G(x) ( Mask8(x >> 8 ) )
@@ -56,27 +56,30 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     }
     
     // 进行处理
-    int temps = 0;
+//    int temps = 0;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j+=CUT_NUM) {
+//        for (int j = 0; j < width; j++) {
+        
+//            if (gray_arr[i][j] < 150 && gray_arr[i][j] > 105) {
+//                gray_arr[i][j] = 0;
+//            } else {
+//                gray_arr[i][j] = 255;
+//            }
+            int end = j + CUT_NUM;
+        
+            double fc = fangcha(gray_arr[i], j, end);
+            double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
             
-            double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
-            
-            for (int n = j; n < (j + CUT_NUM); n++) {
-                temps = temp[i][n-1];
+            for (int n = j; n < end; n++) {
+//                temps = temp[i][n-1];
                 
-                if ((gray_arr[i][n] - temps) > (fc/3)) {
-                    gray_arr[i][n] = 0;
-                } else {
+                if (gray_arr[i][n] < (average + fc) && gray_arr[i][n] > (average - fc)) {
                     gray_arr[i][n] = 255;
+                } else {
+                    gray_arr[i][n] = 0;
                 }
             }
-            
-//            uint32_t * currentPixel = pixels + (j * height) + i;
-//            uint32_t color = *currentPixel;
-            
-//            gray_arr[i][j] = (R(color)+G(color)+B(color))/3.0;
-//            temp[i][j] = gray_arr[i][j];
         }
     }
     
@@ -115,14 +118,14 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     
     /*** save
      for (int i = 0; i < width; i++) {
-     for (int j = 0; j < height; j++) {
-     
-     uint32_t * currentPixel = pixels + (j * width) + i;
-     uint32_t color = *currentPixel;
-     uint32_t averageColor = (R(color) + G(color) + B(color)) / 3.0;
-     
-     *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(color));
-     }
+         for (int j = 0; j < height; j++) {
+         
+             uint32_t * currentPixel = pixels + (j * width) + i;
+             uint32_t color = *currentPixel;
+             uint32_t averageColor = (R(color) + G(color) + B(color)) / 3.0;
+             
+             *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(color));
+         }
      }
      **/
     
