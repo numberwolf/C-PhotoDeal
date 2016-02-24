@@ -66,7 +66,7 @@
     for (NSUInteger i = 0; i < width; i++) {
         for (NSUInteger j = 0; j < height; j++) {
             
-            UInt32 * currentPixel = pixels + (j * width) + i;
+            UInt32 * currentPixel = pixels + (i * height) + j;
             UInt32 color = *currentPixel;
             
             // Average of RGB = greyscale
@@ -80,8 +80,8 @@
     // Create a new UIImage
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
     // 旋转90度
-    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
-//    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+//    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
+    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
     
     // Free up the context and color space
     CGColorSpaceRelease(colorSpace);
@@ -115,6 +115,7 @@
     CGContextRef context =     CGBitmapContextCreate(pixels, width, height,     bitsPerComponent, bytesPerRow, colorSpace,     kCGImageAlphaPremultipliedLast |     kCGBitmapByteOrder32Big);
     
     // 4.增加currentPixel的值，使它指向下一个像素。如果你对指针的运算比较生疏，记住这个：currentPixel是一个指向UInt32的变量，当你把它加1后，它就会向前移动4字节（32位），然后指向了下一个像素的值。
+
     CGContextDrawImage(context, CGRectMake(0,     0, width, height), inputCGImage);
     
 //            NSLog(@"开始了:\n");
@@ -151,7 +152,16 @@
 ////            *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
 //        }
 //    }
-    pixels = numberPhoto::blackAndWhite(pixels,width,height);
+    
+    numberPhoto::blackAndWhite(pixels,(unsigned long)width,(unsigned long)height);
+    /***
+     <<<<<<<<<<<  修改开始 >>>>>>>>>>>> 
+     **/
+   
+    
+    /***
+     >>>>>>>>>>>>  修改结束 <<<<<<<<<<<
+     **/
     
     
     // Create a new UIImage

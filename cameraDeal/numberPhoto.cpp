@@ -7,7 +7,7 @@
 //
 
 #include "numberPhoto.hpp"
-#define CUT_NUM 100 // 块大小
+#define CUT_NUM 80 // 块大小
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
 #define G(x) ( Mask8(x >> 8 ) )
@@ -35,86 +35,99 @@
  }
  *****/
 
-uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
+void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height) {
+    
+    // 进行临时赋值处理
     int **gray_arr = new int*[height];
     int **temp = new int*[height];
     
-//    uint32_t *temp = pixels;
-//    printf("start");
-    
-    for (int j = 0; j < height; j++) {
-        gray_arr[j] = new int[width];
-        temp[j] = new int[width];
+    for (int i = 0; i < height; i++) {
+        gray_arr[i] = new int[width];
+        temp[i] = new int[width];
         
-        for (int i = 0; i < width; i++) {
-            uint32_t *currentPixel = pixels + (j * height) + i;
+        for (int j = 0; j < width; j++) {
+            
+            uint32_t * currentPixel = pixels + (j * height) + i;
             uint32_t color = *currentPixel;
             
-            gray_arr[j][i] = (R(color)+G(color)+B(color))/3.0;
-            temp[j][i] = gray_arr[j][i];
+            gray_arr[i][j] = (R(color)+G(color)+B(color))/3.0;
+            temp[i][j] = gray_arr[i][j];
+        }
+    }
+    
+    // 进行处理
+    int temps = 0;
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j+=CUT_NUM) {
+            
+            double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
+            
+            for (int n = j; n < (j + CUT_NUM); n++) {
+                temps = temp[i][n-1];
+                
+                if ((gray_arr[i][n] - temps) > (fc/3)) {
+                    gray_arr[i][n] = 0;
+                } else {
+                    gray_arr[i][n] = 255;
+                }
+            }
+            
+//            uint32_t * currentPixel = pixels + (j * height) + i;
+//            uint32_t color = *currentPixel;
+            
+//            gray_arr[i][j] = (R(color)+G(color)+B(color))/3.0;
+//            temp[i][j] = gray_arr[i][j];
         }
     }
     
 
-    // 进行处理
-    int temps = 0;
-//    printf("开\n");
-    for (int j = 0; j < height; j++) {
-        
-//        for (int i = 0; i < width; i++) {
-        for (int i = 0; i < width; i+=CUT_NUM) {
-            int fc = fangcha(gray_arr[j], i, i+CUT_NUM);
-            
-            for (int n = i; n < (i + CUT_NUM); n++) {
-                temps = temp[j][n-1];
-                
-//                if (fc < 20) {
-                    if ((gray_arr[j][n] - temps) > (fc/4)) {
-                        gray_arr[j][n] = 0;
-                    } else {
-                        gray_arr[j][n] = 255;
-                    }
+//    // 进行处理
+//    int temps = 0;
+//    for (int j = 0; j < height; j++) {
+//        
+//        for (int i = 0; i < width; i+=CUT_NUM) {
+//            double fc = fangcha(gray_arr[j], i, i+CUT_NUM);
+//            
+//            for (int n = i; n < (i + CUT_NUM); n++) {
+//                temps = temp[j][n-1];
+//                
+//                if ((gray_arr[j][n] - temps) > (fc/3)) {
+//                    gray_arr[j][n] = 0;
+//                } else {
+//                    gray_arr[j][n] = 255;
 //                }
-            }
-        }
-        
-//        printf("结束一行\n\n");
-        
-    }
-    /*
-     if (i == 0) {
-        temp = (int)gray_arr[j][i-1];
-     }
-     
-     if ((int)(gray_arr[j][i] - temp) > 10) {
-         temp = gray_arr[j][i];
-         gray_arr[j][i] = 0;
-     } else {
-         temp = gray_arr[j][i];
-         gray_arr[j][i] = 255;
-     }
-     */
-    
-//    for (int i = 0 ; i<length; i++) {
-//        printf("%3d ",pixels_temp[i]);
+//            }
+//        }
+//        
 //    }
-//    printf("\n.............\n");
+
     
-    printf("输出最后的数组开\n");
-    
-    // 每个像素
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
-            uint32_t *currentPixel = pixels + (j * height) + i;
-            
-            *currentPixel = RGBAMake(gray_arr[j][i], gray_arr[j][i], gray_arr[j][i], A(*currentPixel));
+    // 最终将处理结果赋值过去
+    // Convert the image to black and white
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+
+            uint32_t * currentPixel = pixels + (j * height) + i;
+
+            *currentPixel = RGBAMake(gray_arr[i][j], gray_arr[i][j], gray_arr[i][j], A(*currentPixel));
         }
     }
+    
+    /*** save
+     for (int i = 0; i < width; i++) {
+     for (int j = 0; j < height; j++) {
+     
+     uint32_t * currentPixel = pixels + (j * width) + i;
+     uint32_t color = *currentPixel;
+     uint32_t averageColor = (R(color) + G(color) + B(color)) / 3.0;
+     
+     *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(color));
+     }
+     }
+     **/
     
     free(gray_arr);
     free(temp);
-    
-    return pixels;
 }
 
 int numberPhoto::GetSumOfArray(int *array, int start, int count) {
@@ -132,6 +145,7 @@ double numberPhoto::fangcha(int x[], int start, int end){
     //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
     int i;
     double xaver=0.0, x2aver=0.0;
+    
     for(i = start;i < end; ++i){
         xaver+=x[i]; x2aver+=x[i]*x[i];
     }

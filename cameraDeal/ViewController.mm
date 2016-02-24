@@ -32,9 +32,9 @@ const int kCannyAperture = 7;
 @property (weak, nonatomic) IBOutlet UISlider *cannySecondCodeSlider;
 @property (weak, nonatomic) IBOutlet UISlider *cannyFirstCodeSlider;
 @property (weak, nonatomic) IBOutlet UIView *controlView;
-@property (weak, nonatomic) IBOutlet UISlider *redSilder;
-@property (weak, nonatomic) IBOutlet UISlider *greenSlider;
-@property (weak, nonatomic) IBOutlet UISlider *blueSlider;
+//@property (weak, nonatomic) IBOutlet UISlider *redSilder;
+//@property (weak, nonatomic) IBOutlet UISlider *greenSlider;
+//@property (weak, nonatomic) IBOutlet UISlider *blueSlider;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
@@ -42,9 +42,9 @@ const int kCannyAperture = 7;
 @property (nonatomic, retain) AVCaptureSession *session;
 
 
-@property int redNum;
-@property int greenNum;
-@property int blueNum;
+//@property int redNum;
+//@property int greenNum;
+//@property int blueNum;
 
 @end
 
@@ -54,7 +54,6 @@ const int kCannyAperture = 7;
 {
     [super viewDidLoad];
     
-    self.redNum = 1;
     [self setupCaptureSession];
     self.imageView.image = [UIImage imageNamed:@"mailicon.png"];
     
@@ -181,11 +180,11 @@ const int kCannyAperture = 7;
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
     } else {//[UIImage imageNamed:@"mailicon.png"]
-        [GCDQueue executeInMainQueue:^{
-            weakSelf.imageView.frame = CGRectMake(0, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
-        }];
+//        [GCDQueue executeInMainQueue:^{
+//            weakSelf.imageView.frame = CGRectMake(0, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
+//        }];
         
-        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:weakSelf.redNum withGreen:weakSelf.greenNum withBlue:weakSelf.blueNum];
+        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
         
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = temp;
@@ -381,23 +380,23 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
 - (IBAction)cannySecondSlider:(id)sender {
 }
 
-#pragma mark 红色调节
-- (IBAction)redSilder:(id)sender {
-    self.redNum = (int)self.redSilder.value;
-//    NSLog(@"数值红色：%d",self.redNum);
-}
-
-#pragma mark 绿色调节
-- (IBAction)greenSlider:(id)sender {
-    self.greenNum = (int)self.greenSlider.value;
-//    NSLog(@"绿色红色：%d",self.greenNum);
-}
-
-#pragma mark 蓝色调节
-- (IBAction)blueSlider:(id)sender {
-    self.blueNum = (int)self.blueSlider.value;
-//    NSLog(@"蓝色红色：%d",self.blueNum);
-}
+//#pragma mark 红色调节
+//- (IBAction)redSilder:(id)sender {
+//    self.redNum = (int)self.redSilder.value;
+////    NSLog(@"数值红色：%d",self.redNum);
+//}
+//
+//#pragma mark 绿色调节
+//- (IBAction)greenSlider:(id)sender {
+//    self.greenNum = (int)self.greenSlider.value;
+////    NSLog(@"绿色红色：%d",self.greenNum);
+//}
+//
+//#pragma mark 蓝色调节
+//- (IBAction)blueSlider:(id)sender {
+//    self.blueNum = (int)self.blueSlider.value;
+////    NSLog(@"蓝色红色：%d",self.blueNum);
+//}
 
 
 

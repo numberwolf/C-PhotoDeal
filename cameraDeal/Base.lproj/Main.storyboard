@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -18,36 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-lu-Hed" userLabel="绿色调节">
-                                <rect key="frame" x="18" y="390" width="564" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-Ga-v5T">
+                                <rect key="frame" x="270" y="285" width="60" height="30"/>
+                                <state key="normal" title="边缘检测"/>
                                 <connections>
-                                    <action selector="greenSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="X5a-Lw-LS4"/>
+                                    <action selector="openCannyBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvO-MY-KwT"/>
                                 </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Xu-q6e" userLabel="蓝色调节">
-                                <rect key="frame" x="18" y="440" width="564" height="31"/>
-                                <connections>
-                                    <action selector="blueSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="tbD-Fx-Dfu"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TkQ-If-55v" userLabel="红色调节">
-                                <rect key="frame" x="18" y="340" width="564" height="31"/>
-                                <connections>
-                                    <action selector="redSilder:" destination="BYZ-38-t0r" eventType="valueChanged" id="bis-ZI-oAr"/>
-                                </connections>
-                            </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bh0-HL-YA2">
-                                <rect key="frame" x="0.0" y="20" width="600" height="300"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-ut-RZC" userLabel="信息">
-                                <rect key="frame" x="0.0" y="20" width="600" height="320"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-pH-eqk" userLabel="控制板view">
-                                <rect key="frame" x="0.0" y="320" width="600" height="280"/>
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-fu-JP1">
                                         <rect key="frame" x="18" y="10" width="564" height="31"/>
@@ -72,69 +50,48 @@
                                     <constraint firstItem="fpR-fu-JP1" firstAttribute="leading" secondItem="5eT-pH-eqk" secondAttribute="leading" constant="20" id="u1j-Re-rZS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-Ga-v5T">
-                                <rect key="frame" x="20" y="290" width="560" height="30"/>
-                                <state key="normal" title="边缘检测"/>
-                                <connections>
-                                    <action selector="openCannyBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvO-MY-KwT"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-ut-RZC" userLabel="信息">
+                                <rect key="frame" x="0.0" y="20" width="600" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bh0-HL-YA2">
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tok-Xu-q6e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="64m-TC-FYk"/>
-                            <constraint firstAttribute="trailing" secondItem="eQB-Ga-v5T" secondAttribute="trailing" constant="20" id="85b-oz-Nz3"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="height" secondItem="bh0-HL-YA2" secondAttribute="height" multiplier="1:2" id="2RR-oI-F9C"/>
                             <constraint firstAttribute="trailing" secondItem="bh0-HL-YA2" secondAttribute="trailing" id="AhV-Sk-9NI"/>
-                            <constraint firstAttribute="trailing" secondItem="eQB-Ga-v5T" secondAttribute="trailing" constant="20" id="AqV-Nl-LGT"/>
-                            <constraint firstItem="Tok-Xu-q6e" firstAttribute="top" secondItem="YxF-lu-Hed" secondAttribute="bottom" constant="20" id="DGZ-Rb-AXc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="DaV-6D-dLw"/>
+                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BmP-Br-OYg"/>
                             <constraint firstAttribute="bottom" secondItem="5eT-pH-eqk" secondAttribute="bottom" id="GK4-cp-pLH"/>
                             <constraint firstItem="5eT-pH-eqk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HJe-af-QBh"/>
-                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="IOl-PE-Ivx"/>
-                            <constraint firstAttribute="trailing" secondItem="Tok-Xu-q6e" secondAttribute="trailing" constant="20" id="JAj-qN-BKj"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JIm-wH-xtG"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KZ2-is-FDK"/>
-                            <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="dYg-ut-RZC" secondAttribute="bottom" id="KvX-Jq-bTO"/>
-                            <constraint firstAttribute="trailing" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="NqG-H4-sZM"/>
-                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="top" secondItem="Tok-Xu-q6e" secondAttribute="bottom" constant="20" id="Q6A-rH-QtO"/>
                             <constraint firstAttribute="trailing" secondItem="5eT-pH-eqk" secondAttribute="trailing" id="Tyu-NW-XkM"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YEK-g4-tCO"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ank-vd-k7C"/>
-                            <constraint firstItem="YxF-lu-Hed" firstAttribute="top" secondItem="TkQ-If-55v" secondAttribute="bottom" constant="20" id="dnL-nK-hSL"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eQp-Yw-DW5"/>
-                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fMg-uL-c1h"/>
-                            <constraint firstItem="YxF-lu-Hed" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fz7-9c-GPg"/>
-                            <constraint firstItem="5eT-pH-eqk" firstAttribute="top" secondItem="eQB-Ga-v5T" secondAttribute="bottom" id="hs5-IO-4AO"/>
-                            <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="bh0-HL-YA2" secondAttribute="bottom" constant="20" id="kJp-TF-a6i"/>
-                            <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="mqf-ai-yor"/>
-                            <constraint firstItem="TkQ-If-55v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="nGz-Yu-rnq"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aTA-sF-zJg"/>
+                            <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mqf-ai-yor"/>
                             <constraint firstItem="5eT-pH-eqk" firstAttribute="top" secondItem="bh0-HL-YA2" secondAttribute="bottom" id="oRF-3h-vcc"/>
+                            <constraint firstItem="dYg-ut-RZC" firstAttribute="width" secondItem="bh0-HL-YA2" secondAttribute="width" id="qdl-bT-Dh8"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
-                            <constraint firstAttribute="trailing" secondItem="TkQ-If-55v" secondAttribute="trailing" constant="20" id="sWP-dB-XLl"/>
-                            <constraint firstAttribute="trailing" secondItem="YxF-lu-Hed" secondAttribute="trailing" constant="20" id="xKF-rO-vtu"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ybS-Nu-FOH"/>
-                            <constraint firstItem="TkQ-If-55v" firstAttribute="top" secondItem="dYg-ut-RZC" secondAttribute="bottom" id="yvt-uB-e2v"/>
+                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tzW-Bn-0os"/>
+                            <constraint firstAttribute="trailing" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="wXf-lo-0qd"/>
+                            <constraint firstItem="5eT-pH-eqk" firstAttribute="height" secondItem="bh0-HL-YA2" secondAttribute="height" multiplier="1:2" id="zlq-qy-3qe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="DaV-6D-dLw"/>
-                                <exclude reference="eQp-Yw-DW5"/>
-                                <exclude reference="ybS-Nu-FOH"/>
-                                <exclude reference="AqV-Nl-LGT"/>
-                                <exclude reference="IOl-PE-Ivx"/>
-                                <exclude reference="Q6A-rH-QtO"/>
-                                <exclude reference="KvX-Jq-bTO"/>
+                                <exclude reference="oRF-3h-vcc"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="blueSlider" destination="Tok-Xu-q6e" id="jPC-kI-INN"/>
                         <outlet property="cannyFirstCodeSlider" destination="fpR-fu-JP1" id="IAA-rr-geC"/>
                         <outlet property="cannySecondCodeSlider" destination="nod-Ie-nY9" id="CJv-yw-7tI"/>
                         <outlet property="controlView" destination="5eT-pH-eqk" id="D2N-np-2FA"/>
-                        <outlet property="greenSlider" destination="YxF-lu-Hed" id="dBj-HD-n8T"/>
                         <outlet property="imageView" destination="bh0-HL-YA2" id="Zn5-8P-krC"/>
                         <outlet property="infoLabel" destination="dYg-ut-RZC" id="8dO-GQ-bjl"/>
-                        <outlet property="redSilder" destination="TkQ-If-55v" id="GxZ-V9-Rbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
