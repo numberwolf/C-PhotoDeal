@@ -87,42 +87,44 @@ const int kCannyAperture = 7;
                                                                         error:&error];
     if (!input) {
         // Handling the error appropriately.
+    } else {
+        [self.session addInput:input];
+        
+        // Create a VideoDataOutput and add it to the session
+        AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
+        [self.session addOutput:output];
+        
+        // Configure your output.
+        dispatch_queue_t queue = dispatch_queue_create("myQueue", NULL);
+        [output setSampleBufferDelegate:self queue:queue];
+        //    dispatch_release(queue);
+        
+        // Specify the pixel format
+        output.videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithInt:kCVPixelFormatType_32BGRA], kCVPixelBufferPixelFormatTypeKey,
+                                [NSNumber numberWithInt: self.view.frame.size.width], (id)kCVPixelBufferWidthKey,
+                                [NSNumber numberWithInt: self.view.frame.size.height], (id)kCVPixelBufferHeightKey,
+                                nil]; // 320,240
+        
+        //    AVCaptureVideoPreviewLayer* preLayer = [AVCaptureVideoPreviewLayer layerWithSession: self.session];
+        //
+        //    //preLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+        ////    preLayer.frame = CGRectMake(0, 0, 320, 240);
+        //    preLayer.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+        //
+        //    preLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        //    [self.view.layer addSublayer:preLayer];
+        //    // If you wish to cap the frame rate to a known value, such as 15 fps, set
+        //    // minFrameDuration.
+        //    output.minFrameDuration = CMTimeMake(1, 15);
+        
+        // Start the session running to start the flow of data
+        [self.session startRunning];
+        
+        // Assign session to an ivar.
+        //[self setSession:session];
     }
-    [self.session addInput:input];
     
-    // Create a VideoDataOutput and add it to the session
-    AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
-    [self.session addOutput:output];
-    
-    // Configure your output.
-    dispatch_queue_t queue = dispatch_queue_create("myQueue", NULL);
-    [output setSampleBufferDelegate:self queue:queue];
-//    dispatch_release(queue);
-    
-    // Specify the pixel format
-   	output.videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [NSNumber numberWithInt:kCVPixelFormatType_32BGRA], kCVPixelBufferPixelFormatTypeKey,
-                            [NSNumber numberWithInt: self.view.frame.size.width], (id)kCVPixelBufferWidthKey,
-                            [NSNumber numberWithInt: self.view.frame.size.height], (id)kCVPixelBufferHeightKey,
-                            nil]; // 320,240
-    
-//    AVCaptureVideoPreviewLayer* preLayer = [AVCaptureVideoPreviewLayer layerWithSession: self.session];
-//    
-//    //preLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-////    preLayer.frame = CGRectMake(0, 0, 320, 240);
-//    preLayer.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-//    
-//    preLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-//    [self.view.layer addSublayer:preLayer];
-//    // If you wish to cap the frame rate to a known value, such as 15 fps, set
-//    // minFrameDuration.
-//    output.minFrameDuration = CMTimeMake(1, 15);
-    
-    // Start the session running to start the flow of data
-    [self.session startRunning];
-    
-    // Assign session to an ivar.
-    //[self setSession:session];
 }
 
 #pragma mark 对于视频输出流进行帧处理

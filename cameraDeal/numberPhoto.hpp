@@ -16,14 +16,12 @@
 class numberPhoto {
     
 public:
-//    DATA data;
-//    treeData *left;
-//    treeData *right;
+    //DATA data;
+    //treeData *left;
     
     numberPhoto() {
-//        this->data = da;
-//        this->left = NULL;
-//        this->right = NULL;
+        //this->data = da;
+        //this->left = NULL;
     }
     
     ~numberPhoto() {}

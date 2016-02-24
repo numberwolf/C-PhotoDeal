@@ -19,6 +19,9 @@
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
+		03807B321C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
+		03807B331C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
+		03807B341C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -93,6 +96,8 @@
 		0328401B1C79CB4D00C695F9 /* icon@57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@57px.png"; sourceTree = "<group>"; };
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
+		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
 		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
@@ -220,6 +225,8 @@
 				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10AD01C780F5200DCFCA6 /* ViewController.h */,
 				03D10AD11C780F5200DCFCA6 /* ViewController.mm */,
+				03807B301C7E1D4600B6347F /* testController.h */,
+				03807B311C7E1D4600B6347F /* testController.m */,
 				03D10AD31C780F5200DCFCA6 /* Main.storyboard */,
 				03D10AD61C780F5200DCFCA6 /* Assets.xcassets */,
 				03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */,
@@ -448,6 +455,7 @@
 				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03ECB0F61C7B16A40072F241 /* numberPhoto.cpp in Sources */,
+				03807B321C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03D10B131C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
 			);
@@ -457,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03807B331C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
@@ -472,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03807B341C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,

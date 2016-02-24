@@ -7,7 +7,7 @@
 //
 
 #include "numberPhoto.hpp"
-#define CUT_NUM 10 // 块大小
+//#define CUT_NUM 5 // 块大小
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
 #define G(x) ( Mask8(x >> 8 ) )
@@ -40,6 +40,8 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     // 进行临时赋值处理
     int **gray_arr = new int*[height];
     int **temp = new int*[height];
+    int CUT_NUM = (int)width/20;
+    printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
     
     for (int i = 0; i < height; i++) {
         gray_arr[i] = new int[width];
