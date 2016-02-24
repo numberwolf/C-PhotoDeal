@@ -56,26 +56,16 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     }
     
     // 进行处理
-    int temps = 0;
     for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j+=CUT_NUM) {
-
-            int length = (width - (j + CUT_NUM)) > CUT_NUM ? CUT_NUM : (width - (j + CUT_NUM));
-            int end = j + length;
+        for (int j = 0; j < width; j++) {
         
-            double fc = fangcha(gray_arr[i], j, end);
-            double average = GetSumOfArray(gray_arr[i], j, length)/length;
+            double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
+            double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
             
-            for (int n = j; n < end; n++) {
-                temps = temp[i][n-1];
-                printf("%3d\n",temp[i][n-1]);
-                
-//                if (gray_arr[i][n] < (average + fc/3) && gray_arr[i][n] > (average - fc/3)) {
-                if ((gray_arr[i][n] - temps) > fc) {
-                    gray_arr[i][n] = 0;
-                } else {
-                    gray_arr[i][n] = 255;
-                }
+            if ( gray_arr[i][j] <= (average + fc/3) && gray_arr[i][j] >= (average - fc/3) /*&& gray_arr[i][j] > average*/) {
+                gray_arr[i][j] = 0;
+            } else {
+                gray_arr[i][j] = 255;
             }
         }
     }
