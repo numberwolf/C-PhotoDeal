@@ -51,33 +51,30 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
             uint32_t color = *currentPixel;
             
             gray_arr[i][j] = (R(color)+G(color)+B(color))/3.0;
-            temp[i][j] = gray_arr[i][j];
+            temp[i][j] = (R(color)+G(color)+B(color))/3.0;
         }
     }
     
     // 进行处理
-//    int temps = 0;
+    int temps = 0;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j+=CUT_NUM) {
-//        for (int j = 0; j < width; j++) {
-        
-//            if (gray_arr[i][j] < 150 && gray_arr[i][j] > 105) {
-//                gray_arr[i][j] = 0;
-//            } else {
-//                gray_arr[i][j] = 255;
-//            }
-            int end = j + CUT_NUM;
+
+            int length = (width - (j + CUT_NUM)) > CUT_NUM ? CUT_NUM : (width - (j + CUT_NUM));
+            int end = j + length;
         
             double fc = fangcha(gray_arr[i], j, end);
-            double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
+            double average = GetSumOfArray(gray_arr[i], j, length)/length;
             
             for (int n = j; n < end; n++) {
-//                temps = temp[i][n-1];
+                temps = temp[i][n-1];
+                printf("%3d\n",temp[i][n-1]);
                 
-                if (gray_arr[i][n] < (average + fc) && gray_arr[i][n] > (average - fc)) {
-                    gray_arr[i][n] = 255;
-                } else {
+//                if (gray_arr[i][n] < (average + fc/3) && gray_arr[i][n] > (average - fc/3)) {
+                if ((gray_arr[i][n] - temps) > fc) {
                     gray_arr[i][n] = 0;
+                } else {
+                    gray_arr[i][n] = 255;
                 }
             }
         }
