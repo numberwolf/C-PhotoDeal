@@ -58,6 +58,7 @@ uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
 
     // 进行处理
     int temps = 0;
+//    printf("开\n");
     for (int j = 0; j < height; j++) {
         
 //        for (int i = 0; i < width; i++) {
@@ -77,7 +78,7 @@ uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
             }
         }
         
-//        printf("\n\n");
+//        printf("结束一行\n\n");
         
     }
     /*
@@ -99,21 +100,19 @@ uint32_t* numberPhoto::blackAndWhite(uint32_t *pixels, int width, int height) {
 //    }
 //    printf("\n.............\n");
     
+    printf("输出最后的数组开\n");
     
     // 每个像素
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
             uint32_t *currentPixel = pixels + (j * height) + i;
             
-            uint32_t averageColor = gray_arr[j][i];
-//            printf("%3d ",gray_arr[j][i]);
-            
-            *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(*currentPixel));
+            *currentPixel = RGBAMake(gray_arr[j][i], gray_arr[j][i], gray_arr[j][i], A(*currentPixel));
         }
-//        printf("\n");
     }
     
     free(gray_arr);
+    free(temp);
     
     return pixels;
 }
