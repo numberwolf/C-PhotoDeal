@@ -122,6 +122,10 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     free(temp);
 }
 
+void numberPhoto::RectHandle(int *array, int width, int height, int wStart, int hStart) {
+    
+}
+
 int numberPhoto::GetSumOfArray(int *array, int start, int count) {
     int sum = 0;
     
