@@ -122,8 +122,11 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     free(temp);
 }
 
+#pragma mark 矩阵内处理
 void numberPhoto::RectHandle(int *array, int width, int height, int wStart, int hStart) {
-    
+    for (int i = wStart; i < (wStart + width); i++) {
+        
+    }
 }
 
 int numberPhoto::GetSumOfArray(int *array, int start, int count) {
@@ -137,12 +140,13 @@ int numberPhoto::GetSumOfArray(int *array, int start, int count) {
     return sum;
 }
 
+#pragma mark 方差
 double numberPhoto::fangcha(int x[], int start, int end){
     //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
     int i;
     double xaver=0.0, x2aver=0.0;
     
-    for(i = start;i < end; ++i){
+    for(i = start;i <= end; ++i){
         xaver+=x[i]; x2aver+=x[i]*x[i];
     }
     
@@ -150,4 +154,24 @@ double numberPhoto::fangcha(int x[], int start, int end){
     xaver/=n; x2aver/=n; //求x的平均、x^2的平均
     return sqrt(x2aver-xaver*xaver);
 }
+
+//double numberPhoto::Standard(int *array, int start, int end) {
+//    float a[16],b,c,d,s;
+//    int i,j;
+//    
+//    for(i = start;i <= end; i++)
+//    {
+//        a[15]=0;
+//        a[15]=a[15]+a[i];/*求和值*/
+//        b=a[15]/15;      /*平均值*/
+//        for(j=0;j<16;j++)
+//        {a[16]=0;
+//            a[16]=a[16]+pow((a[j]-b).2);/*调用求平方函数*/
+//            c=a[16];
+//        }
+//    }
+//    
+//    s=sqrt(c)/15;
+//    printf("%f",s);
+//}
 
