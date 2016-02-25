@@ -155,23 +155,16 @@ double numberPhoto::fangcha(int x[], int start, int end){
     return sqrt(x2aver-xaver*xaver);
 }
 
-//double numberPhoto::Standard(int *array, int start, int end) {
-//    float a[16],b,c,d,s;
-//    int i,j;
-//    
-//    for(i = start;i <= end; i++)
-//    {
-//        a[15]=0;
-//        a[15]=a[15]+a[i];/*求和值*/
-//        b=a[15]/15;      /*平均值*/
-//        for(j=0;j<16;j++)
-//        {a[16]=0;
-//            a[16]=a[16]+pow((a[j]-b).2);/*调用求平方函数*/
-//            c=a[16];
-//        }
-//    }
-//    
-//    s=sqrt(c)/15;
-//    printf("%f",s);
-//}
+#pragma mark 标准差
+double numberPhoto::Standard(int *array, int start, int end) {
+    int count = end - start + 1;
+    double average = GetSumOfArray(array, start, count)/count;
+    
+    double sum = 0.0f;
+    for (int i = start; i <= end; i++) {
+        sum += (array[i] - average) * (array[i] - average);
+    }
+    
+    return sqrt(sum/count);
+}
 
