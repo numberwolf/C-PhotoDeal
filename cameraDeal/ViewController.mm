@@ -134,69 +134,120 @@ const int kCannyAperture = 7;
     // Create a UIImage from the sample buffer data
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
     //    self.mData = UIImageJPEGRepresentation(image, 0.5);//这里的mData是NSData对象，后面的0.5代表生成的图片质量
-
-    // 人脸检测
-    [self faceDetect:image];
+    
+    // coreimage人脸检测
+    //[self faceDetect:image];
     
     if (self.controlView.hidden == NO) {
-        /*
-         *  Opencv Start
-         */
-            //    double t;
-            //    int times = 10;
-            //
-            //    // Convert from UIImage to cv::Mat
-            //
-            //    t = (double)cv::getTickCount();
-            //
-            //    for (int i = 0; i < times; i++)
-            //    {
-            //        cv::Mat tempMat = [image CVMat];
-            //    }
-            //
-            //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-            //
-            //    NSLog(@"UIImage to cv::Mat: %gms", t);
-        
-        // Convert from cv::Mat to UIImage
+
         // UIimage和cv::Mat的转换
         cv::Mat testMat = [image CVMat];
         
-            //    t = (double)cv::getTickCount();
-            //
-            //    for (int i = 0; i < times; i++)
-            //    {
-            //        UIImage *tempImage = [[UIImage alloc] initWithCVMat:testMat];
-            //    }
-            //
-            //    t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency() / times;
-            //
-            //    NSLog(@"cv::Mat to UIImage: %gms", t);
-        
         // Process test image and force update of UI
         _lastFrame = testMat;
-        /*
-         *  Opencv End
-         */
+
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
         }];
-    } else {//[UIImage imageNamed:@"mailicon.png"]
-//        [GCDQueue executeInMainQueue:^{
-//            weakSelf.imageView.frame = CGRectMake(0, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
-//        }];
+    } else {
+
         
         UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
+//        UIImage *temp = [self opencvFaceDetect:image];
         
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = temp;
-
         }];
     }
     
 
 }
 
+// NOTE you SHOULD cvReleaseImage() for the return value when end of the code.
+- (IplImage *)CreateIplImageFromUIImage:(UIImage *)image {
+    // Getting CGImage from UIImage
+    CGImageRef imageRef = image.CGImage;
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    // Creating temporal IplImage for drawing
+    IplImage *iplimage = cvCreateImage(
+                                       cvSize(image.size.width,image.size.height), IPL_DEPTH_8U, 4
+                                       );
+    // Creating CGContext for temporal IplImage
+    CGContextRef contextRef = CGBitmapContextCreate(
+                                                    iplimage->imageData, iplimage->width, iplimage->height,
+                                                    iplimage->depth, iplimage->widthStep,
+                                                    colorSpace, kCGImageAlphaPremultipliedLast|kCGBitmapByteOrderDefault
+                                                    );
+    // Drawing CGImage to CGContext
+    CGContextDrawImage(
+                       contextRef,
+                       CGRectMake(0, 0, image.size.width, image.size.height),
+                       imageRef
+                       );
+    CGContextRelease(contextRef);
+    CGColorSpaceRelease(colorSpace);
+    
+    // Creating result IplImage
+    IplImage *ret = cvCreateImage(cvGetSize(iplimage), IPL_DEPTH_8U, 3);
+    cvCvtColor(iplimage, ret, CV_RGBA2BGR);
+    cvReleaseImage(&iplimage);
+    
+    return ret;
+}
+
+
+-(UIImage *) opencvFaceDetect:(UIImage *)originalImage {
+    cvSetErrMode(CV_ErrModeParent);
+    
+    IplImage *image = [self CreateIplImageFromUIImage:originalImage];
+    
+    // Scaling down
+    IplImage *small_image = cvCreateImage(cvSize(image->width/2,image->height/2), IPL_DEPTH_8U, 3);
+    cvPyrDown(image, small_image, CV_GAUSSIAN_5x5);
+    int scale = 2;
+    
+    // Load XML
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
+    CvHaarClassifierCascade* cascade = (CvHaarClassifierCascade*)cvLoad([path cStringUsingEncoding:NSASCIIStringEncoding], NULL, NULL, NULL);
+    CvMemStorage* storage = cvCreateMemStorage(0);
+    
+    // Detect faces and draw rectangle on them
+    CvSeq* faces = cvHaarDetectObjects(small_image, cascade, storage, 1.2f, 2, CV_HAAR_DO_CANNY_PRUNING, cvSize(20, 20), cvSize(100, 100));
+    cvReleaseImage(&small_image);
+    
+    NSLog(@"found %d faces in image", faces->total);
+    
+    // Create canvas to show the results
+    CGImageRef imageRef = originalImage.CGImage;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef contextRef = CGBitmapContextCreate(NULL, originalImage.size.width, originalImage.size.height, 8, originalImage.size.width * 4,
+                                                    colorSpace, kCGImageAlphaPremultipliedLast|kCGBitmapByteOrderDefault);
+    CGContextDrawImage(contextRef, CGRectMake(0, 45, originalImage.size.width, originalImage.size.height), imageRef);
+    
+    CGContextSetLineWidth(contextRef, 4);
+    CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 1.0, 0.5);
+    
+    // Draw results on the iamge
+    for(int i = 0; i < faces->total; i++) {
+        
+        // Calc the rect of faces
+        CvRect cvrect = *(CvRect*)cvGetSeqElem(faces, i);
+        CGRect face_rect = CGContextConvertRectToDeviceSpace(contextRef,
+                                                             CGRectMake(cvrect.x * scale, cvrect.y * scale, cvrect.width * scale, cvrect.height * scale));
+        CGContextStrokeRect(contextRef, face_rect);
+        
+    }
+    
+    UIImage *returnImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(contextRef)];
+    CGContextRelease(contextRef);
+    CGColorSpaceRelease(colorSpace);
+    
+    cvReleaseMemStorage(&storage);
+    cvReleaseHaarClassifierCascade(&cascade);
+    
+    return returnImage;
+}
 
 
 
@@ -348,26 +399,6 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
             _eye_right.alpha = 0.6;
 
         }
-//        if (f.hasMouthPosition)
-//        {
-//            
-//            printf("Mouth %g %g\n", f.mouthPosition.x, f.mouthPosition.y);
-//            
-//            UIView *faceView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-//            faceView.tag = markViewTag;
-//            //旋转180，仅y
-//            CGPoint newCenter =  f.mouthPosition;
-//            newCenter.y = self.imageView.bounds.size.height-newCenter.y;
-//            faceView.center = newCenter;
-//            
-//            faceView.backgroundColor = [UIColor greenColor];
-//            [faceView setTransform:CGAffineTransformMakeScale(1, -1)];
-//            faceView.alpha = 0.6;
-//            [self.imageView addSubview:faceView];
-//            faceView = nil;
-//            [faceView removeFromSuperview];
-//            
-//        }
     }
 }
 
@@ -381,24 +412,6 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
 
 - (IBAction)cannySecondSlider:(id)sender {
 }
-
-//#pragma mark 红色调节
-//- (IBAction)redSilder:(id)sender {
-//    self.redNum = (int)self.redSilder.value;
-////    NSLog(@"数值红色：%d",self.redNum);
-//}
-//
-//#pragma mark 绿色调节
-//- (IBAction)greenSlider:(id)sender {
-//    self.greenNum = (int)self.greenSlider.value;
-////    NSLog(@"绿色红色：%d",self.greenNum);
-//}
-//
-//#pragma mark 蓝色调节
-//- (IBAction)blueSlider:(id)sender {
-//    self.blueNum = (int)self.blueSlider.value;
-////    NSLog(@"蓝色红色：%d",self.blueNum);
-//}
 
 
 
@@ -434,8 +447,8 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     CVPixelBufferUnlockBaseAddress(imageBuffer,0);
     
     // Create an image object from the Quartz image
-//    UIImage *image = [UIImage imageWithCGImage:quartzImage];
-    UIImage *image = [UIImage imageWithCGImage:quartzImage scale:1 orientation:UIImageOrientationRight];
+    UIImage *image = [UIImage imageWithCGImage:quartzImage];
+//    UIImage *image = [UIImage imageWithCGImage:quartzImage scale:1 orientation:UIImageOrientationRight];
     
     // Free up the context and color space
     CGContextRelease(context);
@@ -445,42 +458,4 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     
     return (image);
 }
-
-/**********
-
--(void)click:(UIButton *)btn{
-    
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    //    imagePicker.view.frame = s
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
-    }
-    // imagePicker.allowsEditing = YES;
-    //    [self.view addSubview:imagePicker.view];
-    [self presentViewController:imagePicker animated:YES completion:^{
-        
-    }];
-}
-
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-    
-}
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"%@",info);
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    self.image.image  =  image;
-}
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
- 
- ******/
-
 @end

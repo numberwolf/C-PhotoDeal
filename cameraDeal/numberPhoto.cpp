@@ -7,6 +7,7 @@
 //
 
 #include "numberPhoto.hpp"
+
 //#define CUT_NUM 5 // 块大小
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
@@ -59,6 +60,8 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
         }
     }
     
+//    ReduceNoise(gray_arr, temp,(int)width, (int)height, 0, 0);
+    
     // 进行处理
     for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
         for (int j = 0; j < width; j+=CUT_NUM_WIDTH) {
@@ -74,30 +77,9 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
             }
             **/
             
-            RectHandle(gray_arr, CUT_NUM_WIDTH, CUT_NUM_HEIGH, j, i);
+            RectHandle(gray_arr, temp,CUT_NUM_WIDTH, CUT_NUM_HEIGH, j, i);
         }
     }
-    
-
-//    // 进行处理
-//    int temps = 0;
-//    for (int j = 0; j < height; j++) {
-//        
-//        for (int i = 0; i < width; i+=CUT_NUM) {
-//            double fc = fangcha(gray_arr[j], i, i+CUT_NUM);
-//            
-//            for (int n = i; n < (i + CUT_NUM); n++) {
-//                temps = temp[j][n-1];
-//                
-//                if ((gray_arr[j][n] - temps) > (fc/3)) {
-//                    gray_arr[j][n] = 0;
-//                } else {
-//                    gray_arr[j][n] = 255;
-//                }
-//            }
-//        }
-//        
-//    }
 
     
     // 最终将处理结果赋值过去
@@ -128,8 +110,91 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     free(temp);
 }
 
+void numberPhoto::RectCanny(int **array, int width, int height) {
+    int calcula = 0;
+    bool letWhite = false;
+    
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (array[i][j] == 0) {
+                calcula ++;
+            } else {
+                calcula = 0;
+                letWhite = false;
+            }
+            
+            if (calcula >= 3) {
+                letWhite = true;
+            } else {
+                letWhite = false;
+            }
+            
+            if (letWhite == true) {
+                array[i][j] = 255;
+            }
+        }
+    }
+}
+
+#pragma mark 降噪
+void numberPhoto::ReduceNoise(int **array, int **temp, int width, int height, int wStart, int hStart) {
+    
+    /* h-1,w-1   h-1,w  h-1,w+1
+     
+       h,w-1     h,w    h,w+1
+     
+       h+1,w-1   h+1,w  h+1,w+1
+     */
+    for (int h = hStart+1; h < (hStart + height - 1); h++) {
+        for (int w = wStart+1; w < (wStart + width - 1); w++) {
+            int localAverage = 0;
+            
+//            if (h == hStart) {
+//                /*
+//                 h,w-1     h,w    h,w+1
+//                 
+//                 h+1,w-1   h+1,w  h+1,w+1
+//                 */
+//                
+//                if (w == wStart) {
+//                    localAverage = (temp[h][w+1] + temp[h+1][w] + temp[h+1][w+1])/3;
+//                } else if (w == (wStart + width -1)) {
+//                    localAverage = (temp[h][w-1] + temp[h+1][w-1] + temp[h+1][w])/3;
+//                } else {
+//                    localAverage = (temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/5;
+//                }
+//                
+//            } else if (h == (hStart + height - 1)) {
+//                
+//                if (w == wStart) {
+//                    localAverage = (temp[h-1][w] + temp[h-1][w+1] + temp[h][w+1])/3;
+//                } else if (w == (wStart + width -1)) {
+//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h][w-1])/3;
+//                } else {
+//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1])/5;
+//                }
+//                
+//            } else {
+//                
+//                if (w == wStart) {
+//                    localAverage = (temp[h-1][w] + temp[h-1][w+1] + temp[h][w+1] + temp[h+1][w] + temp[h+1][w+1])/5;
+//                } else if (w == (wStart + width -1)) {
+//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h][w-1] + temp[h+1][w-1] + temp[h+1][w])/5;
+//                } else {
+//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+//                }
+//                
+//                //localAverage = array[h-1][w-1] + array[h-1][w] + array[h-1][w+1] + array[h][w-1] + array[h][w] + array[h][w+1] + array[h+1][w-1] + array[h+1][w] + array[h+1][w+1];
+//            }
+            localAverage = (array[h-1][w-1] + array[h-1][w] + array[h-1][w+1] + array[h][w-1] + array[h][w+1] + array[h+1][w-1] + array[h+1][w] + array[h+1][w+1])/8;
+            
+            array[h][w] = localAverage;
+        }
+    }
+}
+
 #pragma mark 矩阵内处理
-void numberPhoto::RectHandle(int **array, int width, int height, int wStart, int hStart) {
+void numberPhoto::RectHandle(int **array, int **temp,int width, int height, int wStart, int hStart) {
     int sum = 0;
     
     for (int i = hStart; i < (hStart + height); i++) {
@@ -145,7 +210,7 @@ void numberPhoto::RectHandle(int **array, int width, int height, int wStart, int
     for (int i = hStart; i < (hStart + height); i++) {
         for (int j = wStart; j < (wStart + width); j++) {
             
-            if ( array[i][j] <= (average + standard/2) && array[i][j] >= (average - standard/2)) {
+            if ( array[i][j] < (average + standard/3) && array[i][j] > (average - standard/3)) {
                 array[i][j] = 0;
             } else {
                 array[i][j] = 255;
