@@ -32,8 +32,8 @@ public:
 private:
     static int GetSumOfArray(int *array, int start, int count);
     static double fangcha(int x[], int start, int end);
-    static void RectHandle(int *array,int width,int height,int wStart,int hStart);
-    static double Standard(int *array, int start, int end);
+    static void RectHandle(int **array,int width,int height,int wStart,int hStart);
+    static double Standard(int **array, int width, int height, int wStart, int hStart, double average, int count);
     
 protected:
     

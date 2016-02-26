@@ -40,8 +40,10 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     // 进行临时赋值处理
     int **gray_arr = new int*[height];
     int **temp = new int*[height];
-    int CUT_NUM = (int)width/20;
-    printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
+    //int CUT_NUM = (int)width/20;
+    int CUT_NUM_WIDTH = (int)width/20;
+    int CUT_NUM_HEIGH = (int)height/20;
+    //printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
     
     for (int i = 0; i < height; i++) {
         gray_arr[i] = new int[width];
@@ -58,17 +60,21 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     }
     
     // 进行处理
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-        
+    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
+        for (int j = 0; j < width; j+=CUT_NUM_WIDTH) {
+            /**
             double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
+            printf("%3f,%3f\n",fangcha(gray_arr[i], j, j+CUT_NUM),fangcha(gray_arr[i], j, j+CUT_NUM));
             double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
             
-            if ( gray_arr[i][j] <= (average + fc/3) && gray_arr[i][j] >= (average - fc/3) /*&& gray_arr[i][j] > average*/) {
+            if ( gray_arr[i][j] <= (average + fc/3) && gray_arr[i][j] >= (average - fc/3) ) {
                 gray_arr[i][j] = 0;
             } else {
                 gray_arr[i][j] = 255;
             }
+            **/
+            
+            RectHandle(gray_arr, CUT_NUM_WIDTH, CUT_NUM_HEIGH, j, i);
         }
     }
     
@@ -123,9 +129,28 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
 }
 
 #pragma mark 矩阵内处理
-void numberPhoto::RectHandle(int *array, int width, int height, int wStart, int hStart) {
-    for (int i = wStart; i < (wStart + width); i++) {
-        
+void numberPhoto::RectHandle(int **array, int width, int height, int wStart, int hStart) {
+    int sum = 0;
+    
+    for (int i = hStart; i < (hStart + height); i++) {
+        for (int j = wStart; j < (wStart + width); j++) {
+            sum += array[i][j];
+        }
+    }
+    
+    double average = sum/(width*height);
+    
+    double standard = Standard(array, width, height, wStart, hStart, average, width*height);
+    
+    for (int i = hStart; i < (hStart + height); i++) {
+        for (int j = wStart; j < (wStart + width); j++) {
+            
+            if ( array[i][j] <= (average + standard/2) && array[i][j] >= (average - standard/2)) {
+                array[i][j] = 0;
+            } else {
+                array[i][j] = 255;
+            }
+        }
     }
 }
 
@@ -156,13 +181,14 @@ double numberPhoto::fangcha(int x[], int start, int end){
 }
 
 #pragma mark 标准差
-double numberPhoto::Standard(int *array, int start, int end) {
-    int count = end - start + 1;
-    double average = GetSumOfArray(array, start, count)/count;
+double numberPhoto::Standard(int **array, int width, int height, int wStart, int hStart, double average, int count) {
     
     double sum = 0.0f;
-    for (int i = start; i <= end; i++) {
-        sum += (array[i] - average) * (array[i] - average);
+    
+    for (int i = hStart; i < (hStart + height); i++) {
+        for (int j = wStart; j < (wStart + width); j++) {
+            sum += (array[i][j] - average) * (array[i][j] - average);
+        }
     }
     
     return sqrt(sum/count);
