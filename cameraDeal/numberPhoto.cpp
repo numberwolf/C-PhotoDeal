@@ -17,22 +17,23 @@
 #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
 
 /*****
- for (NSUInteger i = 0; i < width; i++) {
-     for (NSUInteger j = 0; j < height; j++) {
-     
-         UInt32 * currentPixel = pixels + (j * width) + i;
+ UInt32 * currentPixel = pixels;
+ for (NSUInteger j = 0; j < height; j++) {
+     for (NSUInteger i = 0; i < width; i++) {
+         // 3.
          UInt32 color = *currentPixel;
-         
-         // Average of RGB = greyscale
-         UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
-         if (averageColor > 120 && averageColor <130) {
-            *currentPixel = RGBAMake(0, 0, 0, A(color));
+         int temp = (R(color)+G(color)+B(color))/3.0;
+         if(temp > 250) {
+             temp = 255;
          } else {
-            *currentPixel = RGBAMake(255, 255, 255, A(color));
+             temp = 0;
          }
-         
-         //            *currentPixel = RGBAMake(R(color)+red, G(color)+green, B(color)+blue, A(color));
+         printf("%3d ",temp);
+
+         // 4.
+         currentPixel++;
      }
+     printf("\n");
  }
  *****/
 
@@ -45,66 +46,75 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     int CUT_NUM_WIDTH = (int)width/20;
     int CUT_NUM_HEIGH = (int)height/20;
     //printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
+    /*       w
+      h  {  [1,2,3]
+            [a,b,c] }
+     */
     
-    for (int i = 0; i < height; i++) {
-        gray_arr[i] = new int[width];
-        temp[i] = new int[width];
-        
-        for (int j = 0; j < width; j++) {
-            
-            uint32_t * currentPixel = pixels + (j * height) + i;
+    uint32_t *currentPixel = pixels;
+    for (int j = 0; j < height; j++) {
+        gray_arr[j] = new int[width];
+        temp[j] = new int[width];
+        for (int i = 0; i < width; i++) {
+            // 3.
             uint32_t color = *currentPixel;
+            int averageColor = (R(color)+G(color)+B(color))/3.0;
             
-            gray_arr[i][j] = (R(color)+G(color)+B(color))/3.0;
-            temp[i][j] = (R(color)+G(color)+B(color))/3.0;
+            gray_arr[j][i] = averageColor;
+            temp[j][i] = averageColor;
+            // 4.
+            currentPixel++;
         }
     }
     
-//    ReduceNoise(gray_arr, temp,(int)width, (int)height, 0, 0);
+    /*
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+            if (gray_arr[j][i] > 250) {
+                printf("255");
+            } else {
+                printf("   ");
+            }
+            
+        }
+        printf("\n");
+    }
+    printf("结束了\n");*/
+     
+    
+    ReduceNoise(gray_arr, temp,(int)width, (int)height, 0, 0);
     
     // 进行处理
-    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
-        for (int j = 0; j < width; j+=CUT_NUM_WIDTH) {
-            /**
-            double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
-            printf("%3f,%3f\n",fangcha(gray_arr[i], j, j+CUT_NUM),fangcha(gray_arr[i], j, j+CUT_NUM));
-            double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
-            
-            if ( gray_arr[i][j] <= (average + fc/3) && gray_arr[i][j] >= (average - fc/3) ) {
-                gray_arr[i][j] = 0;
-            } else {
-                gray_arr[i][j] = 255;
-            }
-            **/
-            
-            RectHandle(gray_arr, temp,CUT_NUM_WIDTH, CUT_NUM_HEIGH, j, i);
-        }
-    }
+//    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
+//        for (int j = 0; j < width; j+=CUT_NUM_WIDTH) {
+//            /**
+//            double fc = fangcha(gray_arr[i], j, j+CUT_NUM);
+//            printf("%3f,%3f\n",fangcha(gray_arr[i], j, j+CUT_NUM),fangcha(gray_arr[i], j, j+CUT_NUM));
+//            double average = GetSumOfArray(gray_arr[i], j, CUT_NUM)/CUT_NUM;
+//            
+//            if ( gray_arr[i][j] <= (average + fc/3) && gray_arr[i][j] >= (average - fc/3) ) {
+//                gray_arr[i][j] = 0;
+//            } else {
+//                gray_arr[i][j] = 255;
+//            }
+//            **/
+//            
+//            RectHandle(gray_arr, temp,CUT_NUM_WIDTH, CUT_NUM_HEIGH, j, i);
+//        }
+//    }
 
     
     // 最终将处理结果赋值过去
     // Convert the image to black and white
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-
-            uint32_t * currentPixel = pixels + (j * height) + i;
-
-            *currentPixel = RGBAMake(gray_arr[i][j], gray_arr[i][j], gray_arr[i][j], A(*currentPixel));
+    currentPixel = pixels;
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+            // 3.
+            *currentPixel = RGBAMake(gray_arr[j][i], gray_arr[j][i], gray_arr[j][i], A(*currentPixel));
+            // 4.
+            currentPixel++;
         }
     }
-    
-    /*** save
-     for (int i = 0; i < width; i++) {
-         for (int j = 0; j < height; j++) {
-         
-             uint32_t * currentPixel = pixels + (j * width) + i;
-             uint32_t color = *currentPixel;
-             uint32_t averageColor = (R(color) + G(color) + B(color)) / 3.0;
-             
-             *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(color));
-         }
-     }
-     **/
     
     free(gray_arr);
     free(temp);
@@ -145,50 +155,17 @@ void numberPhoto::ReduceNoise(int **array, int **temp, int width, int height, in
      
        h+1,w-1   h+1,w  h+1,w+1
      */
-    for (int h = hStart+1; h < (hStart + height - 1); h++) {
-        for (int w = wStart+1; w < (wStart + width - 1); w++) {
-            int localAverage = 0;
+    
+    // **array是二维数组，是rgb8888 最后的每个像素组成的数组
+
+    for (int h = 0; h < height; h++) {
+        for (int w = 0 ; w < width; w++) {
             
-//            if (h == hStart) {
-//                /*
-//                 h,w-1     h,w    h,w+1
-//                 
-//                 h+1,w-1   h+1,w  h+1,w+1
-//                 */
-//                
-//                if (w == wStart) {
-//                    localAverage = (temp[h][w+1] + temp[h+1][w] + temp[h+1][w+1])/3;
-//                } else if (w == (wStart + width -1)) {
-//                    localAverage = (temp[h][w-1] + temp[h+1][w-1] + temp[h+1][w])/3;
-//                } else {
-//                    localAverage = (temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/5;
-//                }
-//                
-//            } else if (h == (hStart + height - 1)) {
-//                
-//                if (w == wStart) {
-//                    localAverage = (temp[h-1][w] + temp[h-1][w+1] + temp[h][w+1])/3;
-//                } else if (w == (wStart + width -1)) {
-//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h][w-1])/3;
-//                } else {
-//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1])/5;
-//                }
-//                
-//            } else {
-//                
-//                if (w == wStart) {
-//                    localAverage = (temp[h-1][w] + temp[h-1][w+1] + temp[h][w+1] + temp[h+1][w] + temp[h+1][w+1])/5;
-//                } else if (w == (wStart + width -1)) {
-//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h][w-1] + temp[h+1][w-1] + temp[h+1][w])/5;
-//                } else {
-//                    localAverage = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
-//                }
-//                
-//                //localAverage = array[h-1][w-1] + array[h-1][w] + array[h-1][w+1] + array[h][w-1] + array[h][w] + array[h][w+1] + array[h+1][w-1] + array[h+1][w] + array[h+1][w+1];
-//            }
-            localAverage = (array[h-1][w-1] + array[h-1][w] + array[h-1][w+1] + array[h][w-1] + array[h][w+1] + array[h+1][w-1] + array[h+1][w] + array[h+1][w+1])/8;
+            if (h > 0 && w > 0 && h < (height-1) && w < (width - 1)) {
+                array[h][w] = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+
+            }
             
-            array[h][w] = localAverage;
         }
     }
 }
