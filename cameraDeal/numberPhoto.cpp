@@ -201,23 +201,23 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
                         double weight = left*right;
                         
                         weightArr[weightArrNum] = weight;
-//                        printf("%f \n",weightArr[weightArrNum]);
+
                         weightArrNum++;
                     }
                 }
                 
                 for (int n = 0; n < ((2*r+1)*(2*r+1)); n++) {
                     weightSum += weightArr[n];
-//                    printf("sum:%f\n",weightSum);
+
                 }
                 
                 weightArrNum = 0;
                 // 周围像素权重
                 for (int j = 0; j <= (2*r); j++) {
                     for (int i = 0; i <= (2*r); i++) {
-//                        double temp = weightArr[weightArrNum];
+
                         weightArr[weightArrNum] /= weightSum;
-//                        printf("%f / %f = %f \n",temp,weightSum,weightArr[weightArrNum]);
+
                         weightArrNum++;
                     }
                 }
