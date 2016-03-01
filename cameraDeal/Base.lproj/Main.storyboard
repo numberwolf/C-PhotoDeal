@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cnX-f7-wTW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -99,6 +99,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Test Controller-->
+        <scene sceneID="43n-No-SkT">
+            <objects>
+                <viewController id="cnX-f7-wTW" customClass="testController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tOE-8x-Wgt"/>
+                        <viewControllerLayoutGuide type="bottom" id="4XS-eJ-ul7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="geG-aq-MQH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k7r-2K-CbG" userLabel="原图">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-sK-4VP" userLabel="处理图">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iKy-sK-4VP" firstAttribute="leading" secondItem="geG-aq-MQH" secondAttribute="leading" id="8TW-fj-c4e"/>
+                            <constraint firstAttribute="trailing" secondItem="iKy-sK-4VP" secondAttribute="trailing" id="NFS-Ec-dss"/>
+                            <constraint firstItem="k7r-2K-CbG" firstAttribute="height" secondItem="geG-aq-MQH" secondAttribute="height" multiplier="1:2" id="PIs-vp-GWS"/>
+                            <constraint firstItem="iKy-sK-4VP" firstAttribute="top" secondItem="k7r-2K-CbG" secondAttribute="bottom" id="R83-s8-Y35"/>
+                            <constraint firstItem="k7r-2K-CbG" firstAttribute="top" secondItem="geG-aq-MQH" secondAttribute="top" id="V7t-Qp-CkF"/>
+                            <constraint firstAttribute="trailing" secondItem="k7r-2K-CbG" secondAttribute="trailing" id="oU0-ns-RXD"/>
+                            <constraint firstItem="4XS-eJ-ul7" firstAttribute="top" secondItem="iKy-sK-4VP" secondAttribute="bottom" id="szV-K4-hkG"/>
+                            <constraint firstItem="k7r-2K-CbG" firstAttribute="leading" secondItem="geG-aq-MQH" secondAttribute="leading" id="toS-RG-wiM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deaImg" destination="iKy-sK-4VP" id="deg-6b-Ls5"/>
+                        <outlet property="protoImg" destination="k7r-2K-CbG" id="jpF-NC-ZCk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IuR-VO-KG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="1057"/>
         </scene>
     </scenes>
 </document>

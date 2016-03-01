@@ -144,8 +144,8 @@
     // Create a new UIImage
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
     // 旋转90度
-    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
-//        UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+//    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
+        UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
     
     // Free up the context and color space
     CGColorSpaceRelease(colorSpace);

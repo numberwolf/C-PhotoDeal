@@ -86,7 +86,7 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     printf("结束了\n");*/
      
     
-//    GaussDeal(gray_arr, temp, width, height, 1);
+    GaussDeal(gray_arr, temp, width, height, 1);
     
     // 进行处理
 //    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
@@ -160,40 +160,98 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
      */
     
     // **array是二维数组，是rgb8888 最后的每个像素组成的数组
-    double xaver=0.0, x2aver=0.0;
+    double center = 0.0;
+    
+    double xaver = 0.0, x2aver = 0.0;
+//    int *pixelsArr = new int[2*r+1];
+    
     for (int h = 0; h < height; h++) {
         
         xaver=0.0, x2aver=0.0;
         for (int w = 0 ; w < width; w++) {
+            center = 0.0;
 
-            if (h > 0 && w > 0 && h < (height-1) && w < (width - 1)) {
-//                    array[h][w] = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
-                
+            if (h > r && w > r && h < (height-r) && w < (width - r)) {
+            
                 xaver = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+                
                 x2aver = (temp[h-1][w-1]*temp[h-1][w-1] + temp[h-1][w]*temp[h-1][w] + temp[h-1][w+1]*temp[h-1][w+1] + temp[h][w-1]*temp[h][w-1] + temp[h][w+1]*temp[h][w+1] + temp[h+1][w-1]*temp[h+1][w-1] + temp[h+1][w]*temp[h+1][w] + temp[h+1][w+1]*temp[h+1][w+1])/8;
                 
-                double fc = sqrt(x2aver - xaver*xaver);
+                double fc = sqrt(x2aver - xaver*xaver); // 方差
                 double left = 1/(2*PI*fc*fc);
                 
-                double right_one = pow(e, -2/(2*fc*fc));
-                double right_two = pow(e, -1/(2*fc*fc));
+                double *weightArr = new double[(2*r+1)*(2*r+1)];
+                int weightArrNum = 0;
+                double weightSum = 0.0;
                 
-                double weight_one = left*right_one;
-                double weight_two = left*right_two;
+                // 周围像素权重
+                for (int j = 0; j <= (2*r); j++) {
+                    int y = r - j;
+                    
+                    for (int i = 0; i <= (2*r); i++) {
+                        int x = i - r;
+                        
+                        if (x == 0 && y == 0) {
+                            weightArr[weightArrNum] = 0;
+                            weightArrNum++;
+                            continue;
+                        }
+                        
+                        double right = pow(e, -(x*x + y*y)/(2*fc*fc));
+                        double weight = left*right;
+                        
+                        weightArr[weightArrNum] = weight;
+//                        printf("%f \n",weightArr[weightArrNum]);
+                        weightArrNum++;
+                    }
+                }
                 
-                // (h-1,w-1)-one    (h-1,w)-two     (h-1,w+1)-one
-                // (h  ,w-1)-two    (h  ,w)         (h  ,w+1)-two
-                // (h+1,w-1)-one    (h+1,w)-two     (h+1,w+1)-one
+                for (int n = 0; n < ((2*r+1)*(2*r+1)); n++) {
+                    weightSum += weightArr[n];
+//                    printf("sum:%f\n",weightSum);
+                }
                 
-                double sum = weight_one*4 + weight_two*4;
-                weight_one /= sum;
-                weight_two /= sum;
+                weightArrNum = 0;
+                // 周围像素权重
+                for (int j = 0; j <= (2*r); j++) {
+                    for (int i = 0; i <= (2*r); i++) {
+//                        double temp = weightArr[weightArrNum];
+                        weightArr[weightArrNum] /= weightSum;
+//                        printf("%f / %f = %f \n",temp,weightSum,weightArr[weightArrNum]);
+                        weightArrNum++;
+                    }
+                }
                 
-                array[h][w] = temp[h-1][w-1]*weight_one + temp[h-1][w]*weight_two + temp[h-1][w+1]*weight_one + temp[h][w-1]*weight_two + temp[h][w+1]*weight_two + temp[h+1][w-1]*weight_one + temp[h+1][w]*weight_two + temp[h+1][w+1]*weight_one;
+                array[h][w] = temp[h-1][w-1]*weightArr[0] + temp[h-1][w]*weightArr[1] + temp[h-1][w+1]*weightArr[2] + temp[h][w-1]*weightArr[3] + temp[h][w+1]*weightArr[5] + temp[h+1][w-1]*weightArr[6] + temp[h+1][w]*weightArr[7] + temp[h+1][w+1]*weightArr[8];
+                
+                free(weightArr);
+                
+            
+            /*
+            double left = 1/(2*PI*fc*fc);
+            
+            double right_one = pow(e, -2/(2*fc*fc));
+            double right_two = pow(e, -1/(2*fc*fc));
+            
+            double weight_one = left*right_one;
+            double weight_two = left*right_two;
+            
+            // (h-1,w-1)-one    (h-1,w)-two     (h-1,w+1)-one
+            // (h  ,w-1)-two    (h  ,w)         (h  ,w+1)-two
+            // (h+1,w-1)-one    (h+1,w)-two     (h+1,w+1)-one
+            
+            double sum = weight_one*4 + weight_two*4;
+            weight_one /= sum;
+            weight_two /= sum;
+            
+            array[h][w] = temp[h-1][w-1]*weight_one + temp[h-1][w]*weight_two + temp[h-1][w+1]*weight_one + temp[h][w-1]*weight_two + temp[h][w+1]*weight_two + temp[h+1][w-1]*weight_one + temp[h+1][w]*weight_two + temp[h+1][w+1]*weight_one;
+             */
 
             }
         }
     }
+    
+    
 }
 
 

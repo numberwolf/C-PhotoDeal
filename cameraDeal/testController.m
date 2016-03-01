@@ -7,8 +7,12 @@
 //
 
 #import "testController.h"
+#import "GCD.h"
+#import "dealFaceFace.h"
 
 @interface testController ()
+@property (weak, nonatomic) IBOutlet UIImageView *protoImg;
+@property (weak, nonatomic) IBOutlet UIImageView *deaImg;
 
 @end
 
@@ -16,22 +20,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    __weak typeof(self) weakSelf = self;
+    NSString *imgName = @"psd.jpg";
+    
+    [GCDQueue executeInMainQueue:^{
+        [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];
+    }];
+    [GCDQueue executeInGlobalQueue:^{
+        UIImage *deal = [dealFaceFace autoConfigUIImage:[UIImage imageNamed:imgName] withRed:NULL withGreen:NULL withBlue:NULL];
+        [GCDQueue executeInMainQueue:^{
+            weakSelf.deaImg.image = deal;
+        }];
+    }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
