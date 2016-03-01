@@ -6,9 +6,13 @@
 //  Copyright © 2016年 numberwolf. All rights reserved.
 //
 
+#include <math.h>
 #include "numberPhoto.hpp"
 
 //#define CUT_NUM 5 // 块大小
+#define e 2.71828
+#define PI 3.1416
+
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
 #define G(x) ( Mask8(x >> 8 ) )
@@ -82,7 +86,7 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     printf("结束了\n");*/
      
     
-    ReduceNoise(gray_arr, temp,(int)width, (int)height, 0, 0);
+//    GaussDeal(gray_arr, temp, width, height, 1);
     
     // 进行处理
 //    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
@@ -118,57 +122,80 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     
     free(gray_arr);
     free(temp);
+    
+//    int *test = new int[8];
+//    test[0] = 14;
+//    test[1] = 15;
+//    test[2] = 16;
+//    test[3] = 24;
+//    test[4] = 26;
+//    test[5] = 34;
+//    test[6] = 35;
+//    test[7] = 36;
+//    //8.703448
+//    
+////    printf("\n方差:%3f\n",fangcha(test,0,8));
+//    double fangchas = fangcha(test,0,7);
+////    double fangchas = 1.5;
+//    double left = 1/(2*PI*fangchas*fangchas);
+//    double right = pow(e, -2/(2*fangchas*fangchas));
+//    double result = left*right;
+//    printf("\n%f\n",result);
 }
 
-void numberPhoto::RectCanny(int **array, int width, int height) {
-    int calcula = 0;
-    bool letWhite = false;
-    
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            if (array[i][j] == 0) {
-                calcula ++;
-            } else {
-                calcula = 0;
-                letWhite = false;
-            }
-            
-            if (calcula >= 3) {
-                letWhite = true;
-            } else {
-                letWhite = false;
-            }
-            
-            if (letWhite == true) {
-                array[i][j] = 255;
-            }
-        }
-    }
-}
-
-#pragma mark 降噪
-void numberPhoto::ReduceNoise(int **array, int **temp, int width, int height, int wStart, int hStart) {
-    
-    /* h-1,w-1   h-1,w  h-1,w+1
+#pragma mark 高斯模糊
+void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r) {
+    /*
+     //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
+     int i;
+     double xaver=0.0, x2aver=0.0;
      
-       h,w-1     h,w    h,w+1
+     for(i = start;i <= end; ++i){
+        xaver+=x[i]; x2aver+=x[i]*x[i];
+     }
      
-       h+1,w-1   h+1,w  h+1,w+1
+     int n = end - start + 1;
+     xaver/=n; x2aver/=n; //求x的平均、x^2的平均
+     return sqrt(x2aver-xaver*xaver);
      */
     
     // **array是二维数组，是rgb8888 最后的每个像素组成的数组
-
+    double xaver=0.0, x2aver=0.0;
     for (int h = 0; h < height; h++) {
+        
+        xaver=0.0, x2aver=0.0;
         for (int w = 0 ; w < width; w++) {
-            
+
             if (h > 0 && w > 0 && h < (height-1) && w < (width - 1)) {
-                array[h][w] = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+//                    array[h][w] = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+                
+                xaver = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+                x2aver = (temp[h-1][w-1]*temp[h-1][w-1] + temp[h-1][w]*temp[h-1][w] + temp[h-1][w+1]*temp[h-1][w+1] + temp[h][w-1]*temp[h][w-1] + temp[h][w+1]*temp[h][w+1] + temp[h+1][w-1]*temp[h+1][w-1] + temp[h+1][w]*temp[h+1][w] + temp[h+1][w+1]*temp[h+1][w+1])/8;
+                
+                double fc = sqrt(x2aver - xaver*xaver);
+                double left = 1/(2*PI*fc*fc);
+                
+                double right_one = pow(e, -2/(2*fc*fc));
+                double right_two = pow(e, -1/(2*fc*fc));
+                
+                double weight_one = left*right_one;
+                double weight_two = left*right_two;
+                
+                // (h-1,w-1)-one    (h-1,w)-two     (h-1,w+1)-one
+                // (h  ,w-1)-two    (h  ,w)         (h  ,w+1)-two
+                // (h+1,w-1)-one    (h+1,w)-two     (h+1,w+1)-one
+                
+                double sum = weight_one*4 + weight_two*4;
+                weight_one /= sum;
+                weight_two /= sum;
+                
+                array[h][w] = temp[h-1][w-1]*weight_one + temp[h-1][w]*weight_two + temp[h-1][w+1]*weight_one + temp[h][w-1]*weight_two + temp[h][w+1]*weight_two + temp[h+1][w-1]*weight_one + temp[h+1][w]*weight_two + temp[h+1][w+1]*weight_one;
 
             }
-            
         }
     }
 }
+
 
 #pragma mark 矩阵内处理
 void numberPhoto::RectHandle(int **array, int **temp,int width, int height, int wStart, int hStart) {
