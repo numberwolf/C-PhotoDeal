@@ -30,10 +30,9 @@ public:
     static void blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height);
     
 private:
-    static void GaussDeal(int **array, int **temp, int width, int height, int r);
+
     static int GetSumOfArray(int *array, int start, int count);
     static double fangcha(int x[], int start, int end);
-    static void RectHandle(int **array,int **temp,int width,int height,int wStart,int hStart);
     static double Standard(int **array, int width, int height, int wStart, int hStart, double average, int count);
     
 protected:

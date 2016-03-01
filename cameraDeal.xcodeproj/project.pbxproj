@@ -25,6 +25,9 @@
 		032840231C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840241C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840251C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
+		032E9EBB1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
+		032E9EBC1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
+		032E9EBD1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
@@ -107,6 +110,8 @@
 		0328401A1C79CB4D00C695F9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0328401B1C79CB4D00C695F9 /* icon@57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@57px.png"; sourceTree = "<group>"; };
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
+		032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlurPhoto.cpp; sourceTree = "<group>"; };
+		032E9EBA1C85DD6B009417EE /* BlurPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlurPhoto.hpp; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
@@ -309,6 +314,8 @@
 			children = (
 				03ECB0F41C7B16A40072F241 /* numberPhoto.cpp */,
 				03ECB0F51C7B16A40072F241 /* numberPhoto.hpp */,
+				032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */,
+				032E9EBA1C85DD6B009417EE /* BlurPhoto.hpp */,
 			);
 			name = ext;
 			sourceTree = "<group>";
@@ -472,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D10B0D1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
+				032E9EBB1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10AD21C780F5200DCFCA6 /* ViewController.mm in Sources */,
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
 				03D10ACC1C780F5200DCFCA6 /* main.m in Sources */,
@@ -490,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03807B331C7E1D4600B6347F /* testController.m in Sources */,
+				032E9EBC1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
@@ -506,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03807B341C7E1D4600B6347F /* testController.m in Sources */,
+				032E9EBD1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,
