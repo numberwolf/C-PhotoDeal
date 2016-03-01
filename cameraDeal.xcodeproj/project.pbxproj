@@ -28,6 +28,9 @@
 		032E9EBB1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
 		032E9EBC1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
 		032E9EBD1C85DD6B009417EE /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */; };
+		032E9EC01C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EBE1C85E0F0009417EE /* BinaryzationPhoto.cpp */; };
+		032E9EC11C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EBE1C85E0F0009417EE /* BinaryzationPhoto.cpp */; };
+		032E9EC21C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032E9EBE1C85E0F0009417EE /* BinaryzationPhoto.cpp */; };
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
@@ -112,6 +115,8 @@
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
 		032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlurPhoto.cpp; sourceTree = "<group>"; };
 		032E9EBA1C85DD6B009417EE /* BlurPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlurPhoto.hpp; sourceTree = "<group>"; };
+		032E9EBE1C85E0F0009417EE /* BinaryzationPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryzationPhoto.cpp; sourceTree = "<group>"; };
+		032E9EBF1C85E0F0009417EE /* BinaryzationPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinaryzationPhoto.hpp; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
@@ -316,6 +321,8 @@
 				03ECB0F51C7B16A40072F241 /* numberPhoto.hpp */,
 				032E9EB91C85DD6B009417EE /* BlurPhoto.cpp */,
 				032E9EBA1C85DD6B009417EE /* BlurPhoto.hpp */,
+				032E9EBE1C85E0F0009417EE /* BinaryzationPhoto.cpp */,
+				032E9EBF1C85E0F0009417EE /* BinaryzationPhoto.hpp */,
 			);
 			name = ext;
 			sourceTree = "<group>";
@@ -482,6 +489,7 @@
 				032E9EBB1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10AD21C780F5200DCFCA6 /* ViewController.mm in Sources */,
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
+				032E9EC01C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */,
 				03D10ACC1C780F5200DCFCA6 /* main.m in Sources */,
 				03D10B161C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
 				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
@@ -504,6 +512,7 @@
 				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03ECB0F71C7B16A40072F241 /* numberPhoto.cpp in Sources */,
 				03D10AE51C780F5200DCFCA6 /* cameraDealTests.m in Sources */,
+				032E9EC11C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */,
 				03D10B201C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03D10B141C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
 				03D10B171C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
@@ -521,6 +530,7 @@
 				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03ECB0F81C7B16A40072F241 /* numberPhoto.cpp in Sources */,
 				03D10AF01C780F5200DCFCA6 /* cameraDealUITests.m in Sources */,
+				032E9EC21C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */,
 				03D10B211C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03D10B151C782CCE00DCFCA6 /* GCDSemaphore.m in Sources */,
 				03D10B181C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
