@@ -86,7 +86,7 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
     printf("结束了\n");*/
      
     
-    GaussDeal(gray_arr, temp, width, height, 1);
+    GaussDeal(gray_arr, temp, width, height, 3);
     
     // 进行处理
 //    for (int i = 0; i < height; i+=CUT_NUM_HEIGH) {
@@ -120,27 +120,8 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
         }
     }
     
-    free(gray_arr);
-    free(temp);
-    
-//    int *test = new int[8];
-//    test[0] = 14;
-//    test[1] = 15;
-//    test[2] = 16;
-//    test[3] = 24;
-//    test[4] = 26;
-//    test[5] = 34;
-//    test[6] = 35;
-//    test[7] = 36;
-//    //8.703448
-//    
-////    printf("\n方差:%3f\n",fangcha(test,0,8));
-//    double fangchas = fangcha(test,0,7);
-////    double fangchas = 1.5;
-//    double left = 1/(2*PI*fangchas*fangchas);
-//    double right = pow(e, -2/(2*fangchas*fangchas));
-//    double result = left*right;
-//    printf("\n%f\n",result);
+    delete [] gray_arr;
+    delete [] temp;
 }
 
 #pragma mark 高斯模糊
@@ -163,7 +144,6 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
     double center = 0.0;
     
     double xaver = 0.0, x2aver = 0.0;
-//    int *pixelsArr = new int[2*r+1];
     
     for (int h = 0; h < height; h++) {
         
@@ -172,15 +152,47 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
             center = 0.0;
 
             if (h > r && w > r && h < (height-r) && w < (width - r)) {
+                
+                int *pixelsArr = new int[(2*r+1)*(2*r+1)]; // 存储半径内像素
+                int *pixTemp = pixelsArr;
+                
+                int pixelSum = 0;
+                int pix2Sum = 0;
+                
+                for (int j = 0; j <= (2*r); j++) {
+                    int y = h - r + j;
+                    
+                    for (int i = 0; i <= (2*r); i++) {
+                        int x = w - r + i;
+                        
+                        // 除去中心点
+                        if ( y == h && x == w) {
+                            *pixTemp = 0;
+                            pixTemp++;
+                            continue;
+                        }
+                        
+                        *pixTemp = temp[y][x];
+                        
+                        pixelSum += *pixTemp; // 总数
+                        pix2Sum += (*pixTemp) * (*pixTemp); // 总数^2
+                        
+                        pixTemp++;
+                    }
+                }
+                
+                /** change End **/
             
-                xaver = (temp[h-1][w-1] + temp[h-1][w] + temp[h-1][w+1] + temp[h][w-1] + temp[h][w+1] + temp[h+1][w-1] + temp[h+1][w] + temp[h+1][w+1])/8;
+                // 开始计算方差
+                xaver = (pixelSum - temp[h][w])/((2*r+1)*(2*r+1)-1);
+                x2aver = (pix2Sum - temp[h][w]*temp[h][w])/((2*r+1)*(2*r+1)-1);
                 
-                x2aver = (temp[h-1][w-1]*temp[h-1][w-1] + temp[h-1][w]*temp[h-1][w] + temp[h-1][w+1]*temp[h-1][w+1] + temp[h][w-1]*temp[h][w-1] + temp[h][w+1]*temp[h][w+1] + temp[h+1][w-1]*temp[h+1][w-1] + temp[h+1][w]*temp[h+1][w] + temp[h+1][w+1]*temp[h+1][w+1])/8;
+                double fc = sqrt(x2aver - xaver*xaver); // 得到方差
                 
-                double fc = sqrt(x2aver - xaver*xaver); // 方差
+                // 开始计算权重
                 double left = 1/(2*PI*fc*fc);
                 
-                double *weightArr = new double[(2*r+1)*(2*r+1)];
+                double *weightArr = new double[(2*r+1)*(2*r+1)]; // 得到权重数组
                 int weightArrNum = 0;
                 double weightSum = 0.0;
                 
@@ -191,6 +203,7 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
                     for (int i = 0; i <= (2*r); i++) {
                         int x = i - r;
                         
+                        // 除去中心点
                         if (x == 0 && y == 0) {
                             weightArr[weightArrNum] = 0;
                             weightArrNum++;
@@ -208,44 +221,28 @@ void numberPhoto::GaussDeal(int **array, int **temp,int width, int height, int r
                 
                 for (int n = 0; n < ((2*r+1)*(2*r+1)); n++) {
                     weightSum += weightArr[n];
-
                 }
                 
                 weightArrNum = 0;
-                // 周围像素权重
+                
+                int array_h_w_temp = 0;
+                
+                // 得到周围像素权重
                 for (int j = 0; j <= (2*r); j++) {
                     for (int i = 0; i <= (2*r); i++) {
-
                         weightArr[weightArrNum] /= weightSum;
-
+                        *pixelsArr = (*pixelsArr) * weightArr[weightArrNum]; // 周围像素的 权值 * 像素
+                        array_h_w_temp += *pixelsArr;
+                        
                         weightArrNum++;
+                        pixelsArr++;
                     }
                 }
                 
-                array[h][w] = temp[h-1][w-1]*weightArr[0] + temp[h-1][w]*weightArr[1] + temp[h-1][w+1]*weightArr[2] + temp[h][w-1]*weightArr[3] + temp[h][w+1]*weightArr[5] + temp[h+1][w-1]*weightArr[6] + temp[h+1][w]*weightArr[7] + temp[h+1][w+1]*weightArr[8];
+                array[h][w] = array_h_w_temp;
                 
-                free(weightArr);
-                
-            
-            /*
-            double left = 1/(2*PI*fc*fc);
-            
-            double right_one = pow(e, -2/(2*fc*fc));
-            double right_two = pow(e, -1/(2*fc*fc));
-            
-            double weight_one = left*right_one;
-            double weight_two = left*right_two;
-            
-            // (h-1,w-1)-one    (h-1,w)-two     (h-1,w+1)-one
-            // (h  ,w-1)-two    (h  ,w)         (h  ,w+1)-two
-            // (h+1,w-1)-one    (h+1,w)-two     (h+1,w+1)-one
-            
-            double sum = weight_one*4 + weight_two*4;
-            weight_one /= sum;
-            weight_two /= sum;
-            
-            array[h][w] = temp[h-1][w-1]*weight_one + temp[h-1][w]*weight_two + temp[h-1][w+1]*weight_one + temp[h][w-1]*weight_two + temp[h][w+1]*weight_two + temp[h+1][w-1]*weight_one + temp[h+1][w]*weight_two + temp[h+1][w+1]*weight_one;
-             */
+                delete [] weightArr;
+                //delete [] pixelsArr;
 
             }
         }
