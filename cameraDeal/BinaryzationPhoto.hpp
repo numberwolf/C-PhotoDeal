@@ -24,6 +24,7 @@ public:
     ~BinaryzationPhoto() {}
     
     static void edgeExamine(int **array, int wRadius, int hRadius, int width, int height);
+    static void binaryzation(int **array, int wRadius, int hRadius, int width, int height);
     
 private:
     
