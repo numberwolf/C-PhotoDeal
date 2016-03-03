@@ -9,7 +9,7 @@
 #include <math.h>
 #include "numberPhoto.hpp"
 #include "BlurPhoto.hpp"
-#include "Common.hpp"
+#include "BinaryzationPhoto.hpp"
 
 #define e 2.71828
 #define PI 3.1416
@@ -51,6 +51,7 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
      
     
     BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3);
+    BinaryzationPhoto::edgeExamine(gray_arr, 30, 30, width, height);
     
     // 进行处理
 

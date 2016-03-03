@@ -24,7 +24,7 @@ void BinaryzationPhoto::edgeExamine(int **array, int wRadius, int hRadius ,int w
             for (int y = j; y < (j+hRadius); y++) {
                 for (int x = i; x < (i+wRadius); x++) {
                     
-                    if (x > width || y > height) {
+                    if (x >= width || y >= height) {
                         *pointer = 0;
                     } else {
                         *pointer = array[y][x];
@@ -43,7 +43,7 @@ void BinaryzationPhoto::edgeExamine(int **array, int wRadius, int hRadius ,int w
             for (int y = j; y < (j+hRadius); y++) {
                 for (int x = i; x < (i+wRadius); x++) {
                     
-                    if (x > width || y > height) {
+                    if (x >= width || y >= height) {
                         continue;
                     } else {
                         if (array[y][x] > (average - standard) && array[y][x] < (average + standard)) {
