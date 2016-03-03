@@ -49,8 +49,8 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
         }
     }
      
-    
-    BinaryzationPhoto::edgeExamine(gray_arr, 40, 40, width, height);
+    BinaryzationPhoto::binaryzation(gray_arr, 40, 40, width, height);
+//    BinaryzationPhoto::edgeExamine(gray_arr, 40, 40, width, height);
 //    BinaryzationPhoto::edgeExamine(temp, 20, 20, width, height);
 //    BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3);
     

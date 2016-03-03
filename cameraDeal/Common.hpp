@@ -35,6 +35,7 @@ public:
     // 方差
     template<typename T>
     static double GetVariance(T *array, int offset, int limit) {
+        
         //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
         double xaver=0.0, x2aver=0.0;
         
@@ -51,7 +52,6 @@ public:
     static double GetStandard(T *array, int offset, int limit) {
         
         double sum = 0.0f;
-        
         double average = GetAverage(array, offset, limit);
         
         for (int i = offset; i < (limit - offset); i++) {
