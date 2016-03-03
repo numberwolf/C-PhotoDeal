@@ -9,6 +9,7 @@
 #include <math.h>
 #include "numberPhoto.hpp"
 #include "BlurPhoto.hpp"
+#include "Common.hpp"
 
 #define e 2.71828
 #define PI 3.1416
@@ -20,35 +21,12 @@
 #define A(x) ( Mask8(x >> 24) )
 #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
 
-/*****
- UInt32 * currentPixel = pixels;
- for (NSUInteger j = 0; j < height; j++) {
-     for (NSUInteger i = 0; i < width; i++) {
-         // 3.
-         UInt32 color = *currentPixel;
-         int temp = (R(color)+G(color)+B(color))/3.0;
-         if(temp > 250) {
-             temp = 255;
-         } else {
-             temp = 0;
-         }
-         printf("%3d ",temp);
-
-         // 4.
-         currentPixel++;
-     }
-     printf("\n");
- }
- *****/
-
 void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height) {
     
     // 进行临时赋值处理
     int **gray_arr = new int*[height];
     int **temp = new int*[height];
-    //int CUT_NUM = (int)width/20;
-    int CUT_NUM_WIDTH = (int)width/20;
-    int CUT_NUM_HEIGH = (int)height/20;
+    
     //printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
     /*       w
       h  {  [1,2,3]

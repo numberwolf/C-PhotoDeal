@@ -23,6 +23,8 @@ public:
     
     ~BinaryzationPhoto() {}
     
+    static void edgeExamine(int **array, int wRadius, int hRadius, int width, int height);
+    
 private:
     
 protected:
