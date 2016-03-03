@@ -13,11 +13,52 @@
 #pragma mark 边缘检测
 void BinaryzationPhoto::edgeExamine(int **array, int wRadius, int hRadius ,int width, int height) {
     
-    // (y,x)->(h,w)
-    for (int j = 0, i = 0; j < height, i < width; j+=hRadius, i+=wRadius) {
-        
-        for (int y = j, x = i; y < (j+hRadius), x < (i+wRadius); y++,x++) {
-            // 开始求平均数和方差 计算权值
+    for (int j = 0; j < height; j+=hRadius) {
+        for (int i = 0; i < width; i+=wRadius) {
+            
+            // (y,x)->(h,w)
+            int *localArr = new int[wRadius*hRadius];
+            int *pointer = localArr;
+            
+            // 将范围内的添加进数组
+            for (int y = j; y < (j+hRadius); y++) {
+                for (int x = i; x < (i+wRadius); x++) {
+                    
+                    if (x > width || y > height) {
+                        *pointer = 0;
+                    } else {
+                        *pointer = array[y][x];
+                    }
+                    
+                    pointer++;
+                }
+            } // 添加结束
+            
+            // 标准差
+            int standard = Common::GetStandard(localArr, 0, wRadius*hRadius);
+            // 平均数
+            int average = Common::GetAverage(localArr, 0, wRadius*hRadius);
+            
+            // 范围内处理
+            for (int y = j; y < (j+hRadius); y++) {
+                for (int x = i; x < (i+wRadius); x++) {
+                    
+                    if (x > width || y > height) {
+                        continue;
+                    } else {
+                        if (array[y][x] > (average - standard) && array[y][x] < (average + standard)) {
+                            array[y][x] = 255;
+                        } else {
+                            array[y][x] = 0;
+                        }
+                    }
+                    
+                }
+            } // 处理结束
+            
+            pointer = NULL;
+            delete [] localArr;
+            
         }
     }
 }

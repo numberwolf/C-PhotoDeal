@@ -15,19 +15,22 @@ int main(int argc, char * argv[]) {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
     
-//    int *p = new int[10];
+//    int *p = new int[9];
 //    int *temp = p;
-//    for (int i = 0; i < 10; i++) {
-//        *temp = i;
-//        printf("%d",*temp);
-////        p++;
-//        temp++;
+//    for (int j = 0; j < 3; j++) {
+//        for (int i = 0; i < 3; i++) {
+//            *temp = i;
+//            printf("%d",*temp);
+//            temp++;
+//        }
 //    }
 //    
-//    printf("\n%d",*temp);
+//    temp = NULL;
+//    temp = p;
+//    printf("\n%d\n",*temp);
 //    
-////    for (int i = 0; i < 10; i++) {
-////        printf("%d\n",*p);
-////        p++;
-////    }
+//    for (int i = 0; i < 10; i++) {
+//        printf("%d\n",p[i]);
+//        //p++;
+//    }
 }
