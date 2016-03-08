@@ -20,17 +20,21 @@ int main(int argc, char * argv[]) {
 //    for (int j = 0; j < 3; j++) {
 //        for (int i = 0; i < 3; i++) {
 //            *temp = i;
-//            printf("%d",*temp);
+////            printf("%d",*temp);
 //            temp++;
 //        }
 //    }
 //    
-//    temp = NULL;
-//    temp = p;
-//    printf("\n%d\n",*temp);
+//    int *a = new int[9];
+//    delete [] a;
+//    a = p;
+//    
+////    temp = NULL;
+////    temp = p;
+////    printf("\n%d\n",*temp);
 //    
 //    for (int i = 0; i < 10; i++) {
-//        printf("%d\n",p[i]);
+//        printf("%d\n",a[i]);
 //        //p++;
 //    }
 }
