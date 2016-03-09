@@ -49,10 +49,12 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
         }
     }
      
-    BinaryzationPhoto::binaryzation(gray_arr, 40, 40, width, height); // 二值
-//    BinaryzationPhoto::edgeExamine(gray_arr, 40, 40, width, height);
-//    BinaryzationPhoto::edgeExamine(temp, 20, 20, width, height);
-//    BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3); // 高斯
+//    BinaryzationPhoto::binaryzation(gray_arr, 40, 30, width, height); // 二值
+/*    
+      BinaryzationPhoto::edgeExamine(gray_arr, 40, 40, width, height);
+      BinaryzationPhoto::edgeExamine(temp, 20, 20, width, height);
+ */
+    BlurPhoto::GaussDeal(gray_arr, temp, (int)width, (int)height, 3); // 灰度图高斯模糊
     
     // 进行处理
 
