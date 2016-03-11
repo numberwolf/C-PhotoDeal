@@ -153,7 +153,7 @@ const int kCannyAperture = 7;
 
         //[UIImage imageNamed:@"mailicon.png"]
         UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
-//        UIImage *temp = [self opencvFaceDetect:image];
+        //UIImage *temp = [dealFaceFace autoConfigUIImage:[UIImage imageNamed:@"mailicon.png"] withRed:NULL withGreen:NULL withBlue:NULL];
         
         [GCDQueue executeInMainQueue:^{
             weakSelf.imageView.image = temp;

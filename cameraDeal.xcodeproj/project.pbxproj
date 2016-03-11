@@ -40,6 +40,9 @@
 		03807B321C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
 		03807B331C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
 		03807B341C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
+		038AEF0F1C93314F0040EF07 /* Pixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 038AEF0D1C93314F0040EF07 /* Pixels.cpp */; };
+		038AEF101C93314F0040EF07 /* Pixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 038AEF0D1C93314F0040EF07 /* Pixels.cpp */; };
+		038AEF111C93314F0040EF07 /* Pixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 038AEF0D1C93314F0040EF07 /* Pixels.cpp */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -125,6 +128,8 @@
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
+		038AEF0D1C93314F0040EF07 /* Pixels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pixels.cpp; sourceTree = "<group>"; };
+		038AEF0E1C93314F0040EF07 /* Pixels.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Pixels.hpp; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
 		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
@@ -252,12 +257,12 @@
 				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10AD01C780F5200DCFCA6 /* ViewController.h */,
 				03D10AD11C780F5200DCFCA6 /* ViewController.mm */,
+				03807B301C7E1D4600B6347F /* testController.h */,
 				03807B311C7E1D4600B6347F /* testController.m */,
 				03D10AD31C780F5200DCFCA6 /* Main.storyboard */,
 				03D10AD61C780F5200DCFCA6 /* Assets.xcassets */,
 				03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */,
 				03D10ADB1C780F5200DCFCA6 /* Info.plist */,
-				03807B301C7E1D4600B6347F /* testController.h */,
 				03D10ACA1C780F5200DCFCA6 /* Supporting Files */,
 				03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */,
 				03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */,
@@ -330,6 +335,8 @@
 				032E9EBF1C85E0F0009417EE /* BinaryzationPhoto.hpp */,
 				032E9EC31C86F7C2009417EE /* Common.cpp */,
 				032E9EC41C86F7C2009417EE /* Common.hpp */,
+				038AEF0D1C93314F0040EF07 /* Pixels.cpp */,
+				038AEF0E1C93314F0040EF07 /* Pixels.hpp */,
 			);
 			name = ext;
 			sourceTree = "<group>";
@@ -494,6 +501,7 @@
 			files = (
 				03D10B0D1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				032E9EBB1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
+				038AEF0F1C93314F0040EF07 /* Pixels.cpp in Sources */,
 				03D10AD21C780F5200DCFCA6 /* ViewController.mm in Sources */,
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
 				032E9EC01C85E0F0009417EE /* BinaryzationPhoto.cpp in Sources */,
@@ -516,6 +524,7 @@
 				03807B331C7E1D4600B6347F /* testController.m in Sources */,
 				032E9EBC1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
+				038AEF101C93314F0040EF07 /* Pixels.cpp in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03ECB0F71C7B16A40072F241 /* numberPhoto.cpp in Sources */,
@@ -535,6 +544,7 @@
 				03807B341C7E1D4600B6347F /* testController.m in Sources */,
 				032E9EBD1C85DD6B009417EE /* BlurPhoto.cpp in Sources */,
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
+				038AEF111C93314F0040EF07 /* Pixels.cpp in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03ECB0F81C7B16A40072F241 /* numberPhoto.cpp in Sources */,

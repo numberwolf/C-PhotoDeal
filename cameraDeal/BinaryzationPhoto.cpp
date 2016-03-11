@@ -47,9 +47,9 @@ void BinaryzationPhoto::edgeExamine(int **array, int wRadius, int hRadius ,int w
                         continue;
                     } else {
                         if (array[y][x] > (average - standard) && array[y][x] < (average + standard)) {
-                            array[y][x] = 255;
+                            array[y][x] = 0xff;
                         } else {
-                            array[y][x] = 0;
+                            array[y][x] = 0x00;
                         }
                     }
                     
