@@ -101,9 +101,9 @@ void BinaryzationPhoto::binaryzation(int **array, int wRadius, int hRadius, int 
                         continue;
                     } else {
                         if (array[y][x] > average) {
-                            array[y][x] = 255;
+                            array[y][x] = 0xff;
                         } else {
-                            array[y][x] = 0;
+                            array[y][x] = 0x00;
                         }
                     }
                     

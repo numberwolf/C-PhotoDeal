@@ -13,6 +13,9 @@
 
 #define e 2.71828
 #define PI 3.1416
+#define GRAY_RED_POINT 0.299
+#define GRAY_GREEN_POINT 0.587
+#define GRAY_BLUE_POINT 0.114
 
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )           // 红色通道
@@ -40,32 +43,35 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
         for (int i = 0; i < width; i++) {
             // 3
             uint32_t color = *currentPixel;
-            int averageColor = (R(color)+G(color)+B(color))/3.0;
             
-            gray_arr[j][i] = averageColor;
-            temp[j][i] = averageColor;
+            /*** 两种求灰度值的方法 第二种更标准 ***/
+            //int averageColor = (R(color)+G(color)+B(color))/3.0;
+            uint32_t gray_color = (uint32_t)(R(color) * GRAY_RED_POINT + G(color) * GRAY_GREEN_POINT + B(color) * GRAY_BLUE_POINT);
+            
+            gray_arr[j][i] = gray_color;
+            temp[j][i] = gray_color;
             // 4.
             currentPixel++;
         }
     }
      
-//    BinaryzationPhoto::binaryzation(gray_arr, 40, 30, width, height); // 二值
+    BinaryzationPhoto::binaryzation(gray_arr, 40, 30, width, height); // 二值
 /*    边缘
       BinaryzationPhoto::edgeExamine(gray_arr, 40, 40, width, height);
       BinaryzationPhoto::edgeExamine(temp, 20, 20, width, height);
  */
-    BlurPhoto::GaussDeal(gray_arr, temp, (int)width, (int)height, 3); // 灰度图高斯模糊
+//    BlurPhoto::GaussDeal(gray_arr, temp, (int)width, (int)height, 3); // 灰度图高斯模糊
     
     // 进行处理
 
     
     // 最终将处理结果赋值过去
-    // Convert the image to black and white
     currentPixel = pixels;
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
             // 3.
             *currentPixel = RGBAMake(gray_arr[j][i], gray_arr[j][i], gray_arr[j][i], A(*currentPixel));
+            
             // 4.
             currentPixel++;
         }
