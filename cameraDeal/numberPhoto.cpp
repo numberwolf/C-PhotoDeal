@@ -27,7 +27,7 @@
 
 void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height) {
     printf("测试一数据：\n");
-    Pixels *pixel = new Pixels(pixels);
+    Pixels *pixel = new Pixels(pixels,width,height);
     
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -51,7 +51,7 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
 //            uint32_t color = *currentPixel;
             
             // Average of RGB = greyscale
-            uint32_t averageColor = (pixel->getRed(j, i, (int)width) + pixel->getGreen(j, i, (int)width) + pixel->getBlue(j, i, (int)width)) / 3.0;
+            uint32_t averageColor = (pixel->getRed(j, i) + pixel->getGreen(j, i) + pixel->getBlue(j, i)) / 3.0;
             averageColor > 200?printf("255 ") : printf("    ");
             
         }
