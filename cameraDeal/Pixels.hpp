@@ -27,13 +27,17 @@ public:
     
     ~Pixels(){}
     
-    uint32_t getRed(int x, int y);
-    uint32_t getGreen(int x, int y);
-    uint32_t getBlue(int x, int y);
+    uint32_t *getColorPixel(int x, int y, int width);
     
-    uint32_t changeRed(int x, int y);
-    uint32_t changeGreen(int x, int y);
-    uint32_t changeBlue(int x, int y);
+    uint32_t getRed(int x, int y, int width);
+    uint32_t getGreen(int x, int y, int width);
+    uint32_t getBlue(int x, int y, int width);
+    uint32_t getAlpha(int x, int y, int width);
+    
+    uint32_t changeRed(int x, int y, int width);
+    uint32_t changeGreen(int x, int y, int width);
+    uint32_t changeBlue(int x, int y, int width);
+    uint32_t changeAlpha(int x, int y, int width);
     
     uint32_t rgbMake(uint32_t R, uint32_t G, uint32_t B);
     
