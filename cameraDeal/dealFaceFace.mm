@@ -65,21 +65,6 @@
     // Convert the image to black and white
     for (NSUInteger i = 0; i < width; i++) {
         for (NSUInteger j = 0; j < height; j++) {
-            /**
-             pixels:
-                如果选择(2,3)的话，则pixels + (1 * height) + 2;
-             
-                [{a,b,c},{d,e,f},{g,h,i}]
-             
-                 ^
-                 |
-                 |
-             
-                [{a,   {d,   {g,
-                  b,    e,    h,
-                  c} ,  f} ,  i}]
-             
-             **/
             
             UInt32 * currentPixel = pixels + (i * height) + j;
             UInt32 color = *currentPixel;
