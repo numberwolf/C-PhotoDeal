@@ -1,4 +1,3 @@
-/**************************************************************************      
  * Email：porschegt23@foxmail.com || numberwolf11@gmail.com       
   * Github:https://github.com/numberwolf       
    * APACHE 2.0 LICENSE       
@@ -10,7 +9,6 @@
                     
           http://www.apache.org/licenses/LICENSE-2.0        
                        
-            **************************************************************************/         
 
 ###C++ 图像处理         
 Pixels.hpp 图像数据结构      
