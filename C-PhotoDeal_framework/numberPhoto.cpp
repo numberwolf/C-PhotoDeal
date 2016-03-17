@@ -27,10 +27,6 @@
 
 void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height) {
     
-    // 进行临时赋值处理
-//    int **gray_arr = new int*[height];
-//    int **temp = new int*[height];
-    
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
@@ -40,44 +36,17 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
             [a,b,c] }
      */
     
-    uint32_t *currentPixel = pixels;
-//    for (int j = 0; j < height; j++) {
-//        gray_arr[j] = new int[width];
-//        temp[j] = new int[width];
-//        for (int i = 0; i < width; i++) {
-//            // 3
-//            uint32_t color = *currentPixel;
-//            int averageColor = (R(color)+G(color)+B(color))/3.0;
-//            
-//            gray_arr[j][i] = averageColor;
-//            temp[j][i] = averageColor;
-//            // 4.
-//            currentPixel++;
-//        }
-//    }
-    
-    
     //BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3);
-    the_binary->binaryzation(10, 10, width, height);
+    the_binary->binaryzation(50, 50, width, height);
     the_binary->binaryCanny(NULL, 50, 50, width, height);
     
-    // Convert the image to black and white
-//    currentPixel = pixels;
-//    for (int j = 0; j < height; j++) {
-//        for (int i = 0; i < width; i++) {
-//            // 3.
-//            uint32_t color = *currentPixel;
-//            int averageColor = (R(color)+G(color)+B(color))/3.0;
-//            printf("%3d ",averageColor);
-//            
-//            currentPixel++;
+//    for (int i = 0; i < width; ++i) {
+//        for (int j = 0; j < height; ++j) {
+//            printf("%3d ",the_pixels->getRed(i, j));
 //        }
+//        printf("\n");
 //    }
     
-    
-    
-//    delete [] gray_arr;
-//    delete [] temp;
 }
 
 

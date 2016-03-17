@@ -14,8 +14,8 @@
 #define GRAY_GREEN_POINT 0.587
 #define GRAY_BLUE_POINT 0.114
 
-#define CANNY_PIXELS_VAL 100  // 临时存放边界key
-#define CANNY_PIXELS_ALPHA 1
+#define CANNY_PIXELS_VAL 200  // 临时存放边界key
+#define CANNY_PIXELS_ALPHA 255
 
 #pragma mark
 void BinaryzationPhoto::binaryCanny(int **cannyArr,int wRadius, int hRadius, int width, int height) {
@@ -52,45 +52,66 @@ void BinaryzationPhoto::binaryCanny(int **cannyArr,int wRadius, int hRadius, int
                     int x_under = x;
                     int y_under = y + 1;
                     
-                    if (x >= width || y >= height || x_right >= width || y_right >=height) {
+                    if (x_right >= width || y_right >= height || x_under >= width || y_under >= height) {
                         // 越界和不需要比对边缘的
                         continue;
                     } else {
-                        if (x == (width - 1) && y < (height - 1)) { // 当遇到处理x最边像素的时候
-                            if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under)) {
-                                this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
+                        if (y < (height - 1)) {
+                            if (x == (width - 1)) { // 当遇到处理x最边像素的时候
+                                if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_under, y_under)) {
+                                    
+                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
+                                }
+                                
+                            } else {
+#warning error
+                                if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_under, y_under)) {
+                                    
+                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
+//                                    this->BinaryPixels->rgbMake(x_right, y_right, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, 255);
+//                                    this->BinaryPixels->rgbMake(x_under, y_under, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, 255);
+                                }
+#warning errorend
                             }
-                            
-                            printf("一百啦");
-                            
-                        } else {
-                            if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under)) {
-                                this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
-                            }
-                            
-                            printf("一百啦");
                         }
-                        
                     }
                     
                 }
             } // 第一步处理结束
-            
-            // 范围内第二步处理
-            for (int j = 0; j < height; j++) {
-                for (int i = 0; i < width; i++) {
-                    if (this->BinaryPixels->getRed(i, j) == CANNY_PIXELS_VAL) {
-                        this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
-                    } else {
-                        this->BinaryPixels->rgbMake(i, j, 0, 0, 0, 255);
-                    }
-                }
-            } // 第二步处理结束
         
             pointer = NULL;
             delete [] localArr;
+            
+        } // end for-i-width
+    } // end for-j-height
+    
+    // 范围内第二步处理
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+            if (this->BinaryPixels->getRed(i, j) == CANNY_PIXELS_VAL) {
+                printf("白线");
+                this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
+                
+                //                        for (int r = 0; r < 5; r++) {
+                //                            if (j > r && j < (height - r) && i > r && i < (width - r)) {
+                //                                this->BinaryPixels->rgbMake(i+r, j, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i, j+r, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i-r, j, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i, j-r, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i+r, j+r, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i-r, j-r, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i+r, j-r, 255, 255, 255, 255);
+                //                                this->BinaryPixels->rgbMake(i-r, j+r, 255, 255, 255, 255);
+                //                            }
+                //                        }
+                
+            } else {
+                this->BinaryPixels->rgbMake(i, j, 0, 0, 0, 255);
+            }
         }
-    }
+    } // 第二步处理结束
+    
+    printf("\n");
 }
 
 // 区域二值化
