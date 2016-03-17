@@ -10,9 +10,13 @@
 #include "numberPhoto.hpp"
 #include "BlurPhoto.hpp"
 #include "BinaryzationPhoto.hpp"
+#include "Pixels.hpp"
 
 #define e 2.71828
 #define PI 3.1416
+#define GRAY_RED_POINT 0.299
+#define GRAY_GREEN_POINT 0.587
+#define GRAY_BLUE_POINT 0.114
 
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
@@ -24,8 +28,11 @@
 void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned long height) {
     
     // 进行临时赋值处理
-    int **gray_arr = new int*[height];
-    int **temp = new int*[height];
+//    int **gray_arr = new int*[height];
+//    int **temp = new int*[height];
+    
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
     //printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
     /*       w
@@ -34,42 +41,43 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
      */
     
     uint32_t *currentPixel = pixels;
-    for (int j = 0; j < height; j++) {
-        gray_arr[j] = new int[width];
-        temp[j] = new int[width];
-        for (int i = 0; i < width; i++) {
-            // 3
-            uint32_t color = *currentPixel;
-            int averageColor = (R(color)+G(color)+B(color))/3.0;
-            
-            gray_arr[j][i] = averageColor;
-            temp[j][i] = averageColor;
-            // 4.
-            currentPixel++;
-        }
-    }
-     
+//    for (int j = 0; j < height; j++) {
+//        gray_arr[j] = new int[width];
+//        temp[j] = new int[width];
+//        for (int i = 0; i < width; i++) {
+//            // 3
+//            uint32_t color = *currentPixel;
+//            int averageColor = (R(color)+G(color)+B(color))/3.0;
+//            
+//            gray_arr[j][i] = averageColor;
+//            temp[j][i] = averageColor;
+//            // 4.
+//            currentPixel++;
+//        }
+//    }
     
-    BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3);
-//    BinaryzationPhoto::edgeExamine(gray_arr, 30, 30, width, height);
     
-    // 进行处理
-
+    //BlurPhoto::GaussDeal(gray_arr, temp, width, height, 3);
+    the_binary->binaryzation(10, 10, width, height);
+    the_binary->binaryCanny(NULL, 50, 50, width, height);
     
-    // 最终将处理结果赋值过去
     // Convert the image to black and white
-    currentPixel = pixels;
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
-            // 3.
-            *currentPixel = RGBAMake(gray_arr[j][i], gray_arr[j][i], gray_arr[j][i], A(*currentPixel));
-            // 4.
-            currentPixel++;
-        }
-    }
+//    currentPixel = pixels;
+//    for (int j = 0; j < height; j++) {
+//        for (int i = 0; i < width; i++) {
+//            // 3.
+//            uint32_t color = *currentPixel;
+//            int averageColor = (R(color)+G(color)+B(color))/3.0;
+//            printf("%3d ",averageColor);
+//            
+//            currentPixel++;
+//        }
+//    }
     
-    delete [] gray_arr;
-    delete [] temp;
+    
+    
+//    delete [] gray_arr;
+//    delete [] temp;
 }
 
 

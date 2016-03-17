@@ -8,6 +8,8 @@
 
 #import "dealFaceFace.h"
 #import "numberPhoto.hpp"
+//#import "BinaryzationPhoto.hpp"
+//#import "Pixels.hpp"
 
 
 #define Mask8(x) ( (x) & 0xFF )
@@ -140,12 +142,15 @@
 //            }
     
     numberPhoto::blackAndWhite(pixels,(unsigned long)width,(unsigned long)height);
+//    Pixels *the_pixels = new Pixels(pixels,width,height);
+//    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
+//    the_binary->binaryzation(40, 40, width, height);
 
     // Create a new UIImage
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
     // 旋转90度
 //    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
-        UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
     
     // Free up the context and color space
     CGColorSpaceRelease(colorSpace);

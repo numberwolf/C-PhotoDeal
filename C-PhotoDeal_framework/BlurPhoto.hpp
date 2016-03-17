@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include <iostream>
 
-#endif /* BlurPhoto_hpp */
-
 class BlurPhoto {
     
 public:
@@ -30,3 +28,5 @@ private:
 protected:
     
 };
+
+#endif /* BlurPhoto_hpp */

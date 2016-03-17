@@ -22,6 +22,7 @@
     [super viewDidLoad];
     __weak typeof(self) weakSelf = self;
     NSString *imgName = @"psd.jpg";
+//    NSString *imgName = @"mailicon.png";
     
     [GCDQueue executeInMainQueue:^{
         [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];

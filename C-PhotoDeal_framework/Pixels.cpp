@@ -7,36 +7,36 @@
 //
 
 #include "Pixels.hpp"
+#define Mask8(x) ( (x) & 0xFF )
+#define R(x) ( Mask8(x) )
+#define G(x) ( Mask8(x >> 8 ) )
+#define B(x) ( Mask8(x >> 16) )
+#define A(x) ( Mask8(x >> 24) )
+#define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
 
 uint32_t* Pixels::getColorPixel(int x, int y) {
     return this->my_pixels + (y * this->width) + x;
 }
 
 uint32_t Pixels::getRed(int x, int y) {
-    
-    return (*this->getColorPixel(x, y)) & 0xFF;
+    return R(*this->getColorPixel(x, y));
 }
 
 uint32_t Pixels::getGreen(int x, int y) {
     
-    return (*this->getColorPixel(x, y) >> 8) & 0xFF;
+    return G(*this->getColorPixel(x, y));
 }
 
 uint32_t Pixels::getBlue(int x, int y) {
     
-    return (*this->getColorPixel(x, y) >> 16) & 0xFF;
+    return B(*this->getColorPixel(x, y));
 }
 
 uint32_t Pixels::getAlpha(int x, int y) {
-    return (*this->getColorPixel(x, y) >> 24) & 0xFF;
+    return A(*this->getColorPixel(x, y));
 }
 
 void Pixels::rgbMake(int x, int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha) {
-    /**
-     #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
-     **/
-    
     uint32_t *currentPixels = this->getColorPixel(x, y);
-    *currentPixels = ( ((R)& 0xFF) | ((G)& 0xFF << 8) | ((B)& 0xFF << 16) | ((alpha)& 0xFF << 24) );
-    
+    *currentPixels = RGBAMake(R, G, B, alpha);
 }

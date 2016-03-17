@@ -4,14 +4,13 @@
 //
 //  Created by numberwolf on 16/2/22.
 //  Copyright © 2016年 numberwolf. All rights reserved.
-//
+//  hahah
 
 #ifndef numberPhoto_hpp
 #define numberPhoto_hpp
 
 #include <stdio.h>
 #include <iostream>
-#endif /* numberPhoto_hpp */
 
 class numberPhoto {
     
@@ -38,3 +37,5 @@ private:
 protected:
     
 };
+
+#endif /* numberPhoto_hpp */
