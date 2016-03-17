@@ -42,7 +42,6 @@ public:
     
     void binaryzation(int wRadius, int hRadius, int width, int height);
     
-    // 二值化后边缘检测
     void binaryCanny(int **cannyArr,int wRadius, int hRadius, int width, int height);
     
 private:
