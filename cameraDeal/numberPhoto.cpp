@@ -51,8 +51,11 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
 //            uint32_t color = *currentPixel;
             
             // Average of RGB = greyscale
+            pixel->rgbMake(j, i, 199, 199, 199, 1);
+            
             uint32_t averageColor = (pixel->getRed(j, i) + pixel->getGreen(j, i) + pixel->getBlue(j, i)) / 3.0;
-            averageColor > 200?printf("255 ") : printf("    ");
+//            averageColor > 200?printf("255 ") : printf("    ");
+            printf("%3d ",pixel->getRed(j, i));
             
         }
         printf("\n");
@@ -68,28 +71,28 @@ void numberPhoto::blackAndWhite(uint32_t *pixels, unsigned long width, unsigned 
             [a,b,c] }
      */
     
-    printf(">>>----测试2数据：\n");
+//    printf(">>>----测试2数据：\n");
     uint32_t *currentPixel = pixels;
-    for (int j = 0; j < height; j++) {
-        gray_arr[j] = new int[width];
-        temp[j] = new int[width];
-        for (int i = 0; i < width; i++) {
-            // 3
-            uint32_t color = *currentPixel;
-            
-            /*** 两种求灰度值的方法 第二种更标准 ***/
-            //int averageColor = (R(color)+G(color)+B(color))/3.0;
-            uint32_t gray_color = (uint32_t)(R(color) * GRAY_RED_POINT + G(color) * GRAY_GREEN_POINT + B(color) * GRAY_BLUE_POINT);
-            
-            gray_arr[j][i] = gray_color;
-            temp[j][i] = gray_color;
-            // 4.
-            currentPixel++;
-            
-            gray_color > 200?printf("255 ") : printf("    ");
-        }
-        printf("\n");
-    }
+//    for (int j = 0; j < height; j++) {
+//        gray_arr[j] = new int[width];
+//        temp[j] = new int[width];
+//        for (int i = 0; i < width; i++) {
+//            // 3
+//            uint32_t color = *currentPixel;
+//            
+//            /*** 两种求灰度值的方法 第二种更标准 ***/
+//            //int averageColor = (R(color)+G(color)+B(color))/3.0;
+//            uint32_t gray_color = (uint32_t)(R(color) * GRAY_RED_POINT + G(color) * GRAY_GREEN_POINT + B(color) * GRAY_BLUE_POINT);
+//            
+//            gray_arr[j][i] = gray_color;
+//            temp[j][i] = gray_color;
+//            // 4.
+//            currentPixel++;
+//            
+//            gray_color > 200?printf("255 ") : printf("    ");
+//        }
+//        printf("\n");
+//    }
     
     BlurPhoto::GaussDeal(gray_arr, temp, (int)width, (int)height, 3); // 灰度图高斯模糊
 //    BinaryzationPhoto::binaryzation(gray_arr, 40, 30, width, height); // 二值

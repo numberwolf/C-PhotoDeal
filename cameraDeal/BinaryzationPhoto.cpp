@@ -8,7 +8,24 @@
 
 #include "BinaryzationPhoto.hpp"
 #include "Common.hpp"
+#include "Pixels.hpp"
 #include <math.h>
+
+#pragma mark
+void BinaryzationPhoto::binaryCanny(uint32_t *pixels, int **cannyArr,int wRadius, int hRadius, int width, int height) {
+    Pixels *p_Pixels = new Pixels(pixels, width, height);
+    
+    for (int j = 0; j < height; j+=hRadius) {
+        
+        // 区域内处理
+        int *localArr = new int[wRadius*hRadius];
+        int *pointer = localArr;
+        
+        for (int i = 0; i < width; i+=wRadius) {
+        }
+    }
+}
+
 
 #pragma mark 边缘检测
 void BinaryzationPhoto::edgeExamine(int **array, int wRadius, int hRadius ,int width, int height) {
