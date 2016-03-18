@@ -20,27 +20,12 @@
 const int kCannyAperture = 7;
 
 @interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate> {
-    CGRect      rectFaceDetect;
-    UIView      *_face;
-    UIView      *_eye_left;
-    UIView      *_eye_right;
-    
-    cv::Mat     _lastFrame;
     
 }
 
-@property (weak, nonatomic) IBOutlet UISlider *cannyFirstCodeSlider;
-@property (weak, nonatomic) IBOutlet UIView *controlView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @property NSData *mData;
 @property (nonatomic, retain) AVCaptureSession *session;
-
-
-//@property int redNum;
-//@property int greenNum;
-//@property int blueNum;
 
 @end
 
@@ -52,50 +37,37 @@ const int kCannyAperture = 7;
     
     [self setupCaptureSession];
     self.imageView.image = [UIImage imageNamed:@"mailicon.png"];
-    
-    _face = [UIView new];
-    _eye_left = [UIView new];
-    _eye_right = [UIView new];
-    [self.imageView addSubview:_face];
-    [self.imageView addSubview:_eye_left];
-    [self.imageView addSubview:_eye_right];
+
 }
 
-// Create and configure a capture session and start it running
 - (void)setupCaptureSession
 {
     NSError *error = nil;
     
-    // Create the session
+
     self.session = [[AVCaptureSession alloc] init] ;
     
-    // Configure the session to produce lower resolution video frames, if your
-    // processing algorithm can cope. We'll specify medium quality for the
-    // chosen device.
     self.session.sessionPreset = AVCaptureSessionPresetMedium;
     
-    // Find a suitable AVCaptureDevice
+
     AVCaptureDevice *device = [AVCaptureDevice
                                defaultDeviceWithMediaType:AVMediaTypeVideo];//这里默认是使用后置摄像头，你可以改成前置摄像头
     
-    // Create a device input with the device and add it to the session.
+
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device
                                                                         error:&error];
     if (!input) {
-        // Handling the error appropriately.
+
     } else {
         [self.session addInput:input];
         
-        // Create a VideoDataOutput and add it to the session
         AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
         [self.session addOutput:output];
         
-        // Configure your output.
         dispatch_queue_t queue = dispatch_queue_create("myQueue", NULL);
         [output setSampleBufferDelegate:self queue:queue];
         //    dispatch_release(queue);
         
-        // Specify the pixel format
         output.videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [NSNumber numberWithInt:kCVPixelFormatType_32BGRA], kCVPixelBufferPixelFormatTypeKey,
                                 [NSNumber numberWithInt: self.view.frame.size.width], (id)kCVPixelBufferWidthKey,
@@ -112,39 +84,25 @@ const int kCannyAperture = 7;
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     __weak typeof(self) weakSelf = self;
     
-    // Create a UIImage from the sample buffer data
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
     //    self.mData = UIImageJPEGRepresentation(image, 0.5);//这里的mData是NSData对象，后面的0.5代表生成的图片质量
     
     // coreimage人脸检测
     //[self faceDetect:image];
-    
-    if (self.controlView.hidden == NO) {
 
-        // UIimage和cv::Mat的转换
-        cv::Mat testMat = [image CVMat];
-        
-        // Process test image and force update of UI
-        _lastFrame = testMat;
 
-        [GCDQueue executeInMainQueue:^{
-            
-        }];
-    } else {
 
-        //[UIImage imageNamed:@"mailicon.png"]
-//        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
+    //[UIImage imageNamed:@"mailicon.png"]
+    UIImage *temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100];
 //        UIImage *temp = [self opencvFaceDetect:image];
-        
-        [GCDQueue executeInMainQueue:^{
-//            weakSelf.imageView.image = temp;
-        }];
-    }
+    
+    [GCDQueue executeInMainQueue:^{
+        weakSelf.imageView.image = temp;
+    }];
     
 
 }
 
-// NOTE you SHOULD cvReleaseImage() for the return value when end of the code.
 - (IplImage *)CreateIplImageFromUIImage:(UIImage *)image {
     // Getting CGImage from UIImage
     CGImageRef imageRef = image.CGImage;
@@ -264,6 +222,8 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     return temp_second;
 }
 
+/**********
+
 #pragma mark - 人脸检测方法
 - (void)faceDetect:(UIImage *)aImage
 {
@@ -373,17 +333,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     }
 }
 
-// 轮廓控制面板
-- (IBAction)openCannyBtnClick:(id)sender {
-    (self.controlView.hidden == YES)?(self.controlView.hidden = NO) : (self.controlView.hidden = YES);
-}
-
-- (IBAction)cannyFirstSlider:(id)sender {
-}
-
-- (IBAction)cannySecondSlider:(id)sender {
-}
-
+******/
 
 
 // Create a UIImage from sample buffer data

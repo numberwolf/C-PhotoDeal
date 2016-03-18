@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cnX-f7-wTW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,57 +21,16 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-Ga-v5T">
-                                <rect key="frame" x="270" y="285" width="60" height="30"/>
-                                <state key="normal" title="边缘检测">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.090197819205283913" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="0.88550170590259958" blue="3.3306690738754696e-16" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="openCannyBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvO-MY-KwT"/>
-                                </connections>
-                            </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-pH-eqk" userLabel="控制板view">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-fu-JP1">
-                                        <rect key="frame" x="18" y="10" width="564" height="31"/>
-                                        <connections>
-                                            <action selector="cannyFirstSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dlm-7r-M0o"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="fpR-fu-JP1" firstAttribute="top" secondItem="5eT-pH-eqk" secondAttribute="top" constant="10" id="VHl-IY-bJB"/>
-                                    <constraint firstAttribute="trailing" secondItem="fpR-fu-JP1" secondAttribute="trailing" constant="20" id="mRg-e2-HFl"/>
-                                    <constraint firstItem="fpR-fu-JP1" firstAttribute="leading" secondItem="5eT-pH-eqk" secondAttribute="leading" constant="20" id="u1j-Re-rZS"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bh0-HL-YA2" secondAttribute="trailing" id="AhV-Sk-9NI"/>
-                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BmP-Br-OYg"/>
-                            <constraint firstAttribute="bottom" secondItem="5eT-pH-eqk" secondAttribute="bottom" id="GK4-cp-pLH"/>
-                            <constraint firstItem="5eT-pH-eqk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HJe-af-QBh"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KZ2-is-FDK"/>
-                            <constraint firstAttribute="trailing" secondItem="5eT-pH-eqk" secondAttribute="trailing" id="Tyu-NW-XkM"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mqf-ai-yor"/>
-                            <constraint firstItem="5eT-pH-eqk" firstAttribute="top" secondItem="bh0-HL-YA2" secondAttribute="bottom" id="oRF-3h-vcc"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
-                            <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tzW-Bn-0os"/>
-                            <constraint firstItem="5eT-pH-eqk" firstAttribute="height" secondItem="bh0-HL-YA2" secondAttribute="height" multiplier="1:2" id="zlq-qy-3qe"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="oRF-3h-vcc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="cannyFirstCodeSlider" destination="fpR-fu-JP1" id="IAA-rr-geC"/>
-                        <outlet property="controlView" destination="5eT-pH-eqk" id="D2N-np-2FA"/>
                         <outlet property="imageView" destination="bh0-HL-YA2" id="Zn5-8P-krC"/>
                     </connections>
                 </viewController>
