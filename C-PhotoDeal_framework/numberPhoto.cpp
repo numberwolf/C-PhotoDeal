@@ -53,16 +53,21 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
     the_blur->GaussDeal(tempPixels,width, height, value);
     //the_binary->binaryzation(50, 50, width, height);
     //the_binary->binaryCanny(50, 50, width, height);
-    
-//    delete [] the_binary;
-//    delete [] the_pixels;
-    free(the_pixels);
+
     the_pixels = NULL;
+    the_blur = NULL;
 }
 
-// 边缘检测
-void numberPhoto::method_two(uint32_t *pixels, int width, int height) {
+// 二值化 - 边缘检测
+void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
+    the_binary->binaryzation(wRadius, hRadius, width, height);
+    
+    if (isCanny == true) {
+        the_binary->binaryCanny(wRadius, hRadius, width, height);
+    }
 }
 
 // 二值化

@@ -36,7 +36,7 @@ public:
     
     // 入口
     static void method_one(uint32_t *pixels, int width, int height, int value);
-    static void method_two(uint32_t *pixels, int width, int height);
+    static void method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius);
     static void method_three(uint32_t *pixels, int width, int height);
     
 private:
