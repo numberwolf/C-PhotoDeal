@@ -29,7 +29,6 @@ const int kCannyAperture = 7;
     
 }
 
-@property (weak, nonatomic) IBOutlet UISlider *cannySecondCodeSlider;
 @property (weak, nonatomic) IBOutlet UISlider *cannyFirstCodeSlider;
 @property (weak, nonatomic) IBOutlet UIView *controlView;
 //@property (weak, nonatomic) IBOutlet UISlider *redSilder;
@@ -147,7 +146,7 @@ const int kCannyAperture = 7;
         _lastFrame = testMat;
 
         [GCDQueue executeInMainQueue:^{
-            weakSelf.imageView.image = [UIImage imageWithCVMat:processFrame(_lastFrame,(int)weakSelf.cannyFirstCodeSlider.value,(int)weakSelf.cannySecondCodeSlider.value)];
+            
         }];
     } else {
 

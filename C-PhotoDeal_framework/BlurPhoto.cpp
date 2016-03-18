@@ -1,10 +1,3 @@
-//
-//  BlurPhoto.cpp
-//  cameraDeal
-//
-//  Created by numberwolf on 16/3/1.
-//  Copyright © 2016年 numberwolf. All rights reserved.
-//
 /**************************************************************************
  * Email：porschegt23@foxmail.com || numberwolf11@gmail.com
  * Github:https://github.com/numberwolf
@@ -19,15 +12,12 @@
  
  **************************************************************************/
 
-
 #include <math.h>
 #include "BlurPhoto.hpp"
-
-#define e 2.71828
-#define PI 3.1416
+#include "Common.hpp"
 
 #pragma mark 高斯模糊
-void BlurPhoto::GaussDeal(int **array, int **temp,int width, int height, int r) {
+void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
     
     // **array是二维数组，是rgb8888 最后的每个像素组成的数组
     double xaver = 0.0, x2aver = 0.0;
@@ -56,7 +46,7 @@ void BlurPhoto::GaussDeal(int **array, int **temp,int width, int height, int r) 
                         continue;
                     }
                     
-                    *pixTemp = temp[y][x];
+                    *pixTemp = tempPixels->getRed(x, y);
                     
                     pixelSum += *pixTemp; // 总数
                     pix2Sum += (*pixTemp) * (*pixTemp); // 总数^2
@@ -68,8 +58,8 @@ void BlurPhoto::GaussDeal(int **array, int **temp,int width, int height, int r) 
             /** change End **/
             
             // 开始计算方差
-            xaver = (pixelSum - temp[h][w])/((2*r+1)*(2*r+1)-1);
-            x2aver = (pix2Sum - temp[h][w]*temp[h][w])/((2*r+1)*(2*r+1)-1);
+            xaver = (pixelSum - tempPixels->getRed(w, h))/((2*r+1)*(2*r+1)-1);
+            x2aver = (pix2Sum - tempPixels->getRed(w, h)*tempPixels->getRed(w, h))/((2*r+1)*(2*r+1)-1);
             
             double fc = sqrt(x2aver - xaver*xaver); // 得到方差
             
@@ -124,8 +114,8 @@ void BlurPhoto::GaussDeal(int **array, int **temp,int width, int height, int r) 
                     pixelsArr++;
                 }
             }
-            
-            array[h][w] = array_h_w_temp;
+            this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp, 255);
+//            array[h][w] = array_h_w_temp;
             
             delete [] weightArr;
             //delete [] pixelsArr;

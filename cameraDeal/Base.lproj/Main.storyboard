@@ -21,12 +21,6 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-ut-RZC" userLabel="信息">
-                                <rect key="frame" x="0.0" y="20" width="600" height="300"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-Ga-v5T">
                                 <rect key="frame" x="270" y="285" width="60" height="30"/>
                                 <state key="normal" title="边缘检测">
@@ -46,41 +40,27 @@
                                             <action selector="cannyFirstSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dlm-7r-M0o"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="nod-Ie-nY9">
-                                        <rect key="frame" x="18" y="60" width="564" height="31"/>
-                                        <connections>
-                                            <action selector="cannySecondSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="yBk-7F-U6N"/>
-                                        </connections>
-                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="nod-Ie-nY9" secondAttribute="trailing" constant="20" id="Qbh-m6-o9p"/>
-                                    <constraint firstItem="nod-Ie-nY9" firstAttribute="top" secondItem="fpR-fu-JP1" secondAttribute="bottom" constant="20" id="RWK-nE-2PR"/>
                                     <constraint firstItem="fpR-fu-JP1" firstAttribute="top" secondItem="5eT-pH-eqk" secondAttribute="top" constant="10" id="VHl-IY-bJB"/>
                                     <constraint firstAttribute="trailing" secondItem="fpR-fu-JP1" secondAttribute="trailing" constant="20" id="mRg-e2-HFl"/>
-                                    <constraint firstItem="nod-Ie-nY9" firstAttribute="leading" secondItem="5eT-pH-eqk" secondAttribute="leading" constant="20" id="nvA-PL-kBY"/>
                                     <constraint firstItem="fpR-fu-JP1" firstAttribute="leading" secondItem="5eT-pH-eqk" secondAttribute="leading" constant="20" id="u1j-Re-rZS"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="height" secondItem="bh0-HL-YA2" secondAttribute="height" multiplier="1:2" id="2RR-oI-F9C"/>
                             <constraint firstAttribute="trailing" secondItem="bh0-HL-YA2" secondAttribute="trailing" id="AhV-Sk-9NI"/>
                             <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BmP-Br-OYg"/>
                             <constraint firstAttribute="bottom" secondItem="5eT-pH-eqk" secondAttribute="bottom" id="GK4-cp-pLH"/>
                             <constraint firstItem="5eT-pH-eqk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HJe-af-QBh"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JIm-wH-xtG"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KZ2-is-FDK"/>
                             <constraint firstAttribute="trailing" secondItem="5eT-pH-eqk" secondAttribute="trailing" id="Tyu-NW-XkM"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aTA-sF-zJg"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mqf-ai-yor"/>
                             <constraint firstItem="5eT-pH-eqk" firstAttribute="top" secondItem="bh0-HL-YA2" secondAttribute="bottom" id="oRF-3h-vcc"/>
-                            <constraint firstItem="dYg-ut-RZC" firstAttribute="width" secondItem="bh0-HL-YA2" secondAttribute="width" id="qdl-bT-Dh8"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
                             <constraint firstItem="eQB-Ga-v5T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tzW-Bn-0os"/>
-                            <constraint firstAttribute="trailing" secondItem="dYg-ut-RZC" secondAttribute="trailing" id="wXf-lo-0qd"/>
                             <constraint firstItem="5eT-pH-eqk" firstAttribute="height" secondItem="bh0-HL-YA2" secondAttribute="height" multiplier="1:2" id="zlq-qy-3qe"/>
                         </constraints>
                         <variation key="default">
@@ -91,10 +71,8 @@
                     </view>
                     <connections>
                         <outlet property="cannyFirstCodeSlider" destination="fpR-fu-JP1" id="IAA-rr-geC"/>
-                        <outlet property="cannySecondCodeSlider" destination="nod-Ie-nY9" id="CJv-yw-7tI"/>
                         <outlet property="controlView" destination="5eT-pH-eqk" id="D2N-np-2FA"/>
                         <outlet property="imageView" destination="bh0-HL-YA2" id="Zn5-8P-krC"/>
-                        <outlet property="infoLabel" destination="dYg-ut-RZC" id="8dO-GQ-bjl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

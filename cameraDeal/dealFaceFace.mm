@@ -141,7 +141,7 @@
 //                printf("\n");
 //            }
     
-    numberPhoto::blackAndWhite(pixels,(unsigned long)width,(unsigned long)height);
+    numberPhoto::method_one(pixels,(unsigned long)width,(unsigned long)height);
 //    Pixels *the_pixels = new Pixels(pixels,width,height);
 //    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
 //    the_binary->binaryzation(40, 40, width, height);

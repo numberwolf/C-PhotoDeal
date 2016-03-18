@@ -37,12 +37,11 @@ public:
     }
     
     ~BinaryzationPhoto() {
-        BinaryPixels = NULL;
+        //BinaryPixels = NULL;
     }
     
     void binaryzation(int wRadius, int hRadius, int width, int height);
-    
-    void binaryCanny(int **cannyArr,int wRadius, int hRadius, int width, int height);
+    void binaryCanny(int wRadius, int hRadius, int width, int height);
     
 private:
     

@@ -24,15 +24,11 @@
 #include "Common.hpp"
 #include <math.h>
 
-#define GRAY_RED_POINT 0.299
-#define GRAY_GREEN_POINT 0.587
-#define GRAY_BLUE_POINT 0.114
-
 #define CANNY_PIXELS_VAL 200  // 临时存放边界key
 #define CANNY_PIXELS_ALPHA 255
 
 #pragma mark
-void BinaryzationPhoto::binaryCanny(int **cannyArr,int wRadius, int hRadius, int width, int height) {
+void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int height) {
     
     for (int j = 0; j < height; j+=hRadius) {
         for (int i = 0; i < width; i+=wRadius) {
@@ -103,7 +99,7 @@ void BinaryzationPhoto::binaryCanny(int **cannyArr,int wRadius, int hRadius, int
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
             if (this->BinaryPixels->getRed(i, j) == CANNY_PIXELS_VAL) {
-                printf("白线");
+                //printf("白线");
                 this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
                 
                 //                        for (int r = 0; r < 5; r++) {
@@ -128,7 +124,7 @@ void BinaryzationPhoto::binaryCanny(int **cannyArr,int wRadius, int hRadius, int
     printf("\n");
 }
 
-// 区域二值化
+// 区域二值化 灰度化之后
 void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height) {
     
     for (int j = 0; j < height; j+=hRadius) {

@@ -25,17 +25,20 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Pixels.hpp"
 
 class BlurPhoto {
     
 public:
+    Pixels *BlurPixels = NULL;
     
-    BlurPhoto() {
+    BlurPhoto(Pixels *p_Pixels) {
+        this->BlurPixels = p_Pixels;
     }
     
     ~BlurPhoto() {}
     
-    static void GaussDeal(int **array, int **temp, int width, int height, int r);
+    void GaussDeal(Pixels *tempPixels, int width, int height, int r);
     
 private:
     
