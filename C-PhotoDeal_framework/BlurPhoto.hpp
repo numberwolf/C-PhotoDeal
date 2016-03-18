@@ -28,9 +28,9 @@
 #include "Pixels.hpp"
 
 class BlurPhoto {
-    
-public:
     Pixels *BlurPixels = NULL;
+public:
+    
     
     BlurPhoto(Pixels *p_Pixels) {
         this->BlurPixels = p_Pixels;

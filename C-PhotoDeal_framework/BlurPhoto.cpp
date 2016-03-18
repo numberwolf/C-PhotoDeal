@@ -16,7 +16,7 @@
 #include "BlurPhoto.hpp"
 #include "Common.hpp"
 
-#pragma mark 高斯模糊
+#pragma mark 高斯模糊 - 半径不要太大 图片半径的百分之1-2合适
 void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
     
     // **array是二维数组，是rgb8888 最后的每个像素组成的数组
@@ -57,9 +57,10 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
             
             /** change End **/
             
+            int theNum = tempPixels->getRed(w,h);
             // 开始计算方差
-            xaver = (pixelSum - tempPixels->getRed(w, h))/((2*r+1)*(2*r+1)-1);
-            x2aver = (pix2Sum - tempPixels->getRed(w, h)*tempPixels->getRed(w, h))/((2*r+1)*(2*r+1)-1);
+            xaver = (pixelSum - theNum)/((2*r+1)*(2*r+1)-1);
+            x2aver = (pix2Sum - theNum*theNum)/((2*r+1)*(2*r+1)-1);
             
             double fc = sqrt(x2aver - xaver*xaver); // 得到方差
             
@@ -114,8 +115,8 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
                     pixelsArr++;
                 }
             }
+            
             this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp, 255);
-//            array[h][w] = array_h_w_temp;
             
             delete [] weightArr;
             //delete [] pixelsArr;

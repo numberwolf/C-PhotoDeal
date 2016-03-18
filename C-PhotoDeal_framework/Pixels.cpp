@@ -55,7 +55,7 @@ void Pixels::GrayPixels() {
         for (int y = 0; y < this->height; y++) {
             uint32_t GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
             
-            //this->rgbMake(x, y, this->getRed(x, y), this->getGreen(x, y), this->getBlue(x, y), 255);
+            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
         }
     }
 }
