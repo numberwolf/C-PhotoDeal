@@ -33,9 +33,6 @@
             weakSelf.deaImg.image = deal;
         }];
     }];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
