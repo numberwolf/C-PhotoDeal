@@ -17,10 +17,15 @@
 #define navBarHeight    44.
 #define markViewTag    100
 
+#define METHOD_CANNY 100
+#define METHOD_BINARY 101
+#define METHOD_GAUSS 102
+#define METHOD_PROTYPE 103
+
 const int kCannyAperture = 7;
 
 @interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate> {
-    
+    int _METHOD_CHOSE_TAG;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -37,6 +42,7 @@ const int kCannyAperture = 7;
     
     [self setupCaptureSession];
     self.imageView.image = [UIImage imageNamed:@"mailicon.png"];
+    _METHOD_CHOSE_TAG = METHOD_PROTYPE;
 
 }
 
@@ -90,10 +96,20 @@ const int kCannyAperture = 7;
     // coreimage人脸检测
     //[self faceDetect:image];
 
-
-
     //[UIImage imageNamed:@"mailicon.png"]
-    UIImage *temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100];
+    UIImage *temp;
+    
+    if (_METHOD_CHOSE_TAG == METHOD_GAUSS) {
+        temp = [dealFaceFace GaussBlurMyImage:image andBlurValue:3];
+    } else if (_METHOD_CHOSE_TAG == METHOD_CANNY) {
+        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150];
+    } else if (_METHOD_CHOSE_TAG == METHOD_BINARY) {
+        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100];
+    } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        }];
+    }
+    
 //        UIImage *temp = [self opencvFaceDetect:image];
     
     [GCDQueue executeInMainQueue:^{
@@ -101,6 +117,18 @@ const int kCannyAperture = 7;
     }];
     
 
+}
+
+- (IBAction)cannyButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_CANNY;
+}
+
+- (IBAction)binaryButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_BINARY;
+}
+
+- (IBAction)GaussButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_GAUSS;
 }
 
 - (IplImage *)CreateIplImageFromUIImage:(UIImage *)image {

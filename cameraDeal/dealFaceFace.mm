@@ -70,7 +70,6 @@
 
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_one(pixels, width, height, value);
-//        numberPhoto::method_two(pixels, width, height, true, 50, 50);
     }];
 }
 

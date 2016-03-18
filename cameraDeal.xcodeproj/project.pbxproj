@@ -241,18 +241,18 @@
 		03D10AC91C780F5200DCFCA6 /* cameraDeal */ = {
 			isa = PBXGroup;
 			children = (
+				03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */,
+				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */,
 				03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */,
 				03FDDFFE1C9A81CF004FD897 /* C-PhotoDeal_framework */,
 				032441B41C8043200067775C /* haarcascade_frontalface_alt2.xml */,
 				03D10B031C782CCE00DCFCA6 /* GCD */,
-				03D10ACD1C780F5200DCFCA6 /* AppDelegate.h */,
-				03D10ACE1C780F5200DCFCA6 /* AppDelegate.m */,
 				03D10AD01C780F5200DCFCA6 /* ViewController.h */,
 				03D10AD11C780F5200DCFCA6 /* ViewController.mm */,
+				03D10AD31C780F5200DCFCA6 /* Main.storyboard */,
 				03807B301C7E1D4600B6347F /* testController.h */,
 				03807B311C7E1D4600B6347F /* testController.m */,
-				03D10AD31C780F5200DCFCA6 /* Main.storyboard */,
 				03D10AD61C780F5200DCFCA6 /* Assets.xcassets */,
 				03D10AD81C780F5200DCFCA6 /* LaunchScreen.storyboard */,
 				03D10ADB1C780F5200DCFCA6 /* Info.plist */,
