@@ -28,18 +28,16 @@
 class numberPhoto {
     
 public:
-    //DATA data;
-    //treeData *left;
-    
     numberPhoto() {
-        //this->data = da;
-        //this->left = NULL;
     }
     
-    ~numberPhoto() {}
+    ~numberPhoto() {
+    }
     
     // 入口
-    static void method_one(uint32_t *pixels, unsigned long width, unsigned long height);
+    static void method_one(uint32_t *pixels, int width, int height, int value);
+    static void method_two(uint32_t *pixels, int width, int height);
+    static void method_three(uint32_t *pixels, int width, int height);
     
 private:
 protected:

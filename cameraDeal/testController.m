@@ -28,7 +28,7 @@
         [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];
     }];
     [GCDQueue executeInGlobalQueue:^{
-        UIImage *deal = [dealFaceFace autoConfigUIImage:[UIImage imageNamed:imgName] withRed:NULL withGreen:NULL withBlue:NULL];
+        UIImage *deal = [dealFaceFace BlurMyImage:[UIImage imageNamed:imgName] andBlurValue:3];
         [GCDQueue executeInMainQueue:^{
             weakSelf.deaImg.image = deal;
         }];

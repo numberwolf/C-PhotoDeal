@@ -28,10 +28,11 @@
 #include "Pixels.hpp"
 #include "Common.hpp"
 
-void numberPhoto::method_one(uint32_t *pixels, unsigned long width, unsigned long height) {
+// 模糊
+void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value) {
     
     Pixels *the_pixels = new Pixels(pixels,width,height);
-    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
+    //BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     BlurPhoto *the_blur = new BlurPhoto(the_pixels);
     
     //printf("width:%d,height:%d\n",(int)width,(int)height); // 480,360
@@ -41,38 +42,31 @@ void numberPhoto::method_one(uint32_t *pixels, unsigned long width, unsigned lon
      */
     
     // start
-    uint32_t *temp = new uint32_t[width*height];
-    
-    uint32_t *tempCurrentPixel = temp;
-    uint32_t *currentPixel = pixels;
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
-            // 3.
-            *tempCurrentPixel = RGBAMake(R(*currentPixel), G(*currentPixel), B(*currentPixel), A(*currentPixel));
-            // 4.
-            currentPixel++;
-            tempCurrentPixel++;
-        }
-    }
+    uint32_t *temp(pixels);
+
     
     Pixels *tempPixels = new Pixels(temp,width,height);
     tempPixels->GrayPixels();
     // end
     
     the_pixels->GrayPixels();
-    the_blur->GaussDeal(tempPixels,width, height, 3);
+    the_blur->GaussDeal(tempPixels,width, height, value);
     //the_binary->binaryzation(50, 50, width, height);
     //the_binary->binaryCanny(50, 50, width, height);
     
-//    for (int i = 0; i < width; ++i) {
-//        for (int j = 0; j < height; ++j) {
-//            printf("%3d ",the_pixels->getRed(i, j));
-//        }
-//        printf("\n");
-//    }
-    
 //    delete [] the_binary;
 //    delete [] the_pixels;
+    free(the_pixels);
+    the_pixels = NULL;
+}
+
+// 边缘检测
+void numberPhoto::method_two(uint32_t *pixels, int width, int height) {
+    
+}
+
+// 二值化
+void numberPhoto::method_three(uint32_t *pixels, int width, int height) {
     
 }
 

@@ -11,7 +11,8 @@
 #import <CoreImage/CoreImage.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+
 @interface dealFaceFace : NSObject
-+ (UIImage *)blackAndWhiteWithUIImage:(UIImage *)image;
-+ (UIImage *)autoConfigUIImage:(UIImage *)image withRed:(int)red withGreen:(int)green withBlue:(int)blue;
+
++ (UIImage *)BlurMyImage:(UIImage *)image andBlurValue:(int)value ;
 @end
