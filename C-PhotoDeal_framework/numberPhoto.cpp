@@ -68,6 +68,9 @@ void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCan
     if (isCanny == true) {
         the_binary->binaryCanny(wRadius, hRadius, width, height);
     }
+    
+    the_pixels = NULL;
+    the_binary = NULL;
 }
 
 // 二值化

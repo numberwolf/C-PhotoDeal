@@ -1,13 +1,6 @@
-//
-//  ViewController.m
-//  cameraDeal
-//
-//  Created by numberwolf on 16/2/20.
-//  Copyright © 2016年 numberwolf. All rights reserved.
-//
 
 #import <AVFoundation/AVFoundation.h>
-#import "ViewController.h"
+#import "TEMP_ViewController.h"
 #import "GCD.h"
 #import "dealFaceFace.h"
 
@@ -19,7 +12,7 @@
 
 const int kCannyAperture = 7;
 
-@interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate> {
+@interface TEMP_ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate> {
     CGRect      rectFaceDetect;
     UIView      *_face;
     UIView      *_eye_left;
@@ -101,9 +94,24 @@ const int kCannyAperture = 7;
                                 [NSNumber numberWithInt: self.view.frame.size.width], (id)kCVPixelBufferWidthKey,
                                 [NSNumber numberWithInt: self.view.frame.size.height], (id)kCVPixelBufferHeightKey,
                                 nil]; // 320,240
-
+        
+        //    AVCaptureVideoPreviewLayer* preLayer = [AVCaptureVideoPreviewLayer layerWithSession: self.session];
+        //
+        //    //preLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+        ////    preLayer.frame = CGRectMake(0, 0, 320, 240);
+        //    preLayer.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+        //
+        //    preLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        //    [self.view.layer addSublayer:preLayer];
+        //    // If you wish to cap the frame rate to a known value, such as 15 fps, set
+        //    // minFrameDuration.
+        //    output.minFrameDuration = CMTimeMake(1, 15);
+        
+        // Start the session running to start the flow of data
         [self.session startRunning];
-
+        
+        // Assign session to an ivar.
+        //[self setSession:session];
     }
     
 }
@@ -120,28 +128,28 @@ const int kCannyAperture = 7;
     //[self faceDetect:image];
     
     if (self.controlView.hidden == NO) {
-
+        
         // UIimage和cv::Mat的转换
         cv::Mat testMat = [image CVMat];
         
         // Process test image and force update of UI
         _lastFrame = testMat;
-
+        
         [GCDQueue executeInMainQueue:^{
             
         }];
     } else {
-
+        
         //[UIImage imageNamed:@"mailicon.png"]
-//        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
-//        UIImage *temp = [self opencvFaceDetect:image];
+        //        UIImage *temp = [dealFaceFace autoConfigUIImage:image withRed:NULL withGreen:NULL withBlue:NULL];
+        //        UIImage *temp = [self opencvFaceDetect:image];
         
         [GCDQueue executeInMainQueue:^{
-//            weakSelf.imageView.image = temp;
+            //            weakSelf.imageView.image = temp;
         }];
     }
     
-
+    
 }
 
 // NOTE you SHOULD cvReleaseImage() for the return value when end of the code.
@@ -251,7 +259,17 @@ cv::Mat processFrame(cv::Mat _lastFrame, int code_one, int code_two)
     
     t = 1000 * ((double)cv::getTickCount() - t) / cv::getTickFrequency();
     
-
+    /**
+     IplImage pImg;
+     pImg = IplImage(output);
+     cvFlip(&pImg,NULL,-1);
+     cvFlip(&pImg,NULL,0);
+     pImg = *rotateImage(&pImg, 180, true);
+     
+     output = cvGetImage(&pImg,0);
+     **/
+    
+    // Display result
     return rotateMat(output,1);
 }
 
@@ -259,7 +277,7 @@ cv::Mat processFrame(cv::Mat _lastFrame, int code_one, int code_two)
 cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     cv::Mat temp,temp_second;
     transpose(mat, temp);
-    flip(temp, temp_second, 1);
+    flip(temp, temp_second, 1); // flip by y axis
     
     return temp_second;
 }
@@ -305,7 +323,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
 // 人脸标识 ---  方块
 -(void)markAfterFaceDetect:(NSArray *)features
 {
-
+    
     if ([features count] == 0) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Failed"
                                                        message:@"The face detecting failed"
@@ -330,14 +348,14 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
         _face.layer.borderWidth = 2;
         _face.layer.borderColor = [UIColor yellowColor].CGColor;
         _face.alpha = 0.6;
-
+        
         
         rectFaceDetect = aRect;
         
         
         NSLog(@"%@",NSStringFromCGRect(f.bounds));
         if (f.hasLeftEyePosition){
-
+            
             
             printf("Left eye %g %g\n", f.leftEyePosition.x, f.leftEyePosition.y);
             
@@ -351,11 +369,11 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
             _eye_left.backgroundColor = [UIColor yellowColor];
             [_eye_left setTransform:CGAffineTransformMakeScale(1, -1)];
             _eye_left.alpha = 0.6;
-
+            
         }
         if (f.hasRightEyePosition)
         {
-
+            
             printf("Right eye %g %g\n", f.rightEyePosition.x, f.rightEyePosition.y);
             
             _eye_right.frame = CGRectMake(0, 0, 10, 10);
@@ -368,7 +386,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
             _eye_right.backgroundColor = [UIColor blueColor];
             [_eye_right setTransform:CGAffineTransformMakeScale(1, -1)];
             _eye_right.alpha = 0.6;
-
+            
         }
     }
 }
@@ -419,7 +437,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     
     // Create an image object from the Quartz image
     UIImage *image = [UIImage imageWithCGImage:quartzImage];
-//    UIImage *image = [UIImage imageWithCGImage:quartzImage scale:1 orientation:UIImageOrientationRight];
+    //    UIImage *image = [UIImage imageWithCGImage:quartzImage scale:1 orientation:UIImageOrientationRight];
     
     // Free up the context and color space
     CGContextRelease(context);

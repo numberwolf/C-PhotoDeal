@@ -14,5 +14,7 @@
 
 @interface dealFaceFace : NSObject
 
-+ (UIImage *)BlurMyImage:(UIImage *)image andBlurValue:(int)value ;
++ (UIImage *)GaussBlurMyImage:(UIImage *)image andBlurValue:(int)value ;
++ (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
++ (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
 @end

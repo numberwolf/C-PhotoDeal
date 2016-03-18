@@ -65,11 +65,24 @@
     return processedImage;
 }
 
-+ (UIImage *)BlurMyImage:(UIImage *)image andBlurValue:(int)value{
++ (UIImage *)GaussBlurMyImage:(UIImage *)image andBlurValue:(int)value{
     __weak typeof(self) weakSelf = self;
 
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_one(pixels, width, height, value);
+//        numberPhoto::method_two(pixels, width, height, true, 50, 50);
+    }];
+}
+
++ (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::method_two(pixels, width, height, false, wRadius, hRadius);
+    }];
+}
+
++ (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::method_two(pixels, width, height, true, wRadius, hRadius);
     }];
 }
 
