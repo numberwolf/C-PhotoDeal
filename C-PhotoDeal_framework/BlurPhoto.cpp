@@ -126,37 +126,93 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
     }
 }
 
-void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height) {
-    for (int h = 0; h < (height-1); h++) {
-        for (int w = 0 ; w < (width-1); w++) {
-            uint32_t first = tempPixels->getRed(w, h);
-            uint32_t second = tempPixels->getRed(w+1, h);
-            
-            uint32_t diffVal = (first - second)/2;
-            if (diffVal > 255) {
-                diffVal = 255;
-            } else if (diffVal < 0) {
-                diffVal = 0;
-            }
-            
-            this->BlurPixels->rgbMake(w, h, this->BlurPixels->getRed(w, h)+diffVal, this->BlurPixels->getGreen(w, h)+diffVal,this->BlurPixels->getBlue(w, h)+diffVal , 255);
-        }
-    }
+void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius) {
+    int RADIUS = 2;
     
     for (int h = 0; h < (height-1); h++) {
         for (int w = 0 ; w < (width-1); w++) {
-            uint32_t first = tempPixels->getRed(w, h);
-            uint32_t second = tempPixels->getRed(w, h+1);
+            uint32_t first_red = tempPixels->getRed(w, h);
+            uint32_t first_green = tempPixels->getGreen(w, h);
+            uint32_t first_blue = tempPixels->getBlue(w, h);
             
-            uint32_t diffVal = (first - second)/2;
-            if (diffVal > 255) {
-                diffVal = 255;
-            } else if (diffVal < 0) {
-                diffVal = 0;
-            }
+            uint32_t second_red = tempPixels->getRed(w+1, h);
+            uint32_t second_green = tempPixels->getGreen(w+1, h);
+            uint32_t second_blue = tempPixels->getBlue(w+1, h);
             
-            this->BlurPixels->rgbMake(w, h, this->BlurPixels->getRed(w, h)+diffVal, this->BlurPixels->getGreen(w, h)+diffVal,this->BlurPixels->getBlue(w, h)+diffVal , 255);
+            int diffRedVal = (first_red - second_red)*RADIUS;
+            int diffGreenVal = (first_green - second_green)*RADIUS;
+            int diffBlueVal = (first_blue - second_blue)*RADIUS;
+            
+            printf("%3d ",diffRedVal);
+            
+            int red_value = this->BlurPixels->getRed(w, h) + diffRedVal;
+            int green_value = this->BlurPixels->getGreen(w, h) + diffGreenVal;
+            int blue_value = this->BlurPixels->getBlue(w, h) + diffBlueVal;
+            
+            red_value<0?red_value=0:(red_value>255?red_value=255:NULL);
+            green_value<0?green_value=0:(green_value>255?green_value=255:NULL);
+            blue_value<0?blue_value=0:(blue_value>255?blue_value=255:NULL);
+            
+            this->BlurPixels->rgbMake(w, h, red_value, green_value, blue_value , 255);
         }
     }
+    
+//    for (int h = 0; h < (height-1); h++) {
+//        for (int w = 0 ; w < (width-1); w++) {
+//            uint32_t first = tempPixels->getRed(w, h);
+//            uint32_t second = tempPixels->getRed(w, h+1);
+//            
+//            uint32_t diffVal = (first - second)/2;
+//            uint32_t value = this->BlurPixels->getRed(w, h)+diffVal;
+//            if (value > 255) {
+//                value = 255;
+//            } else if (value < 0) {
+//                value = 0;
+//            }
+//            
+//            this->BlurPixels->rgbMake(w, h, value, value, value , 255);
+//        }
+//    }
+}
+
+void BlurPhoto::PointyFixDeal(Pixels *tempPixels, int width, int height, int wRadius, int hRadius) {
+    uint32_t *tempColorArr = new uint32_t[9];
+    uint32_t value = 0;
+    
+    for (int h = 1; h < (height-1); h++) {
+        for (int w = 1 ; w < (width-1); w++) {
+            tempColorArr[0] = tempPixels->getRed(w-1, h-1);
+            tempColorArr[1] = tempPixels->getRed(w, h-1);
+            tempColorArr[2] = tempPixels->getRed(w+1, h-1);
+            
+            tempColorArr[3] = tempPixels->getRed(w-1, h);
+            tempColorArr[4] = tempPixels->getRed(w, h);
+            tempColorArr[5] = tempPixels->getRed(w+1, h);
+            
+            tempColorArr[6] = tempPixels->getRed(w-1, h+1);
+            tempColorArr[7] = tempPixels->getRed(w, h+1);
+            tempColorArr[8] = tempPixels->getRed(w+1, h+1);
+            
+            //5f(i,j)-f(i-1,j)-f(i+1,j)-f(i,j+1)-f(i,j-1)
+            // z(n,m)=4x(n,m)-x(n-1,m) -x(n +1,m)-x(n, m-1) -x(n,m+1)
+            
+            value = tempColorArr[0] + 2*tempColorArr[1] + tempColorArr[2] - tempColorArr[6] - 2*tempColorArr[7] - tempColorArr[8];
+//            value = 5*tempColorArr[4] - tempColorArr[3] - tempColorArr[5] - tempColorArr[7] - tempColorArr[1];
+            
+            value = tempColorArr[4] - tempColorArr[3] - tempColorArr[5] - tempColorArr[1] - tempColorArr[7];
+            value = 300*value + this->BlurPixels->getRed(w, h);
+            
+            
+            if (value < 0) {
+                value = -value;
+            } else if (value > 255) {
+                value -= 255;
+            }
+            
+            this->BlurPixels->rgbMake(w, h, value, value, value, 255);
+        }
+    }
+    
+    delete [] tempColorArr;
 }
 

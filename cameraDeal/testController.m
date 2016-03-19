@@ -21,20 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self) weakSelf = self;
-    NSString *imgName = @"psd.jpg";
+//    NSString *imgName = @"psd.jpg";
+    NSString *imgName = @"ferrari.png";
 //    NSString *imgName = @"mailicon.png";
     
     [GCDQueue executeInMainQueue:^{
         [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];
     }];
     [GCDQueue executeInGlobalQueue:^{
-        UIImage *deal = [dealFaceFace GaussBlurMyImage:[UIImage imageNamed:imgName] andBlurValue:2];
+//        UIImage *deal = [dealFaceFace GaussBlurMyImage:[UIImage imageNamed:imgName] andBlurValue:2];
+        UIImage *deal = [UIImage imageNamed:imgName];
+        
         [GCDQueue executeInMainQueue:^{
             [weakSelf.protoImg setImage:deal];
         }];
         
 //        UIImage *after_deal = [dealFaceFace BinaryMyImage:deal wRadius:50 hRadius:50];
-        UIImage *after_deal = [dealFaceFace PointyMyImage:deal];
+        UIImage *after_deal = [dealFaceFace PointyMyImage:deal Radius:2];
+//        UIImage *after_deal = [dealFaceFace PointyFixMyImage:deal wRadius:80 hRadius:80];
         [GCDQueue executeInMainQueue:^{
             weakSelf.deaImg.image = after_deal;
         }];

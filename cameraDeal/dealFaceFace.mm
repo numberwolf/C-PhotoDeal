@@ -85,9 +85,15 @@
     }];
 }
 
-+ (UIImage *)PointyMyImage:(UIImage *)image {
++ (UIImage *)PointyMyImage:(UIImage *)image Radius:(int)Radius {
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
-        numberPhoto::method_three(pixels, width, height);
+        numberPhoto::method_three(pixels, width, height ,Radius);
+    }];
+}
+
++ (UIImage *)PointyFixMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::method_four(pixels, width, height, wRadius, hRadius);
     }];
 }
 
