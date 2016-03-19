@@ -40,6 +40,7 @@ public:
         BlurPixels = NULL;
     }
     
+    // 高斯模糊
     void GaussDeal(Pixels *tempPixels, int width, int height, int r);
     
     // 基本锐化
