@@ -127,7 +127,6 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
 }
 
 void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius) {
-    int RADIUS = 2;
     
     for (int h = 0; h < (height-1); h++) {
         for (int w = 0 ; w < (width-1); w++) {
@@ -139,9 +138,9 @@ void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius
             uint32_t second_green = tempPixels->getGreen(w+1, h);
             uint32_t second_blue = tempPixels->getBlue(w+1, h);
             
-            int diffRedVal = (first_red - second_red)*RADIUS;
-            int diffGreenVal = (first_green - second_green)*RADIUS;
-            int diffBlueVal = (first_blue - second_blue)*RADIUS;
+            int diffRedVal = (first_red - second_red)*Radius;
+            int diffGreenVal = (first_green - second_green)*Radius;
+            int diffBlueVal = (first_blue - second_blue)*Radius;
             
             printf("%3d ",diffRedVal);
             
