@@ -42,7 +42,7 @@ public:
     }
     
     ~Pixels(){
-        this->my_pixels = NULL;
+        //this->my_pixels = NULL;
     }
     
     uint32_t getRed(int x, int y);

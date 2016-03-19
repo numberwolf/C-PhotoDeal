@@ -109,6 +109,7 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
                 for (int i = 0; i <= (2*r); i++) {
                     weightArr[weightArrNum] /= weightSum;
                     *pixelsArr = (*pixelsArr) * weightArr[weightArrNum]; // 周围像素的 权值 * 像素
+//                    printf("%3f ",weightArr[weightArrNum]);
                     array_h_w_temp += *pixelsArr;
                     
                     weightArrNum++;
@@ -119,8 +120,42 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
             this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp, 255);
             
             delete [] weightArr;
-            //delete [] pixelsArr;
+//            delete [] pixelsArr;
             
+        }
+    }
+}
+
+void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height) {
+    for (int h = 0; h < (height-1); h++) {
+        for (int w = 0 ; w < (width-1); w++) {
+            uint32_t first = tempPixels->getRed(w, h);
+            uint32_t second = tempPixels->getRed(w+1, h);
+            
+            uint32_t diffVal = (first - second)/2;
+            if (diffVal > 255) {
+                diffVal = 255;
+            } else if (diffVal < 0) {
+                diffVal = 0;
+            }
+            
+            this->BlurPixels->rgbMake(w, h, this->BlurPixels->getRed(w, h)+diffVal, this->BlurPixels->getGreen(w, h)+diffVal,this->BlurPixels->getBlue(w, h)+diffVal , 255);
+        }
+    }
+    
+    for (int h = 0; h < (height-1); h++) {
+        for (int w = 0 ; w < (width-1); w++) {
+            uint32_t first = tempPixels->getRed(w, h);
+            uint32_t second = tempPixels->getRed(w, h+1);
+            
+            uint32_t diffVal = (first - second)/2;
+            if (diffVal > 255) {
+                diffVal = 255;
+            } else if (diffVal < 0) {
+                diffVal = 0;
+            }
+            
+            this->BlurPixels->rgbMake(w, h, this->BlurPixels->getRed(w, h)+diffVal, this->BlurPixels->getGreen(w, h)+diffVal,this->BlurPixels->getBlue(w, h)+diffVal , 255);
         }
     }
 }

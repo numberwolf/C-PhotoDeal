@@ -17,4 +17,5 @@
 + (UIImage *)GaussBlurMyImage:(UIImage *)image andBlurValue:(int)value ;
 + (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
 + (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
++ (UIImage *)PointyMyImage:(UIImage *)image;
 @end

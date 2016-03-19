@@ -56,6 +56,8 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
 
     the_pixels = NULL;
     the_blur = NULL;
+//    delete [] temp;
+//    delete [] tempPixels;
 }
 
 // 二值化 - 边缘检测
@@ -73,9 +75,27 @@ void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCan
     the_binary = NULL;
 }
 
-// 二值化
+// 简单锐化
 void numberPhoto::method_three(uint32_t *pixels, int width, int height) {
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    BlurPhoto *the_blur = new BlurPhoto(the_pixels);
     
+    uint32_t *temp(pixels);
+    Pixels *tempPixels = new Pixels(temp,width,height);
+    tempPixels->GrayPixels();
+    
+    the_blur->PointyDeal(tempPixels, width, height);
+    
+    the_pixels = NULL;
+    the_blur = NULL;
+    //    delete [] temp;
+    //    delete [] tempPixels;
+}
+
+// 混合锐化测试
+void numberPhoto::method_four(uint32_t *pixels, int width, int height, int wRadius, int hRadius) {
+    
+
 }
 
 

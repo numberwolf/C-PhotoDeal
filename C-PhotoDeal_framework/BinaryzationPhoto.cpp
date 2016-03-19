@@ -74,14 +74,10 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
                                 }
                                 
                             } else {
-#warning error
                                 if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_under, y_under)) {
                                     
                                     this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
-//                                    this->BinaryPixels->rgbMake(x_right, y_right, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, 255);
-//                                    this->BinaryPixels->rgbMake(x_under, y_under, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, 255);
                                 }
-#warning errorend
                             }
                         }
                     }
@@ -101,27 +97,11 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
             if (this->BinaryPixels->getRed(i, j) == CANNY_PIXELS_VAL) {
                 //printf("白线");
                 this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
-                
-                //                        for (int r = 0; r < 5; r++) {
-                //                            if (j > r && j < (height - r) && i > r && i < (width - r)) {
-                //                                this->BinaryPixels->rgbMake(i+r, j, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i, j+r, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i-r, j, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i, j-r, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i+r, j+r, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i-r, j-r, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i+r, j-r, 255, 255, 255, 255);
-                //                                this->BinaryPixels->rgbMake(i-r, j+r, 255, 255, 255, 255);
-                //                            }
-                //                        }
-                
             } else {
                 this->BinaryPixels->rgbMake(i, j, 0, 0, 0, 255);
             }
         }
     } // 第二步处理结束
-    
-    printf("\n");
 }
 
 // 区域二值化 灰度化之后
@@ -149,7 +129,7 @@ void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int he
             } // 添加结束
             
             // 标准差
-            //int standard = Common::GetStandard(localArr, 0, wRadius*hRadius);
+            int standard = Common::GetStandard(localArr, 0, wRadius*hRadius);
             
             // 平均数
             int average = Common::GetAverage(localArr, 0, wRadius*hRadius);

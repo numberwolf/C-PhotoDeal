@@ -52,8 +52,8 @@
 
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
     // 旋转90度
-    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
-//    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+//    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:UIImageOrientationRight];
+    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
     
     // Free up the context and color space
     CGColorSpaceRelease(colorSpace);
@@ -82,6 +82,12 @@
 + (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_two(pixels, width, height, true, wRadius, hRadius);
+    }];
+}
+
++ (UIImage *)PointyMyImage:(UIImage *)image {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::method_three(pixels, width, height);
     }];
 }
 

@@ -36,9 +36,16 @@ public:
         this->BlurPixels = p_Pixels;
     }
     
-    ~BlurPhoto() {}
+    ~BlurPhoto() {
+        BlurPixels = NULL;
+    }
     
     void GaussDeal(Pixels *tempPixels, int width, int height, int r);
+    
+    // 基本锐化
+    void PointyDeal(Pixels *tempPixels, int width, int height);
+    
+    void PointyFixDeal(Pixels *tempPixels, int width, int height, int wRadius, int hRadius);
     
 private:
     

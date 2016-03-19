@@ -28,9 +28,15 @@
         [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];
     }];
     [GCDQueue executeInGlobalQueue:^{
-        UIImage *deal = [dealFaceFace GaussBlurMyImage:[UIImage imageNamed:imgName] andBlurValue:3];
+        UIImage *deal = [dealFaceFace GaussBlurMyImage:[UIImage imageNamed:imgName] andBlurValue:2];
         [GCDQueue executeInMainQueue:^{
-            weakSelf.deaImg.image = deal;
+            [weakSelf.protoImg setImage:deal];
+        }];
+        
+//        UIImage *after_deal = [dealFaceFace BinaryMyImage:deal wRadius:50 hRadius:50];
+        UIImage *after_deal = [dealFaceFace PointyMyImage:deal];
+        [GCDQueue executeInMainQueue:^{
+            weakSelf.deaImg.image = after_deal;
         }];
     }];
 }
