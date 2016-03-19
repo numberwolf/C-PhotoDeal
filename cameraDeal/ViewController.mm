@@ -21,6 +21,7 @@
 #define METHOD_BINARY 101
 #define METHOD_GAUSS 102
 #define METHOD_PROTYPE 103
+#define METHOD_PIONTY 104
 
 const int kCannyAperture = 7;
 
@@ -108,6 +109,11 @@ const int kCannyAperture = 7;
     } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
         temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         }];
+    } else if (_METHOD_CHOSE_TAG == METHOD_PIONTY) {
+        temp = [dealFaceFace PointyMyImage:image Radius:10];
+    } else {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        }];
     }
     
 //        UIImage *temp = [self opencvFaceDetect:image];
@@ -129,6 +135,14 @@ const int kCannyAperture = 7;
 
 - (IBAction)GaussButtonClick:(id)sender {
     _METHOD_CHOSE_TAG = METHOD_GAUSS;
+}
+
+- (IBAction)pointyButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_PIONTY;
+}
+
+- (IBAction)protypeButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_PROTYPE;
 }
 
 - (IplImage *)CreateIplImageFromUIImage:(UIImage *)image {
