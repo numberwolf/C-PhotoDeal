@@ -35,6 +35,11 @@ http://www.apache.org/licenses/LICENSE-2.0
   * binaryCanny 边缘检测
 
 * numberPhoto.hpp 为滤镜入口       
+  * void static method_zero 输出原图
+  * void static method_one 模糊图
+  * void static method_two 边缘检测
+  * void static method_three 锐化图像
+  * void static nil
 
 ###以RGB8888 为主 进行像素处理
 
