@@ -41,6 +41,6 @@ http://www.apache.org/licenses/LICENSE-2.0
   * void static method_three 锐化图像
   * void static nil
 
-###以RGB8888 为主 进行像素处理
+###以RGB8888 为主
 
 
