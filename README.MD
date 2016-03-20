@@ -13,8 +13,18 @@ http://www.apache.org/licenses/LICENSE-2.0
 ####C++ 图像处理         
 
 * Pixels.hpp 图像数据结构      
+  * Pixels 载入图像
+  * getRed 该点红色通道
+  * getGreen 该点绿色通道
+  * getBlue 该点蓝色通道
+  * getAlpha 该点透明度通道
+  * rgbMake 改变图像通道值
+  * GrayPixels 灰度化
 
 * Common.hpp 共用数据结构    
+  * GetAverage 平均值
+  * GetVariance 方差
+  * GetStandard 标准差
 
 * BlurPhoto.hpp 为锐化、模糊算法       
   * GaussDeal 高斯模糊
