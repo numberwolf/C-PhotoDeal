@@ -4,4 +4,4 @@ git add -A;
 read -p "此次上传:"  val
 #echo $val
 git commit -m $val
-git push origin master
+git push all master
