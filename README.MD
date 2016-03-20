@@ -11,11 +11,21 @@
 http://www.apache.org/licenses/LICENSE-2.0        
                        
 ####C++ 图像处理         
-Pixels.hpp 图像数据结构      
-Common.hpp 共用数据结构    
-BlurPhoto.hpp 为锐化、模糊算法       
-BinaryzationPhoto 二值化和边缘算法       
-numberPhoto.hpp 为滤镜入口       
+
+* Pixels.hpp 图像数据结构      
+
+* Common.hpp 共用数据结构    
+
+* BlurPhoto.hpp 为锐化、模糊算法       
+  * GaussDeal 高斯模糊
+  * PointyDeal 基础锐化
+
+* BinaryzationPhoto 二值化和边缘算法       
+  * binaryzation 区域二值化
+  * binaryCanny 边缘检测
+
+* numberPhoto.hpp 为滤镜入口       
+
 ###以RGB8888 为主 进行像素处理
 
 
