@@ -12,7 +12,7 @@
 http://www.apache.org/licenses/LICENSE-2.0        
 
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
-* C-PhotoDeal    
+* C-PhotoDeal_framework(RGB8888)    
     * Pixels.hpp 图像数据结构      
         * Pixels 载入图像
         * getRed 该点红色通道
@@ -42,6 +42,5 @@ http://www.apache.org/licenses/LICENSE-2.0
         * void static method_three 锐化图像
         * void static nil
 
-###以RGB8888 为主
 
 
