@@ -73,15 +73,15 @@
     }];
 }
 
-+ (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
++ (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius{
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
-        numberPhoto::method_two(pixels, width, height, false, wRadius, hRadius);
+        numberPhoto::method_two(pixels, width, height, false, wRadius, hRadius, scanScaleOfRadius);
     }];
 }
 
-+ (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
++ (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius {
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
-        numberPhoto::method_two(pixels, width, height, true, wRadius, hRadius);
+        numberPhoto::method_two(pixels, width, height, true, wRadius, hRadius, scanScaleOfRadius);
     }];
 }
 

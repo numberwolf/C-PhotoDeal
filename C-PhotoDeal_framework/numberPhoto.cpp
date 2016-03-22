@@ -60,11 +60,11 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
 }
 
 // 二值化 - 边缘检测
-void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
+void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
-    the_binary->binaryzation(wRadius, hRadius, width, height);
+    the_binary->binaryzation(wRadius, hRadius, width, height, scanScaleOfRadius);
     
     if (isCanny == true) {
         the_binary->binaryCanny(wRadius, hRadius, width, height);

@@ -103,9 +103,9 @@ const int kCannyAperture = 7;
     if (_METHOD_CHOSE_TAG == METHOD_GAUSS) {
         temp = [dealFaceFace GaussBlurMyImage:image andBlurValue:3];
     } else if (_METHOD_CHOSE_TAG == METHOD_CANNY) {
-        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150];
+        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150 scanScaleOfRadius:1];
     } else if (_METHOD_CHOSE_TAG == METHOD_BINARY) {
-        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100];
+        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:1];
     } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
         temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         }];

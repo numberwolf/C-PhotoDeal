@@ -40,7 +40,7 @@ public:
         BinaryPixels = NULL;
     }
     
-    void binaryzation(int wRadius, int hRadius, int width, int height);
+    void binaryzation(int wRadius, int hRadius, int width, int height, int scanScaleOfRadius);
     void binaryCanny(int wRadius, int hRadius, int width, int height);
     
 private:

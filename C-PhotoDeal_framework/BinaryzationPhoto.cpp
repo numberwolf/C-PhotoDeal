@@ -105,10 +105,10 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
 }
 
 // 区域二值化
-void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height) {
+void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height, int scanScaleOfRadius) {
     
-    for (int j = 0; j < height; j+=1) {
-        for (int i = 0; i < width; i+=1) {
+    for (int j = 0; j < height; j+=int(wRadius/scanScaleOfRadius)) {
+        for (int i = 0; i < width; i+=int(hRadius/scanScaleOfRadius)) {
             
             // (y,x)->(h,w)
             int *localArr = new int[wRadius*hRadius];
@@ -129,7 +129,7 @@ void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int he
             } // 添加结束
             
             // 标准差
-            int standard = Common::GetStandard(localArr, 0, wRadius*hRadius);
+//            int standard = Common::GetStandard(localArr, 0, wRadius*hRadius);
             
             // 平均数
             int average = Common::GetAverage(localArr, 0, wRadius*hRadius);
