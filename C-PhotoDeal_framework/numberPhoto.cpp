@@ -32,6 +32,7 @@
 void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value) {
     
     Pixels *the_pixels = new Pixels(pixels,width,height);
+//    the_pixels->GrayPixels();
     //BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     BlurPhoto *the_blur = new BlurPhoto(the_pixels);
     
@@ -46,10 +47,8 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
 
     
     Pixels *tempPixels = new Pixels(temp,width,height);
-    tempPixels->GrayPixels();
     // end
     
-    the_pixels->GrayPixels();
     the_blur->GaussDeal(tempPixels,width, height, value);
     //the_binary->binaryzation(50, 50, width, height);
     //the_binary->binaryCanny(50, 50, width, height);

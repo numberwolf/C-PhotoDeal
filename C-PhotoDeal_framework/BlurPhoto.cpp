@@ -46,7 +46,7 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
                         continue;
                     }
                     
-                    *pixTemp = tempPixels->getRed(x, y);
+                    *pixTemp = tempPixels->getGray(x, y);
                     
                     pixelSum += *pixTemp; // 总数
                     pix2Sum += (*pixTemp) * (*pixTemp); // 总数^2
@@ -57,7 +57,7 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
             
             /** change End **/
             
-            int theNum = tempPixels->getRed(w,h);
+            int theNum = tempPixels->getGray(w,h);
             // 开始计算方差
             xaver = (pixelSum - theNum)/((2*r+1)*(2*r+1)-1);
             x2aver = (pix2Sum - theNum*theNum)/((2*r+1)*(2*r+1)-1);

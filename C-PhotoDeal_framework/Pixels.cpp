@@ -45,6 +45,10 @@ uint32_t Pixels::getAlpha(int x, int y) {
     return A(*this->getColorPixel(x, y));
 }
 
+uint32_t Pixels::getGray(int x, int y) {
+    return (R(*this->getColorPixel(x, y))*GRAY_RED_POINT + G(*this->getColorPixel(x, y))*GRAY_GREEN_POINT + B(*this->getColorPixel(x, y))*GRAY_BLUE_POINT);
+}
+
 void Pixels::rgbMake(int x, int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha) {
     uint32_t *currentPixels = this->getColorPixel(x, y);
     *currentPixels = RGBAMake(R, G, B, alpha);

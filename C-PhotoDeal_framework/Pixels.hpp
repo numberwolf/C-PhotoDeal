@@ -49,6 +49,7 @@ public:
     uint32_t getGreen(int x, int y);
     uint32_t getBlue(int x, int y);
     uint32_t getAlpha(int x, int y);
+    uint32_t getGray(int x, int y);
     
     void rgbMake(int x,int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha);
     void GrayPixels();

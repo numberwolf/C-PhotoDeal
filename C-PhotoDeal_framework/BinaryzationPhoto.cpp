@@ -30,8 +30,8 @@
 #pragma mark
 void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int height) {
     
-    for (int j = 0; j < height; j+=hRadius) {
-        for (int i = 0; i < width; i+=wRadius) {
+    for (int j = 0; j < height; j+=wRadius) {
+        for (int i = 0; i < width; i+=hRadius) {
             // 区域内处理
             int *localArr = new int[wRadius*hRadius];
             int *pointer = localArr;
@@ -43,7 +43,7 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
                     if (x >= width || y >= height) {
                         *pointer = 0;
                     } else {
-                        *pointer = this->BinaryPixels->getRed(x, y); // 因为是已经二值化的图 所以只需要取其中一个通道就可以
+                        *pointer = this->BinaryPixels->getGray(x, y); // 因为是已经二值化的图 所以只需要取其中一个通道就可以
                     }
                     
                     pointer++;
@@ -68,13 +68,13 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
                     } else {
                         if (y < (height - 1)) {
                             if (x == (width - 1)) { // 当遇到处理x最边像素的时候
-                                if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_under, y_under)) {
+                                if (this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_under, y_under) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_under, y_under)) {
                                     
                                     this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
                                 }
                                 
                             } else {
-                                if (this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) > this->BinaryPixels->getRed(x_under, y_under) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_right, y_right) || this->BinaryPixels->getRed(x, y) < this->BinaryPixels->getRed(x_under, y_under)) {
+                                if (this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_right, y_right) || this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_under, y_under) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_right, y_right) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_under, y_under)) {
                                     
                                     this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
                                 }
@@ -94,7 +94,7 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
     // 范围内第二步处理
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
-            if (this->BinaryPixels->getRed(i, j) == CANNY_PIXELS_VAL) {
+            if (this->BinaryPixels->getGray(i, j) == CANNY_PIXELS_VAL) {
                 //printf("白线");
                 this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
             } else {
@@ -104,11 +104,11 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
     } // 第二步处理结束
 }
 
-// 区域二值化 灰度化之后
+// 区域二值化
 void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height) {
     
-    for (int j = 0; j < height; j+=hRadius) {
-        for (int i = 0; i < width; i+=wRadius) {
+    for (int j = 0; j < height; j+=1) {
+        for (int i = 0; i < width; i+=1) {
             
             // (y,x)->(h,w)
             int *localArr = new int[wRadius*hRadius];
@@ -121,7 +121,7 @@ void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int he
                     if (x >= width || y >= height) {
                         *pointer = 0;
                     } else {
-                        *pointer = this->BinaryPixels->getRed(x, y);
+                        *pointer = this->BinaryPixels->getGray(x, y);
                     }
                     
                     pointer++;
@@ -141,12 +141,12 @@ void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int he
                     if (x >= width || y >= height) {
                         continue;
                     } else {
-                        if (this->BinaryPixels->getRed(x, y) > average) {
+                        if (this->BinaryPixels->getGray(x, y) > average) {
                             this->BinaryPixels->rgbMake(x, y, 255, 255, 255, 255);
                         } else {
                             this->BinaryPixels->rgbMake(x, y, 0, 0, 0, 255);
                         }
-                        //printf("-->%3d ",this->BinaryPixels->getRed(x, y));
+                        //printf("-->%3d ",this->BinaryPixels->getGray(x, y));
                     }
                 }
             } // 处理结束
