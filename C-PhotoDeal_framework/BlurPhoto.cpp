@@ -142,7 +142,7 @@ void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius
             int diffGreenVal = (first_green - second_green)*Radius;
             int diffBlueVal = (first_blue - second_blue)*Radius;
             
-            printf("%3d ",diffRedVal);
+//            printf("%3d ",diffRedVal);
             
             int red_value = this->BlurPixels->getRed(w, h) + diffRedVal;
             int green_value = this->BlurPixels->getGreen(w, h) + diffGreenVal;

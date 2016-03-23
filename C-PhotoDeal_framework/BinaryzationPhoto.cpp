@@ -106,7 +106,7 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
 
 // 区域二值化
 void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height, int scanScaleOfRadius) {
-    
+    printf("width:%d ",width/20);
     for (int j = 0; j < height; j+=int(wRadius/scanScaleOfRadius)) {
         for (int i = 0; i < width; i+=int(hRadius/scanScaleOfRadius)) {
             

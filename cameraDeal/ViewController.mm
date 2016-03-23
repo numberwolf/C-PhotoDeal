@@ -94,18 +94,14 @@ const int kCannyAperture = 7;
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
     //    self.mData = UIImageJPEGRepresentation(image, 0.5);//这里的mData是NSData对象，后面的0.5代表生成的图片质量
     
-    // coreimage人脸检测
-    //[self faceDetect:image];
-
-    //[UIImage imageNamed:@"mailicon.png"]
     UIImage *temp;
     
     if (_METHOD_CHOSE_TAG == METHOD_GAUSS) {
         temp = [dealFaceFace GaussBlurMyImage:image andBlurValue:3];
     } else if (_METHOD_CHOSE_TAG == METHOD_CANNY) {
-        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150 scanScaleOfRadius:1];
+        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150 scanScaleOfRadius:10];
     } else if (_METHOD_CHOSE_TAG == METHOD_BINARY) {
-        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:1];
+        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:10];
     } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
         temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
         }];
@@ -116,13 +112,12 @@ const int kCannyAperture = 7;
         }];
     }
     
-//        UIImage *temp = [self opencvFaceDetect:image];
+    temp = [self opencvFaceDetect:temp];
     
     [GCDQueue executeInMainQueue:^{
         weakSelf.imageView.image = temp;
     }];
     
-
 }
 
 - (IBAction)cannyButtonClick:(id)sender {
@@ -220,7 +215,7 @@ const int kCannyAperture = 7;
         
     }
     
-    UIImage *returnImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(contextRef)];
+    UIImage *returnImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(contextRef) scale:1 orientation:UIImageOrientationRight];
     CGContextRelease(contextRef);
     CGColorSpaceRelease(colorSpace);
     
@@ -232,6 +227,7 @@ const int kCannyAperture = 7;
 
 
 
+/**
 #pragma mark 抽轮廓
 // Perform image processing on the last captured frame and display the results
 cv::Mat processFrame(cv::Mat _lastFrame, int code_one, int code_two)
@@ -263,8 +259,6 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
     
     return temp_second;
 }
-
-/**********
 
 #pragma mark - 人脸检测方法
 - (void)faceDetect:(UIImage *)aImage

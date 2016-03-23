@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cnX-f7-wTW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bh0-HL-YA2">
-                                <rect key="frame" x="0.0" y="20" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7U-1H-qpB">
@@ -69,7 +69,7 @@
                             <constraint firstItem="Rbm-Tm-KEl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="cDx-U9-CpH"/>
                             <constraint firstItem="8mU-KO-6v0" firstAttribute="top" secondItem="5Lp-1b-nUr" secondAttribute="bottom" constant="20" id="dRX-0r-yMJ"/>
                             <constraint firstItem="D7U-1H-qpB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="lns-in-RVF"/>
-                            <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="mqf-ai-yor"/>
+                            <constraint firstItem="bh0-HL-YA2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:1" id="mqf-ai-yor"/>
                             <constraint firstItem="d20-BF-pxJ" firstAttribute="top" secondItem="8mU-KO-6v0" secondAttribute="bottom" constant="20" id="neV-Bo-ufF"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
                             <constraint firstAttribute="trailing" secondItem="5Lp-1b-nUr" secondAttribute="trailing" constant="20" id="uRU-JP-rev"/>
