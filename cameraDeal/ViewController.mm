@@ -172,7 +172,7 @@ const int kCannyAperture = 7;
     return ret;
 }
 
-
+// opencv 检测
 -(UIImage *) opencvFaceDetect:(UIImage *)originalImage {
     cvSetErrMode(CV_ErrModeParent);
     
@@ -204,13 +204,14 @@ const int kCannyAperture = 7;
     CGContextSetLineWidth(contextRef, 4);
     CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 1.0, 0.5);
     
-    // Draw results on the iamge
+    // 在检测的图像上绘制矩形
     for(int i = 0; i < faces->total; i++) {
         
         // Calc the rect of faces
         CvRect cvrect = *(CvRect*)cvGetSeqElem(faces, i);
         CGRect face_rect = CGContextConvertRectToDeviceSpace(contextRef,
                                                              CGRectMake(cvrect.x * scale, cvrect.y * scale, cvrect.width * scale, cvrect.height * scale));
+        
         CGContextStrokeRect(contextRef, face_rect);
         
     }
@@ -339,7 +340,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
             
             _eye_left.frame = CGRectMake(0, 0, 10, 10);
             _eye_left.tag = markViewTag;
-            //旋转180，仅y
+            旋转180，仅y
             CGPoint newCenter =  f.leftEyePosition;
             newCenter.y = self.imageView.bounds.size.height-newCenter.y;
             _eye_left.center = newCenter;
@@ -356,7 +357,7 @@ cv::Mat rotateMat(cv::Mat mat,int flipCode) {
             
             _eye_right.frame = CGRectMake(0, 0, 10, 10);
             _eye_right.tag = markViewTag;
-            //旋转180，仅y
+            旋转180，仅y
             CGPoint newCenter =  f.rightEyePosition;
             newCenter.y = self.imageView.bounds.size.height-newCenter.y;
             _eye_right.center = newCenter;
