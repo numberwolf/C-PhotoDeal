@@ -104,11 +104,107 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
     } // 第二步处理结束
 }
 
+void BinaryzationPhoto::otsuBinary(int width, int height) {
+    
+//    //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
+//    double xaver=0.0, x2aver=0.0;
+//    
+//    for (int y = 0; y < height; y++) {
+//        for (int x = 0; x < width; x++) {
+//            int gray = this->BinaryPixels->getGray(x, y);
+//            xaver+=gray; x2aver+=gray*gray;
+//        }
+//    }
+//    
+//    xaver/=(width*height); // 平均灰度
+//    x2aver/=(width*height);
+//    int Variance = sqrt(x2aver-xaver*xaver); // 方差
+    
+    // 创建直方图
+    int *Histograms = new int[256];
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int gray = this->BinaryPixels->getGray(x, y);
+            Histograms[gray]++;
+        }
+    }
+    
+    int k,total,q;
+    //直方图平滑化
+    for (k = 0; k <= 255; k++)
+    {
+        total = 0;
+        for (int t = -2; t <= 2; t++) //与附近2个灰度做平滑化，t值应取较小的值
+        {
+            q = k + t;
+            if (q < 0) { //越界处理
+                q = 0;
+            }
+            if (q > 255) {
+                q = 255;
+            }
+            total = total + Histograms[q]; //total为总和，累计值
+        }
+        //平滑化，左边2个+中间1个+右边2个灰度，共5个，所以总和除以5，后面加0.5是用修正值
+        Histograms[k] = (int)((float)total / 5.0 + 0.5);
+    }
+    
+    int threshValue = 1; // 阈值
+    
+    double m1, m2, sum, csum, fmax, sb; //sb为类间方差，fmax存储最大方差值
+    int n, n1, n2;
+    
+    //求阈值
+    sum = csum = 0.0;
+    n = 0;
+    //计算总的图象的点数和质量矩，为后面的计算做准备
+    for (k = 0; k <= 255; k++)
+    {
+        //x*f(x)质量矩，也就是每个灰度的值乘以其点数（归一化后为概率），sum为其总和
+        sum += (double)k * (double)Histograms[k];
+        n += Histograms[k]; //n为图象总的点数，归一化后就是累积概率
+    }
+    fmax = -1.0; //类间方差sb不可能为负，所以fmax初始值为-1不影响计算的进行
+    n1 = 0;
+    for (k = 0; k < 255; k++) //对每个灰度（从0到255）计算一次分割后的类间方差sb
+    {
+        n1 += Histograms[k]; //n1为在当前阈值遍前景图象的点数
+        if (n1 == 0) { continue; } //没有分出前景后景
+        n2 = n - n1; //n2为背景图象的点数
+        //n2为0表示全部都是后景图象，与n1=0情况类似，之后的遍历不可能使前景点数增加，所以此时可以退出循环
+        if (n2 == 0) { break; }
+        csum += (double)k * Histograms[k]; //前景的“灰度的值*其点数”的总和
+        m1 = csum / n1; //m1为前景的平均灰度
+        m2 = (sum - csum) / n2; //m2为背景的平均灰度
+        sb = (double)n1 * (double)n2 * (m1 - m2) * (m1 - m2); //sb为类间方差
+        if (sb > fmax) //如果算出的类间方差大于前一次算出的类间方差
+        {
+            fmax = sb; //fmax始终为最大类间方差（otsu）
+            threshValue = k; //取最大类间方差时对应的灰度的k就是最佳阈值
+        }
+    }
+    
+    printf("阀值为：%3d",threshValue);
+    
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int gray = this->BinaryPixels->getGray(x, y);
+            if (gray > threshValue) {
+                this->BinaryPixels->rgbMake(x, y, 255, 255, 255, 255);
+            } else {
+                this->BinaryPixels->rgbMake(x, y, 0, 0, 0, 255);
+            }
+        }
+    }
+    
+    delete [] Histograms;
+}
+
 // 区域二值化
 void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int height, int scanScaleOfRadius) {
     printf("width:%d ",width/20);
-    for (int j = 0; j < height; j+=int(wRadius/scanScaleOfRadius)) {
-        for (int i = 0; i < width; i+=int(hRadius/scanScaleOfRadius)) {
+    for (int j = 0; j < height; j+=wRadius) {
+        for (int i = 0; i < width; i+=hRadius) {
             
             // (y,x)->(h,w)
             int *localArr = new int[wRadius*hRadius];

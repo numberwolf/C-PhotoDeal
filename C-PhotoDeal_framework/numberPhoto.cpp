@@ -108,4 +108,15 @@ void numberPhoto::method_four(uint32_t *pixels, int width, int height, int wRadi
     the_blur = NULL;
 }
 
+// OTSU算法
+void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height) {
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
+    
+    the_binary->otsuBinary(width, height);
+    
+    the_pixels = NULL;
+    the_binary = NULL;
+}
+
 

@@ -97,4 +97,10 @@
     }];
 }
 
++(UIImage *)otsuBinaryMyImage:(UIImage *)image {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::otsuBinary(pixels, width, height);
+    }];
+}
+
 @end

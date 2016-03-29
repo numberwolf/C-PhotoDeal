@@ -18,5 +18,6 @@
 + (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius;
 + (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius;
 + (UIImage *)PointyMyImage:(UIImage *)image Radius:(int)Radius;
-+ (UIImage *)PointyFixMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius ;
++ (UIImage *)PointyFixMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
++ (UIImage *)otsuBinaryMyImage:(UIImage *)image;
 @end

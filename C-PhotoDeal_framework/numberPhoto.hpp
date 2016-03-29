@@ -40,6 +40,7 @@ public:
     static void method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius);
     static void method_three(uint32_t *pixels, int width, int height, int Radius);
     static void method_four(uint32_t *pixels, int width, int height, int wRadius, int hRadius);
+    static void otsuBinary(uint32_t *pixels, int width, int height);
     
 private:
 protected:
