@@ -1,4 +1,6 @@
 ####C-PhotoDeal_framework    
+* 更新  
+    * 2016/03/25,更新OTSU算法 
        
 * Email：porschegt23@foxmail.com || numberwolf11@gmail.com       
 * Github:https://github.com/numberwolf       
@@ -40,7 +42,7 @@ http://www.apache.org/licenses/LICENSE-2.0
         * void static method_one 模糊图
         * void static method_two 二值化 / 边缘检测
         * void static method_three 锐化图像
-        * void static nil
+        * void static otsuBinary OTSU算法 ---- 2016/03/25更新
 
 
 
