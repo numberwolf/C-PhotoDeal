@@ -109,11 +109,14 @@ void numberPhoto::method_four(uint32_t *pixels, int width, int height, int wRadi
 }
 
 // OTSU算法
-void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height) {
+void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
     the_binary->otsuBinary(width, height);
+    if (isCanny == true) {
+        the_binary->binaryCanny(wRadius, hRadius, width, height);
+    }
     
     the_pixels = NULL;
     the_binary = NULL;

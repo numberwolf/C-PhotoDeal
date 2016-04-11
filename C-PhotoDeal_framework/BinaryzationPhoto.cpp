@@ -106,27 +106,20 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
 
 void BinaryzationPhoto::otsuBinary(int width, int height) {
     
-//    //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
-//    double xaver=0.0, x2aver=0.0;
-//    
-//    for (int y = 0; y < height; y++) {
-//        for (int x = 0; x < width; x++) {
-//            int gray = this->BinaryPixels->getGray(x, y);
-//            xaver+=gray; x2aver+=gray*gray;
-//        }
-//    }
-//    
-//    xaver/=(width*height); // 平均灰度
-//    x2aver/=(width*height);
-//    int Variance = sqrt(x2aver-xaver*xaver); // 方差
-    
     // 创建直方图
     int *Histograms = new int[256];
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             int gray = this->BinaryPixels->getGray(x, y);
             Histograms[gray]++;
+//            if (gray > 200) {
+//                printf("G ");
+//            } else {
+//                printf("i ");
+//            }
+            
         }
+//        printf("\n");
     }
     
     int k,total,q;
@@ -164,19 +157,29 @@ void BinaryzationPhoto::otsuBinary(int width, int height) {
         sum += (double)k * (double)Histograms[k];
         n += Histograms[k]; //n为图象总的点数，归一化后就是累积概率
     }
+    
     fmax = -1.0; //类间方差sb不可能为负，所以fmax初始值为-1不影响计算的进行
     n1 = 0;
+    
     for (k = 0; k < 255; k++) //对每个灰度（从0到255）计算一次分割后的类间方差sb
     {
         n1 += Histograms[k]; //n1为在当前阈值遍前景图象的点数
-        if (n1 == 0) { continue; } //没有分出前景后景
+        if (n1 == 0) {
+            continue;
+        } //没有分出前景后景
+        
         n2 = n - n1; //n2为背景图象的点数
+        
         //n2为0表示全部都是后景图象，与n1=0情况类似，之后的遍历不可能使前景点数增加，所以此时可以退出循环
-        if (n2 == 0) { break; }
+        if (n2 == 0) {
+            break;
+        }
         csum += (double)k * Histograms[k]; //前景的“灰度的值*其点数”的总和
+        
         m1 = csum / n1; //m1为前景的平均灰度
         m2 = (sum - csum) / n2; //m2为背景的平均灰度
         sb = (double)n1 * (double)n2 * (m1 - m2) * (m1 - m2); //sb为类间方差
+        
         if (sb > fmax) //如果算出的类间方差大于前一次算出的类间方差
         {
             fmax = sb; //fmax始终为最大类间方差（otsu）

@@ -9,6 +9,7 @@
 #import "dealFaceFace.h"
 #import "numberPhoto.hpp"
 
+
 @implementation dealFaceFace
 
 - (instancetype)init{
@@ -68,38 +69,44 @@
 + (UIImage *)GaussBlurMyImage:(UIImage *)image andBlurValue:(int)value{
     __weak typeof(self) weakSelf = self;
 
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_one(pixels, width, height, value);
     }];
 }
 
 + (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius{
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_two(pixels, width, height, false, wRadius, hRadius, scanScaleOfRadius);
     }];
 }
 
 + (UIImage *)CannyMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius {
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_two(pixels, width, height, true, wRadius, hRadius, scanScaleOfRadius);
     }];
 }
 
 + (UIImage *)PointyMyImage:(UIImage *)image Radius:(int)Radius {
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_three(pixels, width, height ,Radius);
     }];
 }
 
 + (UIImage *)PointyFixMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::method_four(pixels, width, height, wRadius, hRadius);
     }];
 }
 
-+(UIImage *)otsuBinaryMyImage:(UIImage *)image {
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
-        numberPhoto::otsuBinary(pixels, width, height);
++(UIImage *)otsuBinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius{
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::otsuBinary(pixels, width, height, false, wRadius, hRadius);
+    }];
+}
+
++(UIImage *)otsuCannytMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius{
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::otsuBinary(pixels, width, height, true, wRadius, hRadius);
     }];
 }
 

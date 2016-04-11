@@ -70,9 +70,6 @@
 		03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */; };
 		03D10B201C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */; };
 		03D10B211C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */; };
-		03ECB0E01C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
-		03ECB0E11C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
-		03ECB0E21C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */; };
 		03ECB0E41C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
 		03ECB0E51C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
 		03ECB0E61C7AF1610072F241 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 03ECB0E31C7AF1610072F241 /* tessdata */; };
@@ -157,7 +154,6 @@
 		03D10B1B1C78411F00DCFCA6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		03D10B1D1C7875AC00DCFCA6 /* dealFaceFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealFaceFace.h; sourceTree = "<group>"; };
 		03D10B1E1C7875AC00DCFCA6 /* dealFaceFace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dealFaceFace.mm; sourceTree = "<group>"; };
-		03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = cameraDeal/TesseractOCR.framework; sourceTree = "<group>"; };
 		03ECB0E31C7AF1610072F241 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		03ECB0E71C7AF1900072F241 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		03ECB0E91C7AF2A90072F241 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -189,7 +185,6 @@
 				03D10B1C1C78411F00DCFCA6 /* CoreImage.framework in Frameworks */,
 				03D10B1A1C78411500DCFCA6 /* CoreGraphics.framework in Frameworks */,
 				03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */,
-				03ECB0E01C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03D10AFE1C78119000DCFCA6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +193,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03ECB0E11C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +201,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03ECB0E21C7AF07B0072F241 /* TesseractOCR.framework in Frameworks */,
 				03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +213,6 @@
 			children = (
 				03ECB0E91C7AF2A90072F241 /* libstdc++.tbd */,
 				03ECB0E71C7AF1900072F241 /* libstdc++.6.0.9.tbd */,
-				03ECB0A01C7AF07B0072F241 /* TesseractOCR.framework */,
 				03ACDD4B1C799AE40016943B /* ImageIO.framework */,
 				03ACDD491C799ADE0016943B /* Foundation.framework */,
 				03ACDD471C799AD50016943B /* UIKit.framework */,
@@ -697,7 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
 				INFOPLIST_FILE = cameraDeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -736,7 +728,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
 				INFOPLIST_FILE = cameraDeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

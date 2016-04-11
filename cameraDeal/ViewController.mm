@@ -12,9 +12,8 @@
 #import "dealFaceFace.h"
 
 #import "UIImage+OpenCV.h"
-#import <TesseractOCR/TesseractOCR.h>
 
-#define navBarHeight    44.
+#define navBarHeight    44
 #define markViewTag    100
 
 #define METHOD_CANNY 100
@@ -99,16 +98,18 @@ const int kCannyAperture = 7;
     if (_METHOD_CHOSE_TAG == METHOD_GAUSS) {
         temp = [dealFaceFace GaussBlurMyImage:image andBlurValue:3];
     } else if (_METHOD_CHOSE_TAG == METHOD_CANNY) {
-        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150 scanScaleOfRadius:10];
+//        temp = [dealFaceFace CannyMyImage:image wRadius:150 hRadius:150 scanScaleOfRadius:10];
+        temp = [dealFaceFace otsuCannytMyImage:image wRadius:150 hRadius:150];
     } else if (_METHOD_CHOSE_TAG == METHOD_BINARY) {
-        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:10];
+//        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:10];
+        temp = [dealFaceFace otsuBinaryMyImage:image wRadius:150 hRadius:150];
     } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
-        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         }];
     } else if (_METHOD_CHOSE_TAG == METHOD_PIONTY) {
         temp = [dealFaceFace PointyMyImage:image Radius:10];
     } else {
-        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(UInt32 *pixels, NSUInteger width, NSUInteger height) {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         }];
     }
     
