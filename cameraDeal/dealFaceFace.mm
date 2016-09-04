@@ -92,12 +92,6 @@
     }];
 }
 
-+ (UIImage *)PointyFixMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius {
-    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
-        numberPhoto::method_four(pixels, width, height, wRadius, hRadius);
-    }];
-}
-
 +(UIImage *)otsuBinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius{
     return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         numberPhoto::otsuBinary(pixels, width, height, false, wRadius, hRadius);

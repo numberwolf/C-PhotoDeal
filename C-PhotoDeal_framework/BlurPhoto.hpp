@@ -40,13 +40,14 @@ public:
         BlurPixels = NULL;
     }
     
-    // 高斯模糊
+    // 高斯模糊（黑白）
     void GaussDeal(Pixels *tempPixels, int width, int height, int r);
+    // (彩色)
+    void GaussColorfulDeal(Pixels *tempPixels, int width, int height, int r);
     
     // 基本锐化
     void PointyDeal(Pixels *tempPixels, int width, int height, int Radius);
-    
-    void PointyFixDeal(Pixels *tempPixels, int width, int height, int wRadius, int hRadius);
+
     
 private:
     

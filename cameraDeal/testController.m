@@ -22,8 +22,8 @@
     [super viewDidLoad];
     __weak typeof(self) weakSelf = self;
 //    NSString *imgName = @"psd.jpg";
-    NSString *imgName = @"ferrari.png";
-//    NSString *imgName = @"mailicon.png";
+//    NSString *imgName = @"ferrari.png";
+    NSString *imgName = @"test";
     
     [GCDQueue executeInMainQueue:^{
         [weakSelf.protoImg setImage:[UIImage imageNamed:imgName]];
@@ -36,13 +36,14 @@
             [weakSelf.protoImg setImage:deal];
         }];
         
-//        UIImage *after_deal = [dealFaceFace CannyMyImage:deal wRadius:80 hRadius:80];
+//        UIImage *after_deal = [dealFaceFace otsuCannytMyImage:deal wRadius:150 hRadius:150];
 //        UIImage *after_deal = [dealFaceFace BinaryMyImage:deal wRadius:80 hRadius:80 scanScaleOfRadius:20];
-        UIImage *after_deal = [dealFaceFace otsuBinaryMyImage:deal wRadius:80 hRadius:80];// Cannyt
+//        UIImage *after_deal = [dealFaceFace otsuBinaryMyImage:deal wRadius:80 hRadius:80];// Cannyt
         
-//          UIImage *after_deal = [dealFaceFace PointyMyImage:deal Radius:10];
+          UIImage *after_deal = [dealFaceFace PointyMyImage:deal Radius:10];
 //          UIImage *after_deal = [dealFaceFace PointyFixMyImage:deal wRadius:80 hRadius:80];
         [GCDQueue executeInMainQueue:^{
+//            weakSelf.deaImg.image = deal;
             weakSelf.deaImg.image = after_deal;
         }];
     }];

@@ -77,7 +77,7 @@ void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCan
 // 基础锐化
 void numberPhoto::method_three(uint32_t *pixels, int width, int height, int Radius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
-    BlurPhoto *the_blur = new BlurPhoto(the_pixels);
+    BlurPhoto *the_blur = new BlurPhoto(the_pixels); 
     
     uint32_t *temp(pixels);
     Pixels *tempPixels = new Pixels(temp,width,height);
@@ -89,23 +89,6 @@ void numberPhoto::method_three(uint32_t *pixels, int width, int height, int Radi
     the_blur = NULL;
     //    delete [] temp;
     //    delete [] tempPixels;
-}
-
-// 混合锐化测试
-void numberPhoto::method_four(uint32_t *pixels, int width, int height, int wRadius, int hRadius) {
-    Pixels *the_pixels = new Pixels(pixels,width,height);
-//    the_pixels->GrayPixels(); // 临时
-    
-    BlurPhoto *the_blur = new BlurPhoto(the_pixels);
-    
-    uint32_t *temp(pixels);
-    Pixels *tempPixels = new Pixels(temp,width,height);
-    tempPixels->GrayPixels();
-    
-    the_blur->PointyFixDeal(tempPixels, width, height, wRadius, hRadius);
-    
-    the_pixels = NULL;
-    the_blur = NULL;
 }
 
 // OTSU算法
