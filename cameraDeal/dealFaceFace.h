@@ -22,4 +22,6 @@
 
 + (UIImage *)otsuBinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
 + (UIImage *)otsuCannytMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
+
++ (UIImage *)testMyImage:(UIImage *)image;
 @end

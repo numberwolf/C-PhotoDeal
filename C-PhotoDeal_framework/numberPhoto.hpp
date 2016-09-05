@@ -39,8 +39,9 @@ public:
     static void method_one(uint32_t *pixels, int width, int height, int value);
     static void method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius);
     static void method_three(uint32_t *pixels, int width, int height, int Radius);
-    
     static void otsuBinary(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius);
+    
+    static void testAction(uint32_t *pixels, int width, int height);
 private:
 protected:
     

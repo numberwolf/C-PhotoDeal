@@ -105,4 +105,18 @@ void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height, bool isCan
     the_binary = NULL;
 }
 
+// test
+void numberPhoto::testAction(uint32_t *pixels, int width, int height) {
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    uint32_t *mon = the_pixels->MountionsPic();
+    
+    for (int i = 0; i < 256; i++) {
+        printf(" %d=>%3d ",i,mon[i]);
+    }
+    
+    the_pixels = NULL;
+    mon = NULL;
+    
+}
+
 

@@ -104,4 +104,18 @@
     }];
 }
 
+/*
+ * 测试用例 包括打印等等
+ */
++(UIImage *)testMyImage:(UIImage *)image {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::testAction(pixels, width, height);
+    }];
+    
+//    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+//        numberPhoto::method_one(pixels, width, height, 1);
+//    }];
+
+}
+
 @end

@@ -53,6 +53,7 @@ public:
     
     void rgbMake(int x,int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha);
     void GrayPixels();
+    uint32_t* MountionsPic();
     
 private:
     uint32_t *getColorPixel(int x, int y);

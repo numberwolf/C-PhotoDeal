@@ -64,3 +64,22 @@ void Pixels::GrayPixels() {
     }
 }
 
+uint32_t* Pixels::MountionsPic() {
+    uint32_t *pic = new uint32_t[256];
+    
+    for(int i = 0;i < 256; i++) {
+        pic[i] = 0;
+    }
+    
+    for (int x = 0; x < this->width; x++) {
+        for (int y = 0; y < this->height; y++) {
+            uint32_t GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
+            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
+            
+            pic[GrayColor]++;
+        }
+    }
+    
+    return pic;
+}
+
