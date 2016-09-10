@@ -48,5 +48,8 @@ http://www.apache.org/licenses/LICENSE-2.0
     * CannyPhoto.hpp 非二值化加成边缘检测算法
         * sobelCanny sobel算子边缘检测算法
 
+    * removeNoisePhoto.hpp 滤波处理
+        * mid_remove 中值滤波
+
 
 

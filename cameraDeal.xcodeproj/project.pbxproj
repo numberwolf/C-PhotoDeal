@@ -28,6 +28,12 @@
 		035EDC761D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
 		035EDC771D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
 		035EDC781D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
+		035EDC801D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC7E1D83F2B800B3B982 /* removeNoisePhoto.cpp */; };
+		035EDC811D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC7E1D83F2B800B3B982 /* removeNoisePhoto.cpp */; };
+		035EDC821D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC7E1D83F2B800B3B982 /* removeNoisePhoto.cpp */; };
+		035EDC851D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
+		035EDC861D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
+		035EDC871D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
@@ -118,6 +124,10 @@
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
 		035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CannyPhoto.cpp; sourceTree = "<group>"; };
 		035EDC751D83BB9500B3B982 /* CannyPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CannyPhoto.hpp; sourceTree = "<group>"; };
+		035EDC7E1D83F2B800B3B982 /* removeNoisePhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = removeNoisePhoto.cpp; sourceTree = "<group>"; };
+		035EDC7F1D83F2B800B3B982 /* removeNoisePhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = removeNoisePhoto.hpp; sourceTree = "<group>"; };
+		035EDC831D84144E00B3B982 /* sort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sort.cpp; sourceTree = "<group>"; };
+		035EDC841D84144E00B3B982 /* sort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sort.hpp; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
@@ -339,6 +349,10 @@
 				03FDE0081C9A81CF004FD897 /* Pixels.hpp */,
 				035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */,
 				035EDC751D83BB9500B3B982 /* CannyPhoto.hpp */,
+				035EDC7E1D83F2B800B3B982 /* removeNoisePhoto.cpp */,
+				035EDC7F1D83F2B800B3B982 /* removeNoisePhoto.hpp */,
+				035EDC831D84144E00B3B982 /* sort.cpp */,
+				035EDC841D84144E00B3B982 /* sort.hpp */,
 			);
 			path = "C-PhotoDeal_framework";
 			sourceTree = SOURCE_ROOT;
@@ -518,6 +532,8 @@
 				03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03FDE00C1C9A81CF004FD897 /* numberPhoto.cpp in Sources */,
 				035EDC761D83BB9500B3B982 /* CannyPhoto.cpp in Sources */,
+				035EDC851D84144E00B3B982 /* sort.cpp in Sources */,
+				035EDC801D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */,
 				03FDE0091C9A81CF004FD897 /* BinaryzationPhoto.cpp in Sources */,
 				03807B321C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
@@ -534,6 +550,8 @@
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD3F1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
+				035EDC861D84144E00B3B982 /* sort.cpp in Sources */,
+				035EDC811D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */,
 				03D10AE51C780F5200DCFCA6 /* cameraDealTests.m in Sources */,
 				03D10B201C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03FDE0191C9E745F004FD897 /* README.MD in Sources */,
@@ -551,6 +569,8 @@
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
 				03ACDD401C798F620016943B /* UIImage+OpenCV.mm in Sources */,
+				035EDC871D84144E00B3B982 /* sort.cpp in Sources */,
+				035EDC821D83F2B800B3B982 /* removeNoisePhoto.cpp in Sources */,
 				03D10AF01C780F5200DCFCA6 /* cameraDealUITests.m in Sources */,
 				03D10B211C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03FDE01A1C9E745F004FD897 /* README.MD in Sources */,

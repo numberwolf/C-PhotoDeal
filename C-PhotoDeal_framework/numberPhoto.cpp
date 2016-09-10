@@ -27,6 +27,7 @@
 #include "BinaryzationPhoto.hpp"
 #include "Pixels.hpp"
 #include "CannyPhoto.hpp"
+#include "removeNoisePhoto.hpp"
 #include "Common.hpp"
 
 // 模糊
@@ -123,12 +124,21 @@ void numberPhoto::testAction(uint32_t *pixels, int width, int height) {
 // sobel
 void numberPhoto::sobelCanny(uint32_t *pixels, int width, int height) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
-    CannyPhoto *the_canny = new CannyPhoto(the_pixels);
     
+    // 进行中值滤波处理
+//    removeNoisePhoto *remove_pix = new removeNoisePhoto(the_pixels);
+//    remove_pix->mid_remove(width, height, 1);
+    
+    CannyPhoto *the_canny = new CannyPhoto(the_pixels);
     the_canny->sobelCanny(width, height);
     
+    delete the_canny;
+    delete the_pixels;
+    
     the_pixels = NULL;
+    //    remove_pix = NULL;
     the_canny = NULL;
+    
 }
 
 
