@@ -43,6 +43,10 @@ http://www.apache.org/licenses/LICENSE-2.0
         * void static method_two 二值化 / 边缘检测
         * void static method_three 锐化图像
         * void static otsuBinary OTSU算法 ---- 2016/03/25更新
+        * void static sobelCanny sobel算子 ---- 2016/09/10更新
+
+    * CannyPhoto.hpp 非二值化加成边缘检测算法
+        * sobelCanny sobel算子边缘检测算法
 
 
 
