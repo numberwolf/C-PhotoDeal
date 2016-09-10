@@ -24,4 +24,5 @@
 + (UIImage *)otsuCannytMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius;
 
 + (UIImage *)testMyImage:(UIImage *)image;
++ (UIImage *)sobelCannyMyImage:(UIImage *)image;
 @end

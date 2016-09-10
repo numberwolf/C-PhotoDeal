@@ -42,6 +42,8 @@ public:
     static void otsuBinary(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius);
     
     static void testAction(uint32_t *pixels, int width, int height);
+    
+    static void sobelCanny(uint32_t *pixels, int width, int height);
 private:
 protected:
     

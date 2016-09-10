@@ -25,6 +25,9 @@
 		032840231C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840241C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
 		032840251C79CB4D00C695F9 /* icon@60px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0328401C1C79CB4D00C695F9 /* icon@60px.png */; };
+		035EDC761D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
+		035EDC771D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
+		035EDC781D83BB9500B3B982 /* CannyPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */; };
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
@@ -113,6 +116,8 @@
 		0328401A1C79CB4D00C695F9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0328401B1C79CB4D00C695F9 /* icon@57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@57px.png"; sourceTree = "<group>"; };
 		0328401C1C79CB4D00C695F9 /* icon@60px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@60px.png"; sourceTree = "<group>"; };
+		035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CannyPhoto.cpp; sourceTree = "<group>"; };
+		035EDC751D83BB9500B3B982 /* CannyPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CannyPhoto.hpp; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
@@ -332,6 +337,8 @@
 				03FDE0061C9A81CF004FD897 /* numberPhoto.hpp */,
 				03FDE0071C9A81CF004FD897 /* Pixels.cpp */,
 				03FDE0081C9A81CF004FD897 /* Pixels.hpp */,
+				035EDC741D83BB9500B3B982 /* CannyPhoto.cpp */,
+				035EDC751D83BB9500B3B982 /* CannyPhoto.hpp */,
 			);
 			path = "C-PhotoDeal_framework";
 			sourceTree = SOURCE_ROOT;
@@ -510,6 +517,7 @@
 				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03FDE00C1C9A81CF004FD897 /* numberPhoto.cpp in Sources */,
+				035EDC761D83BB9500B3B982 /* CannyPhoto.cpp in Sources */,
 				03FDE0091C9A81CF004FD897 /* BinaryzationPhoto.cpp in Sources */,
 				03807B321C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B101C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
@@ -521,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035EDC771D83BB9500B3B982 /* CannyPhoto.cpp in Sources */,
 				03807B331C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B0E1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B111C782CCE00DCFCA6 /* GCDQueue.m in Sources */,
@@ -537,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035EDC781D83BB9500B3B982 /* CannyPhoto.cpp in Sources */,
 				03807B341C7E1D4600B6347F /* testController.m in Sources */,
 				03D10B0F1C782CCE00DCFCA6 /* GCDGroup.m in Sources */,
 				03D10B121C782CCE00DCFCA6 /* GCDQueue.m in Sources */,

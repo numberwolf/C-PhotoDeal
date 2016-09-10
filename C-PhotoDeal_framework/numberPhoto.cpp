@@ -26,6 +26,7 @@
 #include "BlurPhoto.hpp"
 #include "BinaryzationPhoto.hpp"
 #include "Pixels.hpp"
+#include "CannyPhoto.hpp"
 #include "Common.hpp"
 
 // 模糊
@@ -117,6 +118,17 @@ void numberPhoto::testAction(uint32_t *pixels, int width, int height) {
     the_pixels = NULL;
     mon = NULL;
     
+}
+
+// sobel
+void numberPhoto::sobelCanny(uint32_t *pixels, int width, int height) {
+    Pixels *the_pixels = new Pixels(pixels,width,height);
+    CannyPhoto *the_canny = new CannyPhoto(the_pixels);
+    
+    the_canny->sobelCanny(width, height);
+    
+    the_pixels = NULL;
+    the_canny = NULL;
 }
 
 

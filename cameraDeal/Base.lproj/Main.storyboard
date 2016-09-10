@@ -57,6 +57,13 @@
                                     <action selector="protypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Svc-X5-SMO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2C-NY-Po1">
+                                <rect key="frame" x="512" y="230" width="68" height="30"/>
+                                <state key="normal" title="sobel算子"/>
+                                <connections>
+                                    <action selector="sobelCannyButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAG-Fh-rOp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,6 +73,7 @@
                             <constraint firstAttribute="trailing" secondItem="d20-BF-pxJ" secondAttribute="trailing" constant="20" id="NFu-JD-SDR"/>
                             <constraint firstItem="5Lp-1b-nUr" firstAttribute="top" secondItem="D7U-1H-qpB" secondAttribute="bottom" constant="20" id="Rht-xD-BWw"/>
                             <constraint firstAttribute="trailing" secondItem="8mU-KO-6v0" secondAttribute="trailing" constant="20" id="VVa-WL-vaB"/>
+                            <constraint firstAttribute="trailing" secondItem="c2C-NY-Po1" secondAttribute="trailing" constant="20" id="Vhk-QB-jRh"/>
                             <constraint firstAttribute="trailing" secondItem="D7U-1H-qpB" secondAttribute="trailing" constant="20" id="adb-Kc-Vpb"/>
                             <constraint firstItem="Rbm-Tm-KEl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="cDx-U9-CpH"/>
                             <constraint firstItem="8mU-KO-6v0" firstAttribute="top" secondItem="5Lp-1b-nUr" secondAttribute="bottom" constant="20" id="dRX-0r-yMJ"/>
@@ -74,6 +82,7 @@
                             <constraint firstItem="d20-BF-pxJ" firstAttribute="top" secondItem="8mU-KO-6v0" secondAttribute="bottom" constant="20" id="neV-Bo-ufF"/>
                             <constraint firstItem="bh0-HL-YA2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rFV-SX-47O"/>
                             <constraint firstAttribute="trailing" secondItem="5Lp-1b-nUr" secondAttribute="trailing" constant="20" id="uRU-JP-rev"/>
+                            <constraint firstItem="c2C-NY-Po1" firstAttribute="top" secondItem="d20-BF-pxJ" secondAttribute="bottom" constant="10" id="uXm-gi-HaI"/>
                         </constraints>
                     </view>
                     <connections>

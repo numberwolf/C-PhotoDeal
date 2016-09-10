@@ -21,6 +21,7 @@
 #define METHOD_GAUSS 102
 #define METHOD_PROTYPE 103
 #define METHOD_PIONTY 104
+#define METHOD_SOBEL 105
 
 const int kCannyAperture = 7;
 
@@ -108,6 +109,8 @@ const int kCannyAperture = 7;
         }];
     } else if (_METHOD_CHOSE_TAG == METHOD_PIONTY) {
         temp = [dealFaceFace PointyMyImage:image Radius:10];
+    } else if(_METHOD_CHOSE_TAG == METHOD_SOBEL) {
+        temp = [dealFaceFace sobelCannyMyImage:image];
     } else {
         temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
         }];
@@ -139,6 +142,10 @@ const int kCannyAperture = 7;
 
 - (IBAction)protypeButtonClick:(id)sender {
     _METHOD_CHOSE_TAG = METHOD_PROTYPE;
+}
+
+- (IBAction)sobelCannyButtonClick:(id)sender {
+    _METHOD_CHOSE_TAG = METHOD_SOBEL;
 }
 
 - (IplImage *)CreateIplImageFromUIImage:(UIImage *)image {

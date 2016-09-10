@@ -118,4 +118,10 @@
 
 }
 
++(UIImage *)sobelCannyMyImage:(UIImage *)image {
+    return [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        numberPhoto::sobelCanny(pixels, width, height);
+    }];
+}
+
 @end
