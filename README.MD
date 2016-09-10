@@ -1,5 +1,6 @@
 ####C-PhotoDeal_framework    
 * 更新  
+    * 2016/09/10,更新sobel算子、中值滤波
     * 2016/03/25,更新OTSU算法 
        
 * Email：porschegt23@foxmail.com || numberwolf11@gmail.com       
