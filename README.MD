@@ -51,8 +51,10 @@ http://www.apache.org/licenses/LICENSE-2.0
 
     * removeNoisePhoto.hpp 滤波处理
         * mid_remove 中值滤波
+
                   
-效果图:
+                  
+效果图:                 
 <img src="Demo_img/otsu_ferrari458.png" />
 <img src="Demo_img/sobel_ferrari458.png" />
 <img src="Demo_img/otsyCanny_ferrary458.png" />
