@@ -13,7 +13,6 @@
 * You may obtain a copy of the License at               
                               
 http://www.apache.org/licenses/LICENSE-2.0     
-<img src="Demo_img/gtr_gauss.png" />
 
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
 * C-PhotoDeal_framework(RGB8888)    
@@ -52,6 +51,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 
     * removeNoisePhoto.hpp 滤波处理
         * mid_remove 中值滤波
-
-
+                  
+效果图:
+<img src="Demo_img/otsu_ferrari458.png" />
+<img src="Demo_img/sobel_ferrari458.png" />
+<img src="Demo_img/otsyCanny_ferrary458.png" />
+<img src="Demo_img/pointy_ferrari458.png" />
+<img src="Demo_img/binaryCut_gtr.png" />
+<img src="Demo_img/canByBinCut_gtr.png" />
+<img src="Demo_img/gtr_gauss.png" />
+<img src="Demo_img/yuantu.png" />
 
