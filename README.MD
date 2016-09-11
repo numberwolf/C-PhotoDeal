@@ -9,7 +9,7 @@
 * Copyright [2016] [Chang Yanlong]                     
 http://www.apache.org/licenses/LICENSE-2.0     
 
-[查看效果图](#pic)           
+<a href="#pic">查看效果图</a>          
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
 * C-PhotoDeal_framework(RGB8888)    
     * Pixels.hpp 图像数据结构      
@@ -50,7 +50,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
                   
                   
-<div id="pic">效果图:</div>                 
+<div id="pic" >效果图:</div>                
 <img src="Demo_img/ferrari_yuantu.png" />
 <img src="Demo_img/gtr_yuantu.png" />
 <img src="Demo_img/otsu_ferrari458.png" />
