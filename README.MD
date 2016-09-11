@@ -1,4 +1,4 @@
-#<a href="div" >C-PhotoDeal_framework</a>    
+#<a href="#user-content-pic" >C-PhotoDeal_framework</a>    
 * 更新  
     * 2016/09/10,更新sobel算子、中值滤波
     * 2016/03/25,更新OTSU算法 
