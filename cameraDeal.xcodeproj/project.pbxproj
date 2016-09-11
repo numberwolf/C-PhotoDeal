@@ -40,6 +40,14 @@
 		03807B321C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
 		03807B331C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
 		03807B341C7E1D4600B6347F /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03807B311C7E1D4600B6347F /* testController.m */; };
+		039B64A31D844FA9001EDB89 /* binaryCut_gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649B1D844FA9001EDB89 /* binaryCut_gtr.png */; };
+		039B64A41D844FA9001EDB89 /* canByBinCut_gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649C1D844FA9001EDB89 /* canByBinCut_gtr.png */; };
+		039B64A51D844FA9001EDB89 /* gtr_gauss.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649D1D844FA9001EDB89 /* gtr_gauss.png */; };
+		039B64A61D844FA9001EDB89 /* otsu_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */; };
+		039B64A71D844FA9001EDB89 /* otsyCanny_ferrary458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */; };
+		039B64A81D844FA9001EDB89 /* pointy_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */; };
+		039B64A91D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */; };
+		039B64AA1D844FA9001EDB89 /* sobel_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD3A1C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -131,6 +139,14 @@
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
+		039B649B1D844FA9001EDB89 /* binaryCut_gtr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = binaryCut_gtr.png; sourceTree = "<group>"; };
+		039B649C1D844FA9001EDB89 /* canByBinCut_gtr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canByBinCut_gtr.png; sourceTree = "<group>"; };
+		039B649D1D844FA9001EDB89 /* gtr_gauss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtr_gauss.png; sourceTree = "<group>"; };
+		039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otsu_ferrari458.png; sourceTree = "<group>"; };
+		039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otsyCanny_ferrary458.png; sourceTree = "<group>"; };
+		039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointy_ferrari458.png; sourceTree = "<group>"; };
+		039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年3月18日 13.45.56.png"; sourceTree = "<group>"; };
+		039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobel_ferrari458.png; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
 		03ACDD3C1C798F620016943B /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
@@ -225,6 +241,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039B64991D844CDE001EDB89 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				039B649A1D844FA9001EDB89 /* Demo_img */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		039B649A1D844FA9001EDB89 /* Demo_img */ = {
+			isa = PBXGroup;
+			children = (
+				039B649B1D844FA9001EDB89 /* binaryCut_gtr.png */,
+				039B649C1D844FA9001EDB89 /* canByBinCut_gtr.png */,
+				039B649D1D844FA9001EDB89 /* gtr_gauss.png */,
+				039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */,
+				039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */,
+				039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */,
+				039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */,
+				039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */,
+			);
+			path = Demo_img;
+			sourceTree = SOURCE_ROOT;
+		};
 		03D10ABE1C780F5200DCFCA6 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +323,7 @@
 		03D10ACA1C780F5200DCFCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				039B64991D844CDE001EDB89 /* Demo */,
 				03D9C0681D7C229F00143172 /* test.png */,
 				03FDE0171C9E745F004FD897 /* README.MD */,
 				03FDE0131C9D4C90004FD897 /* ferrari.png */,
@@ -461,10 +501,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039B64A91D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png in Resources */,
 				03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */,
 				032441B51C8043200067775C /* haarcascade_frontalface_alt2.xml in Resources */,
+				039B64A61D844FA9001EDB89 /* otsu_ferrari458.png in Resources */,
+				039B64A51D844FA9001EDB89 /* gtr_gauss.png in Resources */,
+				039B64AA1D844FA9001EDB89 /* sobel_ferrari458.png in Resources */,
+				039B64A71D844FA9001EDB89 /* otsyCanny_ferrary458.png in Resources */,
 				03ECB0E41C7AF1610072F241 /* tessdata in Resources */,
+				039B64A81D844FA9001EDB89 /* pointy_ferrari458.png in Resources */,
 				032441AD1C8035CF0067775C /* IMG_1.JPG in Resources */,
+				039B64A41D844FA9001EDB89 /* canByBinCut_gtr.png in Resources */,
+				039B64A31D844FA9001EDB89 /* binaryCut_gtr.png in Resources */,
 				0328401D1C79CB4D00C695F9 /* icon.png in Resources */,
 				03FDE0141C9D4C90004FD897 /* ferrari.png in Resources */,
 				032441A91C80348D0067775C /* psd.jpg in Resources */,

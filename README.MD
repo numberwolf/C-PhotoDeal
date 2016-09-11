@@ -12,7 +12,8 @@
 * you may not use this file except in compliance with the License.         
 * You may obtain a copy of the License at               
                               
-http://www.apache.org/licenses/LICENSE-2.0        
+http://www.apache.org/licenses/LICENSE-2.0     
+<img src="Demo_img/gtr_gauss.png" />
 
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
 * C-PhotoDeal_framework(RGB8888)    

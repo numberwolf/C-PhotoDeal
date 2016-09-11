@@ -36,12 +36,12 @@
             [weakSelf.protoImg setImage:deal];
         }];
         
-//        UIImage *after_deal = [dealFaceFace otsuCannytMyImage:deal wRadius:150 hRadius:150];
+        UIImage *after_deal = [dealFaceFace otsuCannytMyImage:deal wRadius:80 hRadius:80];
 //        UIImage *after_deal = [dealFaceFace BinaryMyImage:deal wRadius:80 hRadius:80 scanScaleOfRadius:20];
 //        UIImage *after_deal = [dealFaceFace PointyMyImage:deal Radius:10];
 //        UIImage *after_deal = [dealFaceFace otsuBinaryMyImage:deal wRadius:80 hRadius:80];// Cannyt
-        UIImage *after_deal = [dealFaceFace sobelCannyMyImage:deal];
-//        after_deal = [dealFaceFace otsuBinaryMyImage:after_deal wRadius:20 hRadius:20];// Cannyt
+//        UIImage *after_deal = [dealFaceFace sobelCannyMyImage:deal];
+
 
         
 //        [dealFaceFace testMyImage:deal];

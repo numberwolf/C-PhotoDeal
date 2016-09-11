@@ -126,6 +126,7 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
     }
 }
 
+// 锐化
 void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius) {
     
     for (int h = 0; h < (height-1); h++) {
