@@ -50,35 +50,17 @@ http://www.apache.org/licenses/LICENSE-2.0
 
                   
                   
-<style>
-div {
-border:5px solid black;
-}
-</style>
-<div id="pic" >效果图:</div>                
-<div  >
-<img src="Demo_img/ferrari_yuantu.png" />
-<img src="Demo_img/gtr_yuantu.png" />                
-</div>
+<div id="user-content-pic" >效果图:</div>                
+<img src="Demo_img/ferrari_yuantu.png" /> | <img src="Demo_img/gtr_yuantu.png" />                
+------------ | -------------
+<img src="Demo_img/otsu_ferrari458.png" /> | <img src="Demo_img/binaryCut_gtr.png" />                   
 
-<div  >
-<img src="Demo_img/otsu_ferrari458.png" />
-<img src="Demo_img/binaryCut_gtr.png" />                   
-</div>
+<img src="Demo_img/sobel_ferrari458.png" /> | <img src="Demo_img/canByBinCut_gtr.png" />                  
 
-<div  >
-<img src="Demo_img/sobel_ferrari458.png" />
-<img src="Demo_img/canByBinCut_gtr.png" />                  
-</div>
+<img src="Demo_img/otsyCanny_ferrary458.png" /> | <img src="Demo_img/gtr_gauss.png" />                           
 
-<div  >
-<img src="Demo_img/otsyCanny_ferrary458.png" />
-<img src="Demo_img/gtr_gauss.png" />                           
-</div>
+<img src="Demo_img/pointy_ferrari458.png" /> | 
 
-<div  >
-<img src="Demo_img/pointy_ferrari458.png" />
-</div>
 
 
 
