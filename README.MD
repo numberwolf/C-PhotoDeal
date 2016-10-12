@@ -13,6 +13,8 @@ http://www.apache.org/licenses/LICENSE-2.0
 <a href="#user-content-pic">查看效果图</a>          
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
 * C-PhotoDeal_framework(RGB8888)    
+    * CV-Door/CannyPhoto.hpp Canny检测算法实现过程
+        * 构造方法，参数图片路径实现，OpenCV窗口展示
     * Pixels.hpp 图像数据结构      
         * Pixels 载入图像
         * getRed 该点红色通道
