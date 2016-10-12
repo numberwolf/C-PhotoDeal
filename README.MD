@@ -1,5 +1,6 @@
 #<a href="#user-content-pic" >C-PhotoDeal_framework</a>    
 * 更新  
+    * 2016/10/12,更新Canny算法实现，位于C-PhotoDeal_framework/CV-Door/CannyPhoto.hpp文件，构造方法实现，除了之前的算法，目前逐渐新算法实例在C-PhotoDeal_Level2_APP项目中，全部为C++，以OpenCV窗口展示，不再以iOS展示
     * 2016/09/10,更新sobel算子、中值滤波
     * 2016/03/25,更新OTSU算法 
        

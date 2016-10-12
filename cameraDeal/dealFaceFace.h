@@ -13,7 +13,7 @@
 
 
 @interface dealFaceFace : NSObject
-+ (UIImage *)autoConfigUIImage:(UIImage *)image with_deal_CODE:(void (^)(uint32_t *pixels,NSUInteger width,NSUInteger height))block;
++ (UIImage *)autoConfigUIImage:(UIImage *)image with_deal_CODE:(void (^)(int *pixels,NSUInteger width,NSUInteger height))block;
 
 + (UIImage *)GaussBlurMyImage:(UIImage *)image andBlurValue:(int)value ;
 + (UIImage *)BinaryMyImage:(UIImage *)image wRadius:(int)wRadius hRadius:(int)hRadius scanScaleOfRadius:(int)scanScaleOfRadius;

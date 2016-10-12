@@ -31,7 +31,7 @@
 #include "Common.hpp"
 
 // 模糊
-void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value) {
+void numberPhoto::method_one(int *pixels, int width, int height, int value) {
     
     Pixels *the_pixels = new Pixels(pixels,width,height);
 //    the_pixels->GrayPixels();
@@ -45,7 +45,7 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
      */
     
     // start
-    uint32_t *temp(pixels);
+    int *temp(pixels);
 
     
     Pixels *tempPixels = new Pixels(temp,width,height);
@@ -62,7 +62,7 @@ void numberPhoto::method_one(uint32_t *pixels, int width, int height, int value)
 }
 
 // 二值化 - 边缘检测
-void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius) {
+void numberPhoto::method_two(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
@@ -77,11 +77,11 @@ void numberPhoto::method_two(uint32_t *pixels, int width, int height, bool isCan
 }
 
 // 基础锐化
-void numberPhoto::method_three(uint32_t *pixels, int width, int height, int Radius) {
+void numberPhoto::method_three(int *pixels, int width, int height, int Radius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BlurPhoto *the_blur = new BlurPhoto(the_pixels); 
     
-    uint32_t *temp(pixels);
+    int *temp(pixels);
     Pixels *tempPixels = new Pixels(temp,width,height);
 //    tempPixels->GrayPixels();
     
@@ -94,7 +94,7 @@ void numberPhoto::method_three(uint32_t *pixels, int width, int height, int Radi
 }
 
 // OTSU算法
-void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
+void numberPhoto::otsuBinary(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
@@ -108,9 +108,9 @@ void numberPhoto::otsuBinary(uint32_t *pixels, int width, int height, bool isCan
 }
 
 // test
-void numberPhoto::testAction(uint32_t *pixels, int width, int height) {
+void numberPhoto::testAction(int *pixels, int width, int height) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
-    uint32_t *mon = the_pixels->MountionsPic();
+    int *mon = the_pixels->MountionsPic();
     
     for (int i = 0; i < 256; i++) {
         printf(" %d=>%3d ",i,mon[i]);
@@ -122,7 +122,7 @@ void numberPhoto::testAction(uint32_t *pixels, int width, int height) {
 }
 
 // sobel
-void numberPhoto::sobelCanny(uint32_t *pixels, int width, int height) {
+void numberPhoto::sobelCanny(int *pixels, int width, int height) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     
     // 进行中值滤波处理

@@ -23,49 +23,49 @@
 #include "Pixels.hpp"
 #include "Common.hpp"
 
-uint32_t* Pixels::getColorPixel(int x, int y) {
+int* Pixels::getColorPixel(int x, int y) {
     return this->my_pixels + (y * this->width) + x;
 }
 
-uint32_t Pixels::getRed(int x, int y) {
+int Pixels::getRed(int x, int y) {
     return R(*this->getColorPixel(x, y));
 }
 
-uint32_t Pixels::getGreen(int x, int y) {
+int Pixels::getGreen(int x, int y) {
     
     return G(*this->getColorPixel(x, y));
 }
 
-uint32_t Pixels::getBlue(int x, int y) {
+int Pixels::getBlue(int x, int y) {
     
     return B(*this->getColorPixel(x, y));
 }
 
-uint32_t Pixels::getAlpha(int x, int y) {
+int Pixels::getAlpha(int x, int y) {
     return A(*this->getColorPixel(x, y));
 }
 
-uint32_t Pixels::getGray(int x, int y) {
+int Pixels::getGray(int x, int y) {
     return (R(*this->getColorPixel(x, y))*GRAY_RED_POINT + G(*this->getColorPixel(x, y))*GRAY_GREEN_POINT + B(*this->getColorPixel(x, y))*GRAY_BLUE_POINT);
 }
 
-void Pixels::rgbMake(int x, int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha) {
-    uint32_t *currentPixels = this->getColorPixel(x, y);
+void Pixels::rgbMake(int x, int y, int R, int G, int B, int alpha) {
+    int *currentPixels = this->getColorPixel(x, y);
     *currentPixels = RGBAMake(R, G, B, alpha);
 }
 
 void Pixels::GrayPixels() {
     for (int x = 0; x < this->width; x++) {
         for (int y = 0; y < this->height; y++) {
-            uint32_t GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
+            int GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
             
             this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
         }
     }
 }
 
-uint32_t* Pixels::MountionsPic() {
-    uint32_t *pic = new uint32_t[256];
+int* Pixels::MountionsPic() {
+    int *pic = new int[256];
     
     for(int i = 0;i < 256; i++) {
         pic[i] = 0;
@@ -73,7 +73,7 @@ uint32_t* Pixels::MountionsPic() {
     
     for (int x = 0; x < this->width; x++) {
         for (int y = 0; y < this->height; y++) {
-            uint32_t GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
+            int GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
             this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
             
             pic[GrayColor]++;

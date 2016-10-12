@@ -1,31 +1,29 @@
 //
-//  Common.hpp
-//  cameraDeal
+//  header.hpp
+//  openCV
 //
-//  Created by numberwolf on 16/3/2.
+//  Created by numberwolf on 16/9/15.
 //  Copyright © 2016年 numberwolf. All rights reserved.
 //
-/**************************************************************************
- * Email：porschegt23@foxmail.com || numberwolf11@gmail.com
- * Github:https://github.com/numberwolf
- * APACHE 2.0 LICENSE
- * Copyright [2016] [Chang Yanlong]
- 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- 
- http://www.apache.org/licenses/LICENSE-2.0
- 
- **************************************************************************/
 
+#ifndef header_hpp
+#define header_hpp
 
-#ifndef Common_hpp
-#define Common_hpp
-
-#include <stdio.h>
-#include <math.h>
 #include<opencv2/opencv.hpp>
+//#include<opencv2/imgproc/imgproc.hpp>
+//#include<opencv2/imgproc/types_c.h>
+//#include<opencv2/highgui/highgui.hpp>
+//#include<opencv2/core/core.hpp>
+////#include<vector>
+//#include<opencv2/nonfree/features2d.hpp>
+//#include<opencv2/legacy/legacy.hpp>
+//#include<opencv2/features2d/features2d.hpp>
+//#include<opencv2/calib3d/calib3d.hpp>
+//#include<opencv2/video/tracking.hpp>
+//#include <iostream>
+#include <math.h>
+#include <stdio.h>
+using namespace std;
 
 /**  Common 共用Define **/
 #define GRAY_RED_POINT 0.299
@@ -57,55 +55,10 @@ struct HSV
 };
 
 
-class Common {
-    
+class opencv_cyl_header {
+    opencv_cyl_header(){}
+    ~opencv_cyl_header(){}
 public:
-    Common() {}
-    ~Common() {}
-    
-    template<typename T>
-    static T GetAverage(T *array, int offset, int limit) {
-        T sum = 0;
-        
-        for (int i = offset; i < (limit - offset); i++) {
-            sum += array[i];
-        }
-        
-        return sum/(limit - offset);
-    }
-    
-    // 方差
-    template<typename T>
-    static double GetVariance(T *array, int offset, int limit) {
-        
-        //求数组x（具有n个元素）的方差:S=(<x^2>-<x>)^0.5
-        double xaver=0.0, x2aver=0.0;
-        
-        for(int i = offset;i < (limit - offset); ++i){
-            xaver+=array[i]; x2aver+=array[i]*array[i];
-        }
-        
-        xaver/=limit; x2aver/=limit; //求x的平均、x^2的平均
-        return sqrt(x2aver-xaver*xaver);
-    }
-    
-    // 标准差
-    template<typename T>
-    static double GetStandard(T *array, int offset, int limit) {
-        
-        double sum = 0.0f;
-        double average = GetAverage(array, offset, limit);
-        
-        for (int i = offset; i < (limit - offset); i++) {
-            sum += (array[i] - average) * (array[i] - average);
-        }
-        
-        return sqrt(sum/limit);
-    }
-    
-    /******
-     主要针对OpenCV 进行HSV BGR操作
-     ******/
     // BGR(BGR: 0~255)转HSV(H: [0~360), S: [0~1], V: [0~1])
     static void BGR2HSV(BGR &bgr, HSV &hsv)
     {
@@ -247,10 +200,7 @@ private:
     {
         return fabs(val1 - val2) < 0.001;
     }
-    
 protected:
-    
 };
 
-#endif /* Common_hpp */
-
+#endif /* header_hpp */

@@ -30,12 +30,12 @@
  **/
 
 class Pixels {
-    uint32_t *my_pixels = NULL;
-    uint32_t width = NULL;
-    uint32_t height = NULL;
+    int *my_pixels = NULL;
+    int width = NULL;
+    int height = NULL;
     
 public:
-    Pixels(uint32_t *pixels, uint32_t width, uint32_t height){
+    Pixels(int *pixels, int width, int height){
         this->my_pixels = pixels;
         this->width = width;
         this->height = height;
@@ -45,18 +45,18 @@ public:
         //this->my_pixels = NULL;
     }
     
-    uint32_t getRed(int x, int y);
-    uint32_t getGreen(int x, int y);
-    uint32_t getBlue(int x, int y);
-    uint32_t getAlpha(int x, int y);
-    uint32_t getGray(int x, int y);
+    int getRed(int x, int y);
+    int getGreen(int x, int y);
+    int getBlue(int x, int y);
+    int getAlpha(int x, int y);
+    int getGray(int x, int y);
     
-    void rgbMake(int x,int y, uint32_t R, uint32_t G, uint32_t B, uint32_t alpha);
+    void rgbMake(int x,int y, int R, int G, int B, int alpha);
     void GrayPixels();
-    uint32_t* MountionsPic();
+    int* MountionsPic();
     
 private:
-    uint32_t *getColorPixel(int x, int y);
+    int *getColorPixel(int x, int y);
     
 protected:
     

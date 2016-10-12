@@ -34,6 +34,10 @@
 		035EDC851D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
 		035EDC861D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
 		035EDC871D84144E00B3B982 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035EDC831D84144E00B3B982 /* sort.cpp */; };
+		036B23BC1DAE7F1800B4D885 /* ferrari_yuantu.png in Resources */ = {isa = PBXBuildFile; fileRef = 036B23BA1DAE7F1800B4D885 /* ferrari_yuantu.png */; };
+		036B23BD1DAE7F1800B4D885 /* gtr_yuantu.png in Resources */ = {isa = PBXBuildFile; fileRef = 036B23BB1DAE7F1800B4D885 /* gtr_yuantu.png */; };
+		036B25281DAE8A9700B4D885 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B25211DAE8A9700B4D885 /* header.cpp */; };
+		036B25291DAE8A9700B4D885 /* canny_door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B25241DAE8A9700B4D885 /* canny_door.cpp */; };
 		03807B2D1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2E1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
 		03807B2F1C7CBEC100B6347F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03807B2C1C7CBEC100B6347F /* test.jpg */; };
@@ -46,7 +50,6 @@
 		039B64A61D844FA9001EDB89 /* otsu_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */; };
 		039B64A71D844FA9001EDB89 /* otsyCanny_ferrary458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */; };
 		039B64A81D844FA9001EDB89 /* pointy_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */; };
-		039B64A91D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */; };
 		039B64AA1D844FA9001EDB89 /* sobel_ferrari458.png in Resources */ = {isa = PBXBuildFile; fileRef = 039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */; };
 		03ACDD381C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
 		03ACDD391C7988A30016943B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ACDD371C7988A30016943B /* opencv2.framework */; };
@@ -136,6 +139,13 @@
 		035EDC7F1D83F2B800B3B982 /* removeNoisePhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = removeNoisePhoto.hpp; sourceTree = "<group>"; };
 		035EDC831D84144E00B3B982 /* sort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sort.cpp; sourceTree = "<group>"; };
 		035EDC841D84144E00B3B982 /* sort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sort.hpp; sourceTree = "<group>"; };
+		036B23BA1DAE7F1800B4D885 /* ferrari_yuantu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ferrari_yuantu.png; sourceTree = "<group>"; };
+		036B23BB1DAE7F1800B4D885 /* gtr_yuantu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtr_yuantu.png; sourceTree = "<group>"; };
+		036B25211DAE8A9700B4D885 /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = header.cpp; sourceTree = "<group>"; };
+		036B25221DAE8A9700B4D885 /* header.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = header.hpp; sourceTree = "<group>"; };
+		036B25241DAE8A9700B4D885 /* canny_door.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = canny_door.cpp; sourceTree = "<group>"; };
+		036B25251DAE8A9700B4D885 /* canny_door.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = canny_door.hpp; sourceTree = "<group>"; };
+		036B25271DAE8A9700B4D885 /* ai_math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ai_math.hpp; sourceTree = "<group>"; };
 		03807B2C1C7CBEC100B6347F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		03807B301C7E1D4600B6347F /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		03807B311C7E1D4600B6347F /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
@@ -145,7 +155,6 @@
 		039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otsu_ferrari458.png; sourceTree = "<group>"; };
 		039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otsyCanny_ferrary458.png; sourceTree = "<group>"; };
 		039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointy_ferrari458.png; sourceTree = "<group>"; };
-		039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年3月18日 13.45.56.png"; sourceTree = "<group>"; };
 		039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobel_ferrari458.png; sourceTree = "<group>"; };
 		03ACDD371C7988A30016943B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = cameraDeal/opencv2.framework; sourceTree = "<group>"; };
 		03ACDD3B1C798A9B0016943B /* cameraDeal.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraDeal.pch; sourceTree = "<group>"; };
@@ -241,6 +250,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036B25201DAE8A9700B4D885 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				036B25211DAE8A9700B4D885 /* header.cpp */,
+				036B25221DAE8A9700B4D885 /* header.hpp */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		036B25231DAE8A9700B4D885 /* CV-Door */ = {
+			isa = PBXGroup;
+			children = (
+				036B25241DAE8A9700B4D885 /* canny_door.cpp */,
+				036B25251DAE8A9700B4D885 /* canny_door.hpp */,
+			);
+			path = "CV-Door";
+			sourceTree = "<group>";
+		};
+		036B25261DAE8A9700B4D885 /* on_cv_way */ = {
+			isa = PBXGroup;
+			children = (
+				036B25271DAE8A9700B4D885 /* ai_math.hpp */,
+			);
+			path = on_cv_way;
+			sourceTree = "<group>";
+		};
 		039B64991D844CDE001EDB89 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,13 +287,14 @@
 		039B649A1D844FA9001EDB89 /* Demo_img */ = {
 			isa = PBXGroup;
 			children = (
+				036B23BA1DAE7F1800B4D885 /* ferrari_yuantu.png */,
+				036B23BB1DAE7F1800B4D885 /* gtr_yuantu.png */,
 				039B649B1D844FA9001EDB89 /* binaryCut_gtr.png */,
 				039B649C1D844FA9001EDB89 /* canByBinCut_gtr.png */,
 				039B649D1D844FA9001EDB89 /* gtr_gauss.png */,
 				039B649E1D844FA9001EDB89 /* otsu_ferrari458.png */,
 				039B649F1D844FA9001EDB89 /* otsyCanny_ferrary458.png */,
 				039B64A01D844FA9001EDB89 /* pointy_ferrari458.png */,
-				039B64A11D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png */,
 				039B64A21D844FA9001EDB89 /* sobel_ferrari458.png */,
 			);
 			path = Demo_img;
@@ -377,6 +413,9 @@
 		03FDDFFE1C9A81CF004FD897 /* C-PhotoDeal_framework */ = {
 			isa = PBXGroup;
 			children = (
+				036B25201DAE8A9700B4D885 /* common */,
+				036B25231DAE8A9700B4D885 /* CV-Door */,
+				036B25261DAE8A9700B4D885 /* on_cv_way */,
 				03FDDFFF1C9A81CF004FD897 /* BinaryzationPhoto.cpp */,
 				03FDE0001C9A81CF004FD897 /* BinaryzationPhoto.hpp */,
 				03FDE0011C9A81CF004FD897 /* BlurPhoto.cpp */,
@@ -501,7 +540,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				039B64A91D844FA9001EDB89 /* Simulator Screen Shot 2016年3月18日 13.45.56.png in Resources */,
 				03D10ADA1C780F5200DCFCA6 /* LaunchScreen.storyboard in Resources */,
 				032441B51C8043200067775C /* haarcascade_frontalface_alt2.xml in Resources */,
 				039B64A61D844FA9001EDB89 /* otsu_ferrari458.png in Resources */,
@@ -517,8 +555,10 @@
 				03FDE0141C9D4C90004FD897 /* ferrari.png in Resources */,
 				032441A91C80348D0067775C /* psd.jpg in Resources */,
 				03D10AD71C780F5200DCFCA6 /* Assets.xcassets in Resources */,
+				036B23BD1DAE7F1800B4D885 /* gtr_yuantu.png in Resources */,
 				03807B2D1C7CBEC100B6347F /* test.jpg in Resources */,
 				03D9C0691D7C229F00143172 /* test.png in Resources */,
+				036B23BC1DAE7F1800B4D885 /* ferrari_yuantu.png in Resources */,
 				032840201C79CB4D00C695F9 /* icon@57px.png in Resources */,
 				03D10AD51C780F5200DCFCA6 /* Main.storyboard in Resources */,
 				032840231C79CB4D00C695F9 /* icon@60px.png in Resources */,
@@ -575,7 +615,9 @@
 				03D10ACF1C780F5200DCFCA6 /* AppDelegate.m in Sources */,
 				03FDE0181C9E745F004FD897 /* README.MD in Sources */,
 				03D10ACC1C780F5200DCFCA6 /* main.m in Sources */,
+				036B25281DAE8A9700B4D885 /* header.cpp in Sources */,
 				03D10B161C782CCE00DCFCA6 /* GCDTimer.m in Sources */,
+				036B25291DAE8A9700B4D885 /* canny_door.cpp in Sources */,
 				03D10B1F1C7875AC00DCFCA6 /* dealFaceFace.mm in Sources */,
 				03ACDD3E1C798F620016943B /* UIImage+OpenCV.mm in Sources */,
 				03FDE00C1C9A81CF004FD897 /* numberPhoto.cpp in Sources */,
@@ -770,6 +812,10 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -778,6 +824,7 @@
 					"$(PROJECT_DIR)/cameraDeal/Tesseract/lib",
 					"$(PROJECT_DIR)/cameraDeal/Pods/Tesseract/lib",
 					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+					/usr/local/lib,
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;
@@ -809,6 +856,10 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/cameraDeal/cameraDeal.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -817,6 +868,7 @@
 					"$(PROJECT_DIR)/cameraDeal/Tesseract/lib",
 					"$(PROJECT_DIR)/cameraDeal/Pods/Tesseract/lib",
 					"$(PROJECT_DIR)/cameraDeal/Tesseract-OCR-iOS/TesseractOCR/lib",
+					/usr/local/lib,
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changyanlong.cameraDeal;

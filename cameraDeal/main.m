@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-//#import <stdio.h>
+#import <stdio.h>
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
+    return 0;
     
 //    int *p = new int[9];
 //    int *temp = p;

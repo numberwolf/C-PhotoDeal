@@ -7,8 +7,7 @@
 //
 
 #include "CannyPhoto.hpp"
-#include "Common.hpp"
-#include <math.h>
+
 
 void CannyPhoto::sobelCanny(int width, int height){
     // 定义sobel数组常量长度
@@ -86,3 +85,7 @@ void CannyPhoto::sobelCanny(int width, int height){
         }
     }
 }
+
+
+
+

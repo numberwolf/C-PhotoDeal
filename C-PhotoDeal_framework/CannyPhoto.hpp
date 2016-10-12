@@ -10,8 +10,10 @@
 #define CannyPhoto_hpp
 
 #include <stdio.h>
-#include <iostream>
 #include "Pixels.hpp"
+#include "Common.hpp"
+#include <math.h>
+
 class CannyPhoto {
     Pixels *CannyPixels = NULL;
     
@@ -25,8 +27,7 @@ public:
         CannyPixels = NULL;
     }
     
-    void sobelCanny(int width, int height);
-    
+    void sobelCanny(int width, int height);    
 private:
     
 protected:

@@ -105,14 +105,14 @@ const int kCannyAperture = 7;
 //        temp = [dealFaceFace BinaryMyImage:image wRadius:100 hRadius:100 scanScaleOfRadius:10];
         temp = [dealFaceFace otsuBinaryMyImage:image wRadius:150 hRadius:150];
     } else if (_METHOD_CHOSE_TAG == METHOD_PROTYPE) {
-        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(int *pixels, NSUInteger width, NSUInteger height) {
         }];
     } else if (_METHOD_CHOSE_TAG == METHOD_PIONTY) {
         temp = [dealFaceFace PointyMyImage:image Radius:10];
     } else if(_METHOD_CHOSE_TAG == METHOD_SOBEL) {
         temp = [dealFaceFace sobelCannyMyImage:image];
     } else {
-        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(uint32_t *pixels, NSUInteger width, NSUInteger height) {
+        temp = [dealFaceFace autoConfigUIImage:image with_deal_CODE:^(int *pixels, NSUInteger width, NSUInteger height) {
         }];
     }
     
