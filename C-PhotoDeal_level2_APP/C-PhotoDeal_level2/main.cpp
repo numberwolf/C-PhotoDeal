@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
-    char *path = "/Users/numberwolf/Documents/XCode&C++/openCV/openCV/1.jpg";
+    char *path = "/Users/numberwolf/Documents/XCode&C++/C-PhotoDeal/C-PhotoDeal_level2_APP/img/1.jpg";
     canny_door *CannyDoor = new canny_door(path);
     return 0;
 }
