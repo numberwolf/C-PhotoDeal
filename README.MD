@@ -1,6 +1,6 @@
-#C-PhotoDeal_framework ##[C-PhotoDeal_framework类库文件夹 C++](C-PhotoDeal_framework)
-###[新窗口Demo](C-PhotoDeal_level2_APP)
-###[旧iOSDemo](cameraDeal)
+#C-PhotoDeal_framework 
+##[C-PhotoDeal_framework类库文件夹 C++](C-PhotoDeal_framework)
+####[新窗口Demo](C-PhotoDeal_level2_APP) | [旧iOSDemo](cameraDeal)
 
 <a href="#user-content-pic" >示例图</a>
 * 更新  
