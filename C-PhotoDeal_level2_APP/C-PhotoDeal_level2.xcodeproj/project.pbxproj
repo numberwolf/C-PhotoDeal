@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0363A1531DAFD0450070C9FC /* Pixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0363A14F1DAFD0450070C9FC /* Pixels.cpp */; };
+		0363A1571DAFD4B00070C9FC /* numberPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0363A1551DAFD4B00070C9FC /* numberPhoto.cpp */; };
 		036B23CB1DAE84C500B4D885 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B23CA1DAE84C500B4D885 /* main.cpp */; };
 		036B24221DAE853800B4D885 /* BinaryzationPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B240E1DAE853800B4D885 /* BinaryzationPhoto.cpp */; };
 		036B24231DAE853800B4D885 /* BlurPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B24101DAE853800B4D885 /* BlurPhoto.cpp */; };
 		036B24251DAE853800B4D885 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B24141DAE853800B4D885 /* Common.cpp */; };
-		036B24271DAE853800B4D885 /* numberPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B241A1DAE853800B4D885 /* numberPhoto.cpp */; };
-		036B24281DAE853800B4D885 /* Pixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B241C1DAE853800B4D885 /* Pixels.cpp */; };
 		036B24291DAE853800B4D885 /* removeNoisePhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B241E1DAE853800B4D885 /* removeNoisePhoto.cpp */; };
 		036B242A1DAE853800B4D885 /* sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B24201DAE853800B4D885 /* sort.cpp */; };
 		036B24371DAE85CC00B4D885 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036B242C1DAE85CC00B4D885 /* header.cpp */; };
@@ -89,6 +89,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0363A14F1DAFD0450070C9FC /* Pixels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pixels.cpp; sourceTree = "<group>"; };
+		0363A1511DAFD0450070C9FC /* Pixels.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Pixels.hpp; sourceTree = "<group>"; };
+		0363A1551DAFD4B00070C9FC /* numberPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = numberPhoto.cpp; sourceTree = "<group>"; };
+		0363A1561DAFD4B00070C9FC /* numberPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = numberPhoto.hpp; sourceTree = "<group>"; };
 		036B23C71DAE84C500B4D885 /* C-PhotoDeal_level2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C-PhotoDeal_level2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		036B23CA1DAE84C500B4D885 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		036B240E1DAE853800B4D885 /* BinaryzationPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryzationPhoto.cpp; sourceTree = "<group>"; };
@@ -98,10 +102,6 @@
 		036B24141DAE853800B4D885 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		036B24151DAE853800B4D885 /* Common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Common.hpp; sourceTree = "<group>"; };
 		036B24191DAE853800B4D885 /* ferrari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ferrari.png; sourceTree = "<group>"; };
-		036B241A1DAE853800B4D885 /* numberPhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = numberPhoto.cpp; sourceTree = "<group>"; };
-		036B241B1DAE853800B4D885 /* numberPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = numberPhoto.hpp; sourceTree = "<group>"; };
-		036B241C1DAE853800B4D885 /* Pixels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pixels.cpp; sourceTree = "<group>"; };
-		036B241D1DAE853800B4D885 /* Pixels.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Pixels.hpp; sourceTree = "<group>"; };
 		036B241E1DAE853800B4D885 /* removeNoisePhoto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = removeNoisePhoto.cpp; sourceTree = "<group>"; };
 		036B241F1DAE853800B4D885 /* removeNoisePhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = removeNoisePhoto.hpp; sourceTree = "<group>"; };
 		036B24201DAE853800B4D885 /* sort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sort.cpp; sourceTree = "<group>"; };
@@ -267,6 +267,10 @@
 		036B240D1DAE853800B4D885 /* C-PhotoDeal_framework */ = {
 			isa = PBXGroup;
 			children = (
+				0363A1551DAFD4B00070C9FC /* numberPhoto.cpp */,
+				0363A1561DAFD4B00070C9FC /* numberPhoto.hpp */,
+				0363A14F1DAFD0450070C9FC /* Pixels.cpp */,
+				0363A1511DAFD0450070C9FC /* Pixels.hpp */,
 				036B243F1DAE888400B4D885 /* CannyPhoto.cpp */,
 				036B24401DAE888400B4D885 /* CannyPhoto.hpp */,
 				036B243B1DAE885400B4D885 /* CV-Door */,
@@ -279,10 +283,6 @@
 				036B24141DAE853800B4D885 /* Common.cpp */,
 				036B24151DAE853800B4D885 /* Common.hpp */,
 				036B24191DAE853800B4D885 /* ferrari.png */,
-				036B241A1DAE853800B4D885 /* numberPhoto.cpp */,
-				036B241B1DAE853800B4D885 /* numberPhoto.hpp */,
-				036B241C1DAE853800B4D885 /* Pixels.cpp */,
-				036B241D1DAE853800B4D885 /* Pixels.hpp */,
 				036B241E1DAE853800B4D885 /* removeNoisePhoto.cpp */,
 				036B241F1DAE853800B4D885 /* removeNoisePhoto.hpp */,
 				036B24201DAE853800B4D885 /* sort.cpp */,
@@ -438,15 +438,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				036B24281DAE853800B4D885 /* Pixels.cpp in Sources */,
 				036B24221DAE853800B4D885 /* BinaryzationPhoto.cpp in Sources */,
 				036B242A1DAE853800B4D885 /* sort.cpp in Sources */,
 				036B24411DAE888400B4D885 /* CannyPhoto.cpp in Sources */,
-				036B24271DAE853800B4D885 /* numberPhoto.cpp in Sources */,
 				036B24291DAE853800B4D885 /* removeNoisePhoto.cpp in Sources */,
 				036B25991DAE8DD200B4D885 /* README.MD in Sources */,
 				036B24231DAE853800B4D885 /* BlurPhoto.cpp in Sources */,
 				036B24251DAE853800B4D885 /* Common.cpp in Sources */,
+				0363A1571DAFD4B00070C9FC /* numberPhoto.cpp in Sources */,
+				0363A1531DAFD0450070C9FC /* Pixels.cpp in Sources */,
 				036B24371DAE85CC00B4D885 /* header.cpp in Sources */,
 				036B23CB1DAE84C500B4D885 /* main.cpp in Sources */,
 				036B243E1DAE885400B4D885 /* canny_door.cpp in Sources */,

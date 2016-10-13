@@ -80,7 +80,7 @@ void CannyPhoto::sobelCanny(int width, int height){
 //            printf("%3d\r\n",px);
             px = (px<0?0:px);
             
-            this->CannyPixels->rgbMake(x, y, px, px, px, 255);
+            this->CannyPixels->rgbMake(x, y, px, px, px);
             /****/
         }
     }

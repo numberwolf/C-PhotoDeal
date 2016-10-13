@@ -37,7 +37,7 @@ void removeNoisePhoto::mid_remove(int width, int height, int radius) {
             int mid = normalSort::Partition(tempSortArr, 0, lenX*lenY-1);
 //            printf("(%d,%d) = %3d \r\n",x_real,y_real,tempSortArr[mid]);
             
-            this->removeNoisePixels->rgbMake(x_real, y_real, tempSortArr[mid], tempSortArr[mid], tempSortArr[mid], 255);
+            this->removeNoisePixels->rgbMake(x_real, y_real, tempSortArr[mid], tempSortArr[mid], tempSortArr[mid]);
             
             
         }

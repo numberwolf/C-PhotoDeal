@@ -70,13 +70,13 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
                             if (x == (width - 1)) { // 当遇到处理x最边像素的时候
                                 if (this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_under, y_under) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_under, y_under)) {
                                     
-                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
+                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL);
                                 }
                                 
                             } else {
                                 if (this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_right, y_right) || this->BinaryPixels->getGray(x, y) > this->BinaryPixels->getGray(x_under, y_under) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_right, y_right) || this->BinaryPixels->getGray(x, y) < this->BinaryPixels->getGray(x_under, y_under)) {
                                     
-                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_ALPHA);
+                                    this->BinaryPixels->rgbMake(x, y, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL, CANNY_PIXELS_VAL);
                                 }
                             }
                         }
@@ -96,9 +96,9 @@ void BinaryzationPhoto::binaryCanny(int wRadius, int hRadius, int width, int hei
         for (int i = 0; i < width; i++) {
             if (this->BinaryPixels->getGray(i, j) == CANNY_PIXELS_VAL) {
                 //printf("白线");
-                this->BinaryPixels->rgbMake(i, j, 255, 255, 255, 255);
+                this->BinaryPixels->rgbMake(i, j, 255, 255, 255);
             } else {
-                this->BinaryPixels->rgbMake(i, j, 0, 0, 0, 255);
+                this->BinaryPixels->rgbMake(i, j, 0, 0, 0);
             }
         }
     } // 第二步处理结束
@@ -193,9 +193,9 @@ void BinaryzationPhoto::otsuBinary(int width, int height) {
         for (int x = 0; x < width; x++) {
             int gray = this->BinaryPixels->getGray(x, y);
             if (gray > threshValue) {
-                this->BinaryPixels->rgbMake(x, y, 255, 255, 255, 255);
+                this->BinaryPixels->rgbMake(x, y, 255, 255, 255);
             } else {
-                this->BinaryPixels->rgbMake(x, y, 0, 0, 0, 255);
+                this->BinaryPixels->rgbMake(x, y, 0, 0, 0);
             }
         }
     }
@@ -241,9 +241,9 @@ void BinaryzationPhoto::binaryzation(int wRadius, int hRadius, int width, int he
                         continue;
                     } else {
                         if (this->BinaryPixels->getGray(x, y) > average) {
-                            this->BinaryPixels->rgbMake(x, y, 255, 255, 255, 255);
+                            this->BinaryPixels->rgbMake(x, y, 255, 255, 255);
                         } else {
-                            this->BinaryPixels->rgbMake(x, y, 0, 0, 0, 255);
+                            this->BinaryPixels->rgbMake(x, y, 0, 0, 0);
                         }
                         //printf("-->%3d ",this->BinaryPixels->getGray(x, y));
                     }

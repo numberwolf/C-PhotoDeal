@@ -21,44 +21,38 @@
 
 
 #include "Pixels.hpp"
+#include "Common.hpp"
 
-#warning 如果是非iOSDemo则用这个
-BGR Pixels::getColorPixel(int x, int y) {
-    BGR returnbgr;
-    int my_width_step = this->my_pixels->widthStep;
-    returnbgr.b = this->my_pixels->imageData[y*my_width_step+3*x];
-    returnbgr.g = this->my_pixels->imageData[y*my_width_step+3*x+1];
-    returnbgr.r = this->my_pixels->imageData[y*my_width_step+3*x+2];
-//    return this->my_pixels + (y * this->width) + x;
-    return returnbgr;
+#warning 如果是iOS设备Demo则用这个
+int* Pixels::getColorPixel(int x, int y) {
+    return this->my_pixels + (y * this->width) + x;
 }
 
 int Pixels::getRed(int x, int y) {
-//    uchar *ptr = (uchar *) (
-//                            ColorImage ->imageData + y * ColorImage->widthStep
-//                            );
-    return this->my_pixels->imageData[y*this->my_pixels->widthStep+3*x+2];
+    return R(*this->getColorPixel(x, y));
 }
 
 int Pixels::getGreen(int x, int y) {
     
-    return this->my_pixels->imageData[y*this->my_pixels->widthStep+3*x+1];
+    return G(*this->getColorPixel(x, y));
 }
 
 int Pixels::getBlue(int x, int y) {
     
-    return this->my_pixels->imageData[y*this->my_pixels->widthStep+3*x];
+    return B(*this->getColorPixel(x, y));
+}
+
+int Pixels::getAlpha(int x, int y) {
+    return A(*this->getColorPixel(x, y));
 }
 
 int Pixels::getGray(int x, int y) {
-    return getRed(x, y)*GRAY_RED_POINT + getGreen(x, y)*GRAY_GREEN_POINT + getBlue(x, y)*GRAY_BLUE_POINT;
+    return (R(*this->getColorPixel(x, y))*GRAY_RED_POINT + G(*this->getColorPixel(x, y))*GRAY_GREEN_POINT + B(*this->getColorPixel(x, y))*GRAY_BLUE_POINT);
 }
 
-void Pixels::rgbMake(int x, int y, int R, int G, int B) {
-    int my_width_step = this->my_pixels->widthStep;
-    this->my_pixels->imageData[y*my_width_step+3*x] = B;
-    this->my_pixels->imageData[y*my_width_step+3*x+1] = G;
-    this->my_pixels->imageData[y*my_width_step+3*x+2] = R;
+void Pixels::rgbMake(int x, int y, int R, int G, int B, int alpha) {
+    int *currentPixels = this->getColorPixel(x, y);
+    *currentPixels = RGBAMake(R, G, B, alpha);
 }
 
 void Pixels::GrayPixels() {
@@ -66,7 +60,7 @@ void Pixels::GrayPixels() {
         for (int y = 0; y < this->height; y++) {
             int GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
             
-            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor);
+            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
         }
     }
 }
@@ -81,7 +75,7 @@ int* Pixels::MountionsPic() {
     for (int x = 0; x < this->width; x++) {
         for (int y = 0; y < this->height; y++) {
             int GrayColor = this->getRed(x, y)*GRAY_RED_POINT + this->getGreen(x, y)*GRAY_GREEN_POINT + this->getBlue(x, y)*GRAY_BLUE_POINT;
-            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor);
+            this->rgbMake(x, y, GrayColor, GrayColor, GrayColor, 255);
             
             pic[GrayColor]++;
         }

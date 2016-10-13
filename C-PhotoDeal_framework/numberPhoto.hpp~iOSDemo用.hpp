@@ -24,7 +24,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Pixels.hpp"
 
 class numberPhoto {
     
@@ -36,15 +35,15 @@ public:
     }
     
     // 入口
-    static void method_zero(IplImage *pixels, int width, int height);
-    static void method_one(IplImage *pixels, int width, int height, int value);
-    static void method_two(IplImage *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius);
-    static void method_three(IplImage *pixels, int width, int height, int Radius);
-    static void otsuBinary(IplImage *pixels, int width, int height, bool isCanny, int wRadius, int hRadius);
+    static void method_zero(int *pixels, int width, int height);
+    static void method_one(int *pixels, int width, int height, int value);
+    static void method_two(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius);
+    static void method_three(int *pixels, int width, int height, int Radius);
+    static void otsuBinary(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius);
     
-    static void testAction(IplImage *pixels, int width, int height);
+    static void testAction(int *pixels, int width, int height);
     
-    static void sobelCanny(IplImage *pixels, int width, int height);
+    static void sobelCanny(int *pixels, int width, int height);
 private:
 protected:
     

@@ -117,7 +117,7 @@ void BlurPhoto::GaussDeal(Pixels *tempPixels, int width, int height, int r) {
                 }
             }
             
-            this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp, 255);
+            this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp);
             
             delete [] weightArr;
 //            delete [] pixelsArr;
@@ -152,7 +152,7 @@ void BlurPhoto::PointyDeal(Pixels *tempPixels, int width, int height, int Radius
             green_value<0?green_value=0:(green_value>255?green_value=255:NULL);
             blue_value<0?blue_value=0:(blue_value>255?blue_value=255:NULL);
             
-            this->BlurPixels->rgbMake(w, h, red_value, green_value, blue_value , 255);
+            this->BlurPixels->rgbMake(w, h, red_value, green_value, blue_value);
         }
         printf("\r\n");
     }
@@ -275,7 +275,7 @@ void BlurPhoto::GaussColorfulDeal(Pixels *tempPixels, int width, int height, int
                 }
             }
             
-            this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp, 255);
+            this->BlurPixels->rgbMake(w, h, array_h_w_temp, array_h_w_temp, array_h_w_temp);
             
             delete [] weightArr;
             //            delete [] pixelsArr;

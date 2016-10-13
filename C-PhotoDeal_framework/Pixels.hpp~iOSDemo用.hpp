@@ -24,19 +24,18 @@
 #define Pixels_hpp
 
 #include <stdio.h>
-#include "Common.hpp"
 
 /**
  图形像素点 数据结构
  **/
 
 class Pixels {
-    IplImage *my_pixels = NULL;
+    int *my_pixels = NULL;
     int width = NULL;
     int height = NULL;
     
 public:
-    Pixels(IplImage *pixels, int width, int height){
+    Pixels(int *pixels, int width, int height){
         this->my_pixels = pixels;
         this->width = width;
         this->height = height;
@@ -49,14 +48,15 @@ public:
     int getRed(int x, int y);
     int getGreen(int x, int y);
     int getBlue(int x, int y);
+    int getAlpha(int x, int y);
     int getGray(int x, int y);
     
-    void rgbMake(int x,int y, int R, int G, int B);
+    void rgbMake(int x,int y, int R, int G, int B, int alpha=255);
     void GrayPixels();
     int* MountionsPic();
     
 private:
-    BGR getColorPixel(int x, int y);
+    int *getColorPixel(int x, int y);
     
 protected:
     

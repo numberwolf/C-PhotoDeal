@@ -25,12 +25,13 @@
 #include "numberPhoto.hpp"
 #include "BlurPhoto.hpp"
 #include "BinaryzationPhoto.hpp"
+#include "Pixels.hpp"
 #include "CannyPhoto.hpp"
 #include "removeNoisePhoto.hpp"
-
+#include "Common.hpp"
 
 // 模糊
-void numberPhoto::method_one(IplImage *pixels, int width, int height, int value) {
+void numberPhoto::method_one(int *pixels, int width, int height, int value) {
     
     Pixels *the_pixels = new Pixels(pixels,width,height);
 //    the_pixels->GrayPixels();
@@ -44,7 +45,7 @@ void numberPhoto::method_one(IplImage *pixels, int width, int height, int value)
      */
     
     // start
-    IplImage *temp(pixels);
+    int *temp(pixels);
 
     
     Pixels *tempPixels = new Pixels(temp,width,height);
@@ -53,11 +54,6 @@ void numberPhoto::method_one(IplImage *pixels, int width, int height, int value)
     the_blur->GaussDeal(tempPixels,width, height, value);
     //the_binary->binaryzation(50, 50, width, height);
     //the_binary->binaryCanny(50, 50, width, height);
-    
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
 
     the_pixels = NULL;
     the_blur = NULL;
@@ -66,7 +62,7 @@ void numberPhoto::method_one(IplImage *pixels, int width, int height, int value)
 }
 
 // 二值化 - 边缘检测
-void numberPhoto::method_two(IplImage *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius) {
+void numberPhoto::method_two(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius, int scanScaleOfRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
@@ -76,30 +72,20 @@ void numberPhoto::method_two(IplImage *pixels, int width, int height, bool isCan
         the_binary->binaryCanny(wRadius, hRadius, width, height);
     }
     
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
-    
     the_pixels = NULL;
     the_binary = NULL;
 }
 
 // 基础锐化
-void numberPhoto::method_three(IplImage *pixels, int width, int height, int Radius) {
+void numberPhoto::method_three(int *pixels, int width, int height, int Radius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BlurPhoto *the_blur = new BlurPhoto(the_pixels); 
     
-    IplImage *temp(pixels);
+    int *temp(pixels);
     Pixels *tempPixels = new Pixels(temp,width,height);
 //    tempPixels->GrayPixels();
     
     the_blur->PointyDeal(tempPixels, width, height, Radius);
-    
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
     
     the_pixels = NULL;
     the_blur = NULL;
@@ -108,7 +94,7 @@ void numberPhoto::method_three(IplImage *pixels, int width, int height, int Radi
 }
 
 // OTSU算法
-void numberPhoto::otsuBinary(IplImage *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
+void numberPhoto::otsuBinary(int *pixels, int width, int height, bool isCanny, int wRadius, int hRadius) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     BinaryzationPhoto *the_binary = new BinaryzationPhoto(the_pixels);
     
@@ -117,17 +103,12 @@ void numberPhoto::otsuBinary(IplImage *pixels, int width, int height, bool isCan
         the_binary->binaryCanny(wRadius, hRadius, width, height);
     }
     
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
-    
     the_pixels = NULL;
     the_binary = NULL;
 }
 
 // test
-void numberPhoto::testAction(IplImage *pixels, int width, int height) {
+void numberPhoto::testAction(int *pixels, int width, int height) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     int *mon = the_pixels->MountionsPic();
     
@@ -135,18 +116,13 @@ void numberPhoto::testAction(IplImage *pixels, int width, int height) {
         printf(" %d=>%3d ",i,mon[i]);
     }
     
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
-    
     the_pixels = NULL;
     mon = NULL;
     
 }
 
 // sobel
-void numberPhoto::sobelCanny(IplImage *pixels, int width, int height) {
+void numberPhoto::sobelCanny(int *pixels, int width, int height) {
     Pixels *the_pixels = new Pixels(pixels,width,height);
     
     // 进行中值滤波处理
@@ -155,11 +131,6 @@ void numberPhoto::sobelCanny(IplImage *pixels, int width, int height) {
     
     CannyPhoto *the_canny = new CannyPhoto(the_pixels);
     the_canny->sobelCanny(width, height);
-    
-    cvNamedWindow("C_PhotoDeal",0);
-    cvShowImage("C_PhotoDeal",pixels);
-    cvWaitKey(0);
-    cvDestroyWindow("C_PhotoDeal");
     
     delete the_canny;
     delete the_pixels;
