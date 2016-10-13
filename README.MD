@@ -55,13 +55,12 @@ http://www.apache.org/licenses/LICENSE-2.0
                   
                   
 ###<div name="div" id="user-content-pic" >效果图:</div>                
-<img src="Demo_img/1.jpg" /> | <img src="Demo_img/canny1.jpg" />              
-<img src="Demo_img/ferrari_yuantu.png" /> | <img src="Demo_img/gtr_yuantu.png" />                       
------------- | -------------               
-<img src="Demo_img/otsu_ferrari458.png" /> | <img src="Demo_img/binaryCut_gtr.png" />          
-<img src="Demo_img/sobel_ferrari458.png" /> | <img src="Demo_img/canByBinCut_gtr.png" />            
-<img src="Demo_img/otsyCanny_ferrary458.png" /> | <img src="Demo_img/gtr_gauss.png" />              
-<img src="Demo_img/pointy_ferrari458.png" /> |                
+| <img src="Demo_img/1.jpg" /> | <img src="Demo_img/canny1.jpg" /> |
+| <img src="Demo_img/ferrari_yuantu.png" /> | <img src="Demo_img/gtr_yuantu.png" /> |                                   
+| <img src="Demo_img/otsu_ferrari458.png" /> | <img src="Demo_img/binaryCut_gtr.png" /> |         
+| <img src="Demo_img/sobel_ferrari458.png" /> | <img src="Demo_img/canByBinCut_gtr.png" /> |            
+| <img src="Demo_img/otsyCanny_ferrary458.png" /> | <img src="Demo_img/gtr_gauss.png" /> |             
+| <img src="Demo_img/pointy_ferrari458.png" /> |                
 
 
 

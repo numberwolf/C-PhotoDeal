@@ -333,7 +333,7 @@ public:
         cvWaitKey(0);
         cvDestroyWindow("Cannyimg");
         
-    } //<<<<<<<<<<<<<<<, end
+    } ///<<<<<<<<<<<<<, end
     
     int TracePlace(int w, int h, int nThrLow, IplImage* pResult, int *pMag)
     {
