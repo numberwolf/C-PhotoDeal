@@ -1,4 +1,7 @@
-#<a href="#user-content-pic" >C-PhotoDeal_framework</a>    
+#<a href="#user-content-pic" >C-PhotoDeal_framework</a>
+##[图像类源文件夹 C++](C-PhotoDeal_framework)
+##[新窗口Demo](C-PhotoDeal_level2_APP)
+##[旧iOSDemo](cameraDeal)
 * 更新  
     * 2016/10/13,全部移植到OpenCV窗口平台，借用OpenCV窗口输出图像，重写Pixels像素文件，保留老iOSDemo的像素文件
     * 2016/10/12,更新Canny算法实现，位于C-PhotoDeal_framework/CV-Door/CannyPhoto.hpp文件，构造方法实现，除了之前的算法，目前逐渐新算法实例在C-PhotoDeal_Level2_APP项目中，全部为C++，以OpenCV窗口展示，不再以iOS展示
@@ -10,7 +13,6 @@
 * APACHE 2.0 LICENSE       
 * Copyright [2016] [Chang Yanlong]                     
 http://www.apache.org/licenses/LICENSE-2.0   
-[framework](C-PhotoDeal/C-PhotoDeal_framework)
 
 <a href="#user-content-pic">查看效果图</a>          
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
