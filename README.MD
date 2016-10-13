@@ -9,7 +9,8 @@
 * Github:https://github.com/numberwolf       
 * APACHE 2.0 LICENSE       
 * Copyright [2016] [Chang Yanlong]                     
-http://www.apache.org/licenses/LICENSE-2.0     
+http://www.apache.org/licenses/LICENSE-2.0   
+[framework](C-PhotoDeal/C-PhotoDeal_framework)
 
 <a href="#user-content-pic">查看效果图</a>          
 ####类库在C-PhotoDeal_framework目录下，Android或者iOS或者Windows都可以兼用，C++原生  
