@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-//#include "canny_door.hpp"
+#include "canny_door.hpp"
 #include "numberPhoto.hpp"
 using namespace cv;
 using namespace std;
@@ -15,14 +15,14 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
-    char *path = "/Users/numberwolf/Documents/XCode&C++/C-PhotoDeal/C-PhotoDeal_level2_APP/img/1.jpg";
-//    canny_door *CannyDoor = new canny_door(path);
+    char *path = "/Users/numberwolf/Documents/XCode&C++/C-PhotoDeal/C-PhotoDeal_level2_APP/img/SAE.jpg";
+    canny_door *CannyDoor = new canny_door(path);
     
     IplImage *ColorImage = cvLoadImage(path);
     int height = ColorImage->height;
     int width = ColorImage->width;
     
-    numberPhoto::sobelCanny(ColorImage, width, height);
+//    numberPhoto::sobelCanny(ColorImage, width, height);
     
     
     return 0;

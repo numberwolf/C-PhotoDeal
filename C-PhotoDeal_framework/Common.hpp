@@ -42,6 +42,7 @@
 #define A(x) ( Mask8(x >> 24) )
 #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
 
+#ifndef BGR_DEFINED
 struct BGR
 {
     uchar b;
@@ -55,7 +56,8 @@ struct HSV
     double s;
     double v;
 };
-
+#define BGR_DEFINED
+#endif
 
 class Common {
     
