@@ -9,7 +9,7 @@
     * 2016/09/10,更新sobel算子、中值滤波
     * 2016/03/25,更新OTSU算法 
        
-* Email：porschegt23@foxmail.com || numberwolf11@gmail.com       
+* Email：porschegt23@foxmail.com || porschegt23@126.com (|| numberwolf11@gmail.com)       
 * Github:https://github.com/numberwolf       
 * APACHE 2.0 LICENSE       
 * Copyright [2016] [Chang Yanlong]                     
