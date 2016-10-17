@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     
 //    numberPhoto::sobelCanny(ColorImage, width, height);
 //    numberPhoto::otsuBinary(ColorImage, width, height, false, 80, 80);
-    numberPhoto::method_two(ColorImage, width, height, false, 500, 500, 1);
+    numberPhoto::method_two(ColorImage, width, height, false, 800, 800, 1);
     
     
     return 0;
