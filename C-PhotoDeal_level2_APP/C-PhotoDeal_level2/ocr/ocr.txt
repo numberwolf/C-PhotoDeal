@@ -1,0 +1,2 @@
+pr‘intf("Could not initialize tesser‘act.\n");
+

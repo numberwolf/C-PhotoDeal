@@ -74,6 +74,7 @@
 		036B24AF1DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036B24781DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib */; };
 		036B24B01DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036B24791DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib */; };
 		036B25991DAE8DD200B4D885 /* README.MD in Sources */ = {isa = PBXBuildFile; fileRef = 036B25981DAE8DD200B4D885 /* README.MD */; };
+		03B178AD1DC4A359009574D2 /* tess_ocr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03B178AB1DC4A359009574D2 /* tess_ocr.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -169,6 +170,8 @@
 		036B24781DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.13.dylib; path = ../../../../../../../usr/local/lib/libopencv_videostab.2.4.13.dylib; sourceTree = "<group>"; };
 		036B24791DAE89DF00B4D885 /* libopencv_videostab.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.13.dylib; path = ../../../../../../../usr/local/lib/libopencv_videostab.2.4.13.dylib; sourceTree = "<group>"; };
 		036B25981DAE8DD200B4D885 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.MD; path = ../../README.MD; sourceTree = "<group>"; };
+		03B178AB1DC4A359009574D2 /* tess_ocr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tess_ocr.cpp; sourceTree = "<group>"; };
+		03B178AC1DC4A359009574D2 /* tess_ocr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tess_ocr.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,7 @@
 		036B23C91DAE84C500B4D885 /* C-PhotoDeal_level2 */ = {
 			isa = PBXGroup;
 			children = (
+				03B178AA1DC4A331009574D2 /* OCR */,
 				036B25981DAE8DD200B4D885 /* README.MD */,
 				036B24421DAE89C800B4D885 /* lib */,
 				036B240D1DAE853800B4D885 /* C-PhotoDeal_framework */,
@@ -380,6 +384,15 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		03B178AA1DC4A331009574D2 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				03B178AB1DC4A359009574D2 /* tess_ocr.cpp */,
+				03B178AC1DC4A359009574D2 /* tess_ocr.hpp */,
+			);
+			name = OCR;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,6 +461,7 @@
 				0363A1571DAFD4B00070C9FC /* numberPhoto.cpp in Sources */,
 				0363A1531DAFD0450070C9FC /* Pixels.cpp in Sources */,
 				036B24371DAE85CC00B4D885 /* header.cpp in Sources */,
+				03B178AD1DC4A359009574D2 /* tess_ocr.cpp in Sources */,
 				036B23CB1DAE84C500B4D885 /* main.cpp in Sources */,
 				036B243E1DAE885400B4D885 /* canny_door.cpp in Sources */,
 			);
@@ -460,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -498,8 +513,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -507,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -539,17 +556,23 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
 		036B23CF1DAE84C500B4D885 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libc++";
 				DEVELOPMENT_TEAM = PL55CBW62Q;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/opencv,
+					/usr/local/homebrew/include,
+					/usr/local/homebrew/include/tesseract,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,10 +586,14 @@
 		036B23D01DAE84C500B4D885 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libc++";
 				DEVELOPMENT_TEAM = PL55CBW62Q;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/opencv,
+					/usr/local/homebrew/include,
+					/usr/local/homebrew/include/tesseract,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

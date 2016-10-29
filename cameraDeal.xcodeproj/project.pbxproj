@@ -815,6 +815,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/opencv,
+					/usr/local/homebrew/include,
 				);
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -859,6 +860,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/opencv,
+					/usr/local/homebrew/include,
 				);
 				INFOPLIST_FILE = cameraDeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;

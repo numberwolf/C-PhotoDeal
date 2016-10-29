@@ -9,6 +9,8 @@
 #include <iostream>
 #include "canny_door.hpp"
 #include "numberPhoto.hpp"
+#include "tess_ocr.hpp"
+
 using namespace cv;
 using namespace std;
 
@@ -24,7 +26,12 @@ int main(int argc, const char * argv[]) {
     
 //    numberPhoto::sobelCanny(ColorImage, width, height);
 //    numberPhoto::otsuBinary(ColorImage, width, height, false, 80, 80);
-    numberPhoto::method_two(ColorImage, width, height, false, 800, 800, 1);
+//    numberPhoto::method_two(ColorImage, width, height, false, 800, 800, 1);
+    
+    char *ocr_filename = "/Users/numberwolf/Documents/XCode&C++/C-PhotoDeal/C-PhotoDeal_level2_APP/img/testocr.png";
+    
+//    tess_orc *ocr = new tess_orc();
+//    ocr->scan_eng_string_by_img(ocr_filename);
     
     
     return 0;
